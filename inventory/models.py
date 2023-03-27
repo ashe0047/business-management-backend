@@ -1,17 +1,18 @@
 from django.db import models
 
 class ProductsSupplier(models.Model):
-    supplier_id = models.IntegerField(primary_key=True)
+    supplier_id = models.BigAutoField(primary_key=True)
     supplier_name = models.CharField(max_length=300)
     supplier_contact = models.BigIntegerField(blank=True, null=True)
     supplier_addres = models.CharField(max_length=1000, blank=True, null=True)
-    supplier_acc_num = models.IntegerField(blank=True, null=True)
+    supplier_acc_num = models.BigIntegerField(blank=True, null=True)
 
     class Meta:
         db_table = 'products_supplier'
+        unique_together = (('supplier_name', 'supplier_acc_num'),)
         
 class Products(models.Model):
-    prod_id = models.IntegerField(primary_key=True)
+    prod_id = models.BigAutoField(primary_key=True)
     prod_name = models.CharField(max_length=300)
     prod_desc = models.TextField(blank=True, null=True)
     prod_category = models.CharField(max_length=100, blank=True, null=True)
@@ -22,10 +23,10 @@ class Products(models.Model):
 
     class Meta:
         db_table = 'products'
-        unique_together = (('prod_id', 'supplier'),)
+        unique_together = (('prod_id', 'prod_name', 'supplier'),)
 
 class Services(models.Model):
-    service_id = models.IntegerField(primary_key=True)
+    service_id = models.BigAutoField(primary_key=True)
     service_name = models.CharField(max_length=300)
     service_desc = models.TextField(blank=True, null=True)
     service_category = models.CharField(max_length=100, blank=True, null=True)
@@ -34,3 +35,4 @@ class Services(models.Model):
 
     class Meta:
         db_table = 'services'
+        unique_together = (('service_name'),)
