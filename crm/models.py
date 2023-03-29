@@ -11,4 +11,4 @@ class Customer(models.Model):
 
     class Meta:
         db_table = 'customer'
-        unique_together = (('cust_id', 'cust_phone_num', 'cust_nric', 'cust_name', 'cust_email'),)
+        unique_together = (('cust_phone_num', 'cust_nric', 'cust_name', 'cust_email'),)

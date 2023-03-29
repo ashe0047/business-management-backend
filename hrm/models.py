@@ -23,7 +23,7 @@ class EmployeeBankAccount(models.Model):
 
     class Meta:
         db_table = 'employee_bank_account'
-        unique_together = (('bank_acc_num', 'emp', 'bank_acc_id'),)
+        unique_together = (('bank_acc_num', 'emp'),)
 
 class EmployeeBenefitAccount(models.Model):
     benefit_acc_id = models.BigAutoField(primary_key=True)
@@ -34,4 +34,4 @@ class EmployeeBenefitAccount(models.Model):
 
     class Meta:
         db_table = 'employee_benefit_account'
-        unique_together = (('benefit_acc_id', 'emp', 'benefit_acc_num'),)
+        unique_together = (('emp', 'benefit_acc_num'),)

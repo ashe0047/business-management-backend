@@ -23,7 +23,7 @@ class Products(models.Model):
 
     class Meta:
         db_table = 'products'
-        unique_together = (('prod_id', 'prod_name', 'supplier'),)
+        unique_together = (('prod_name'),)
 
 class Services(models.Model):
     service_id = models.BigAutoField(primary_key=True)
