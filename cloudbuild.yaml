@@ -2,18 +2,18 @@
 steps:
   - id: "build image"
     name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA", "."]
+    args: ["build", "-t", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}", "."]
 
   - id: "push image"
     name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}:$COMMIT_SHA"]
+    args: ["push", "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"]
 
   - id: "apply migrations"
     name: "gcr.io/google-appengine/exec-wrapper"
     args:
       [
         "-i",
-        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA",
+        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}",
         "-s",
         "${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME}",
         "-e",
@@ -23,6 +23,24 @@ steps:
         "manage.py",
         "migrate",
       ]
+  - id: "collect static"
+    name: "gcr.io/google-appengine/exec-wrapper"
+    args:
+      [
+        "-i",
+        "gcr.io/$PROJECT_ID/${_SERVICE_NAME}",
+        "-s",
+        "${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME}",
+        "-e",
+        "SETTINGS_NAME=${_SECRET_SETTINGS_NAME}",
+        "--",
+        "python",
+        "manage.py",
+        "collectstatic",
+        "--verbosity",
+        "2",
+        "--no-input",
+      ]
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
@@ -31,14 +49,14 @@ steps:
     - 'deploy'
     - '${_SERVICE_NAME}'
     - '--image'
-    - 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}:$COMMIT_SHA'
+    - 'gcr.io/$PROJECT_ID/${_SERVICE_NAME}'
     - '--region'
     - '${_REGION}'
 
 substitutions:
-  _INSTANCE_NAME: business-management-backend
+  _INSTANCE_NAME: business-management-app
   _REGION: asia-southeast1
-  _SERVICE_NAME: business-management-backend-service
+  _SERVICE_NAME: business-management-backend-service:$COMMIT_SHA
   _SECRET_SETTINGS_NAME: django_settings
 
 images:
