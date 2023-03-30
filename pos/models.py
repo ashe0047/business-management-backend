@@ -3,7 +3,7 @@ from crm.models import Customer
 from inventory.models import Products, Services
 
 class Sales(models.Model):
-    sales_id = models.IntegerField(primary_key=True)
+    sales_id = models.BigAutoField(primary_key=True)
     cust = models.ForeignKey(Customer, on_delete=models.PROTECT, blank=True, null=True)
     sales_date = models.DateField()
     sales_total_amt = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
@@ -14,7 +14,7 @@ class Sales(models.Model):
 
 
 class SalesItem(models.Model):
-    sales_item_id = models.IntegerField(primary_key=True)
+    sales_item_id = models.BigAutoField(primary_key=True)
     sales = models.ForeignKey(Sales, on_delete=models.PROTECT)
     service = models.ForeignKey(Services, on_delete=models.PROTECT, blank=True, null=True)
     prod = models.ForeignKey(Products, on_delete=models.PROTECT, blank=True, null=True)
@@ -24,4 +24,3 @@ class SalesItem(models.Model):
 
     class Meta:
         db_table = 'sales_item'
-        unique_together = (('sales_item_id', 'service', 'prod'),)
