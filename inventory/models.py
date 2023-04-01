@@ -1,6 +1,6 @@
 from django.db import models
 
-class ProductsSupplier(models.Model):
+class ProductSupplier(models.Model):
     supplier_id = models.BigAutoField(primary_key=True)
     supplier_name = models.CharField(max_length=300)
     supplier_contact = models.BigIntegerField(blank=True, null=True)
@@ -8,10 +8,10 @@ class ProductsSupplier(models.Model):
     supplier_acc_num = models.BigIntegerField(blank=True, null=True)
 
     class Meta:
-        db_table = 'products_supplier'
+        db_table = 'product_supplier'
         unique_together = (('supplier_name', 'supplier_acc_num'),)
         
-class Products(models.Model):
+class Product(models.Model):
     prod_id = models.BigAutoField(primary_key=True)
     prod_name = models.CharField(max_length=300)
     prod_desc = models.TextField(blank=True, null=True)
@@ -19,13 +19,13 @@ class Products(models.Model):
     prod_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
     prod_qty = models.IntegerField(blank=True, null=True)
     prod_img = models.BinaryField(blank=True, null=True)
-    supplier = models.ForeignKey(ProductsSupplier, on_delete=models.PROTECT)
+    supplier = models.ForeignKey(ProductSupplier, on_delete=models.PROTECT)
 
     class Meta:
-        db_table = 'products'
+        db_table = 'product'
         unique_together = (('prod_name'),)
 
-class Services(models.Model):
+class Service(models.Model):
     service_id = models.BigAutoField(primary_key=True)
     service_name = models.CharField(max_length=300)
     service_desc = models.TextField(blank=True, null=True)
@@ -34,5 +34,5 @@ class Services(models.Model):
     service_img = models.BinaryField(blank=True, null=True)
 
     class Meta:
-        db_table = 'services'
+        db_table = 'service'
         unique_together = (('service_name'),)
