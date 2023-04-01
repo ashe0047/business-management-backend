@@ -92,7 +92,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    "core",
+    "rest_framework",
     "crm",
     "hrm",
     "inventory",
@@ -103,7 +103,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "storages"
+    "storages",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -209,3 +210,5 @@ GS_DEFAULT_ACL = "publicRead"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "auth.User"
