@@ -1,6 +1,6 @@
 from django.db import models
 
-class ProductsSupplier(models.Model):
+class ProductSupplier(models.Model):
     supplier_id = models.BigAutoField(primary_key=True)
     supplier_name = models.CharField(max_length=300)
     supplier_contact = models.BigIntegerField(blank=True, null=True)
@@ -11,7 +11,7 @@ class ProductsSupplier(models.Model):
         db_table = 'products_supplier'
         unique_together = (('supplier_name', 'supplier_acc_num'),)
         
-class Products(models.Model):
+class Product(models.Model):
     prod_id = models.BigAutoField(primary_key=True)
     prod_name = models.CharField(max_length=300)
     prod_desc = models.TextField(blank=True, null=True)
@@ -25,7 +25,7 @@ class Products(models.Model):
         db_table = 'products'
         unique_together = (('prod_name'),)
 
-class Services(models.Model):
+class Service(models.Model):
     service_id = models.BigAutoField(primary_key=True)
     service_name = models.CharField(max_length=300)
     service_desc = models.TextField(blank=True, null=True)

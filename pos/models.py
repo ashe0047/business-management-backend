@@ -2,7 +2,7 @@ from django.db import models
 from crm.models import Customer
 from inventory.models import Products, Services
 
-class Sales(models.Model):
+class Sale(models.Model):
     sales_id = models.BigAutoField(primary_key=True)
     cust = models.ForeignKey(Customer, on_delete=models.PROTECT, blank=True, null=True)
     sales_date = models.DateField()
@@ -13,7 +13,7 @@ class Sales(models.Model):
         db_table = 'sales'
 
 
-class SalesItem(models.Model):
+class SaleItem(models.Model):
     sales_item_id = models.BigAutoField(primary_key=True)
     sales = models.ForeignKey(Sales, on_delete=models.PROTECT)
     service = models.ForeignKey(Services, on_delete=models.PROTECT, blank=True, null=True)
