@@ -10,7 +10,7 @@ class Sale(models.Model):
     sales_payment_type = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
-        db_table = 'sales'
+        db_table = 'sale'
 
 
 class SaleItem(models.Model):
@@ -23,4 +23,4 @@ class SaleItem(models.Model):
     sales_item_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
 
     class Meta:
-        db_table = 'sales_item'
+        db_table = 'sale_item'
