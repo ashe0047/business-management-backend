@@ -8,7 +8,7 @@ class ProductSupplier(models.Model):
     supplier_acc_num = models.BigIntegerField(blank=True, null=True)
 
     class Meta:
-        db_table = 'products_supplier'
+        db_table = 'product_supplier'
         unique_together = (('supplier_name', 'supplier_acc_num'),)
         
 class Product(models.Model):
@@ -19,10 +19,10 @@ class Product(models.Model):
     prod_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
     prod_qty = models.IntegerField(blank=True, null=True)
     prod_img = models.BinaryField(blank=True, null=True)
-    supplier = models.ForeignKey(ProductsSupplier, on_delete=models.PROTECT)
+    supplier = models.ForeignKey(ProductSupplier, on_delete=models.PROTECT)
 
     class Meta:
-        db_table = 'products'
+        db_table = 'product'
         unique_together = (('prod_name'),)
 
 class Service(models.Model):
@@ -34,5 +34,5 @@ class Service(models.Model):
     service_img = models.BinaryField(blank=True, null=True)
 
     class Meta:
-        db_table = 'services'
+        db_table = 'service'
         unique_together = (('service_name'),)
