@@ -16,8 +16,6 @@ import os
 from urllib.parse import urlparse
 
 import environ
-import google.auth
-from google.cloud import secretmanager
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -92,7 +90,8 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    "rest_framework",
+    "auth_core",
+    "core",
     "crm",
     "hrm",
     "inventory",
@@ -104,7 +103,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "storages",
-    "core",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -148,15 +149,16 @@ DATABASES = {"default": env.db()}
 if os.getenv("USE_CLOUD_SQL_AUTH_PROXY", None):
     DATABASES["default"]["HOST"] = "127.0.0.1"
     DATABASES["default"]["PORT"] = 5432
-# print(env.db())
+
 # [END cloudrun_django_database_config]
+
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "business-management-db",
-#         "USER": "admin",
-#         "PASSWORD": "Dan001005.",
-#         "HOST": "localhost",
+#         "NAME": "postgres",
+#         "USER": "postgres",
+#         "PASSWORD": "yourBeautyourPride",
+#         "HOST": "db.zbahfqqbyapuftejwxkg.supabase.co",
 #         "PORT": "5432"
 #     }
 # }
@@ -211,4 +213,11 @@ GS_DEFAULT_ACL = "publicRead"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = "auth.User"
+AUTH_USER_MODEL = "auth_core.User"
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}

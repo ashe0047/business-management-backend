@@ -10,7 +10,23 @@ class ProductSupplier(models.Model):
     class Meta:
         db_table = 'product_supplier'
         unique_together = (('supplier_name', 'supplier_acc_num'),)
-        
+
+class ProductCommissionStructure(models.Model):
+    prod_com_id = models.BigAutoField(primary_key=True)
+    prod_com_type = models.CharField(max_length=50, blank=True, null=True, unique=True)
+    prod_com_rate = models.DecimalField(max_digits=1000, decimal_places=10)
+
+    class Meta:
+        db_table = 'product_commission_structure'
+
+class ServicecCommissionStructure(models.Model):
+    service_com_id = models.BigAutoField(primary_key=True)
+    service_com_type = models.CharField(max_length=50, blank=True, null=True, unique=True)
+    service_com_rate = models.DecimalField(max_digits=1000, decimal_places=10)
+    
+    class Meta:
+        db_table = 'service_commission_structure'
+
 class Product(models.Model):
     prod_id = models.BigAutoField(primary_key=True)
     prod_name = models.CharField(max_length=300)
@@ -20,6 +36,7 @@ class Product(models.Model):
     prod_qty = models.IntegerField(blank=True, null=True)
     prod_img = models.BinaryField(blank=True, null=True)
     supplier = models.ForeignKey(ProductSupplier, on_delete=models.PROTECT)
+    prod_com = models.ForeignKey(ProductCommissionStructure, on_delete=models.PROTECT)
 
     class Meta:
         db_table = 'product'
@@ -32,7 +49,10 @@ class Service(models.Model):
     service_category = models.CharField(max_length=100, blank=True, null=True)
     service_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
     service_img = models.BinaryField(blank=True, null=True)
+    service_com = models.ForeignKey(ServicecCommissionStructure, on_delete=models.PROTECT)
+
 
     class Meta:
         db_table = 'service'
         unique_together = (('service_name'),)
+
