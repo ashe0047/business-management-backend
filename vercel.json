@@ -1,18 +1,24 @@
 {
-    "version": 1,
+    "version": 2,
     "builds": [
         {
-            "src": "/Dockerfile",
-            "use": "@vercel/docker",
+          "src": "businessmanagement/wsgi.py",
+          "use": "@vercel/python",
+          "config": {
+            "maxLambdaSize": "15mb",
+            "runtime": "python3.9"
+          }
+        },
+        {
+            "src": "vercel_build.sh",
+            "use": "@vercel/static-build",
             "config": {
-                "maxLambdaSize": "15mb"
+              "distDir": "staticfiles_build"
             }
         }
-    ],
-    "routes": [
-        {
-            "src": "/(.)",
-            "dest": "http://localhost:$PORT"
-    }
-    ]
+      ],
+      "routes": [
+        { "src": "/static/(.*)", "dest": "static/$1" },
+        { "src": "/(.*)", "dest": "businessmanagement/wsgi.py" }
+      ]
 }

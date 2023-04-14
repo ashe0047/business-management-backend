@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from businessmanagement import settings
+from django.conf.urls.static import static
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
@@ -29,3 +31,5 @@ urlpatterns = [
     path("api/inventory/", include('inventory.urls')),
     # path("api/pos/", include('pos.urls')),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
