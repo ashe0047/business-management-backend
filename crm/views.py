@@ -10,3 +10,4 @@ class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     permission_classes = [IsAuthenticated, DeleteCustomerPerm]
 
+
