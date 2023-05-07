@@ -15,10 +15,12 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, username, email, name, password):
+        group = Group.objects.filter(name="admin").first()
         user = self.create_user(username, email, name, password)
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
+        group.user_set.add(user)
 
         return user
 

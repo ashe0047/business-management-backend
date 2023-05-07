@@ -5,3 +5,5 @@ from inventory.models import *
 admin.site.register(Product)
 admin.site.register(ProductSupplier)
 admin.site.register(Service)
+admin.site.register(ServicePackage)
+admin.site.register(ServicePackageService)

@@ -24,7 +24,7 @@ class EmployeeBenefitAccountSerializer(ModelSerializer):
     class Meta:
         model = EmployeeBenefitAccount
         fields = ('benefit_acc_id', 'benefit_acc_name', 'benefit_acc_type', 'benefit_acc_num')
-        read_only_fields = ['benefit_acc_id']
+        # read_only_fields = ['benefit_acc_id']
 
 class EmployeeSerializer(ModelSerializer):
     employeebankaccount = EmployeeBankAccountSerializer(required=False, many=True)
@@ -38,7 +38,7 @@ class EmployeeSerializer(ModelSerializer):
     class Meta:
         model = Employee
         fields = ('emp_id', 'emp_name', 'emp_dob', 'emp_address', 'emp_nric', 'emp_phone_num', 'emp_salary', 'employeebankaccount', 'employeebenefitaccount')
-        read_only_fields = ['emp_id']
+        # read_only_fields = ['emp_id']
  
     # def create(self, validated_data):
 

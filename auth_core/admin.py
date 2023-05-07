@@ -7,6 +7,10 @@ from django.contrib.auth.forms import UserChangeForm as BaseUserChangeForm,  Use
 from auth_core.models import *
 from hrm.models import Employee
 from django.utils.translation import gettext_lazy as _
+import os
+
+#Change admin site title
+admin.site.site_header = os.getenv("ADMIN_SITE_TITLE", None)
 
 # Register your models here.
 class UserCreationForm(BaseUserCreationForm):

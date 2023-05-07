@@ -1,20 +1,21 @@
 from rest_framework.generics import *
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.generics import get_object_or_404
-from rest_framework.decorators import action
 from hrm.models import *
 from hrm.serializers import *
 from hrm.permissions import *
 from django.db.models import Prefetch
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 # from hrm.permissions import DeleteCustomerPerm
 # Create your views here.
+
 
 class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
-    permission_classes = [IsAuthenticated]    
+    permission_classes = [IsAuthenticated, CreateEmployeeRecordPermission]    
     
     def create(self, request, *args, **kwargs):
         bank_accounts_data = []
@@ -61,7 +62,7 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
             bank_accounts_data = request.data.pop('employeebankaccount', [])
             EmployeeBankAccount.objects.filter(emp=employee).delete()
             for bank_account_data in bank_accounts_data:
-                bank_account_serializer = EmployeeBankAccountSerializer(data=bank_account_data)
+                bank_account_serializer = EmployeeBankAccountSerializer(data=bank_account_data, context={'emp_id': employee.emp_id})
                 bank_account_serializer.is_valid(raise_exception=True)
                 bank_account_instance = bank_account_serializer.save()
                 employee.employeebankaccount.add(bank_account_instance)
@@ -70,7 +71,7 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
             benefit_accounts_data = request.data.pop('employeebenefitaccount', [])
             EmployeeBenefitAccount.objects.filter(emp=employee).delete()
             for benefit_account_data in benefit_accounts_data:
-                benefit_account_serializer = EmployeeBenefitAccountSerializer(data=benefit_account_data)
+                benefit_account_serializer = EmployeeBenefitAccountSerializer(data=benefit_account_data, context={'emp_id': employee.emp_id})
                 benefit_account_serializer.is_valid(raise_exception=True)
                 benefit_account_instance = benefit_account_serializer.save()
                 employee.employeebenefitaccount.add(benefit_account_instance)
@@ -87,7 +88,8 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
         if 'employeebankaccount' in request.data:
             bank_account_data = request.data.pop('employeebankaccount', [])
             for bank_account in bank_account_data:
-                bank_account_instance = employee.employeebankaccount.filter(bank_name=bank_account['bank_name'])
+                #bank account record existence is checked using bank_acc_id value from request body to allow other fields to be updated
+                bank_account_instance = employee.employeebankaccount.filter(bank_acc_id=bank_account['bank_acc_id'])
                 if bank_account_instance.exists():
                     bank_account_serializer = EmployeeBankAccountSerializer(
                         instance=bank_account_instance.first(),
@@ -97,7 +99,7 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
                     bank_account_serializer.is_valid(raise_exception=True)
                     bank_account_serializer.save()
                 else:
-                    bank_account_serializer = EmployeeBankAccountSerializer(data=bank_account)
+                    bank_account_serializer = EmployeeBankAccountSerializer(data=bank_account, context={'emp_id': employee.emp_id})
                     bank_account_serializer.is_valid(raise_exception=True)
                     new_bank_account_instance = bank_account_serializer.save()
                     employee.employeebankaccount.add(new_bank_account_instance)
@@ -105,7 +107,8 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
         if 'employeebenefitaccount' in request.data:
             benefit_account_data = request.data.pop('employeebenefitaccount', [])
             for benefit_account in benefit_account_data:
-                benefit_account_instance = employee.employeebenefitaccount.filter(benefit_acc_name=benefit_account['benefit_acc_name'])
+                #benefit account record existence is checked using benefit_acc_id value from request body to allow other fields to be updated
+                benefit_account_instance = employee.employeebenefitaccount.filter(benefit_acc_id=benefit_account['benefit_acc_id'])
                 if benefit_account_instance.exists():
                     benefit_account_serializer = EmployeeBenefitAccountSerializer(
                         instance=benefit_account_instance.first(),
@@ -115,7 +118,7 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
                     benefit_account_serializer.is_valid(raise_exception=True)
                     benefit_account_serializer.save()
                 else:
-                    benefit_account_serializer = EmployeeBenefitAccountSerializer(data=benefit_account)
+                    benefit_account_serializer = EmployeeBenefitAccountSerializer(data=benefit_account, context={'emp_id': employee.emp_id})
                     benefit_account_serializer.is_valid(raise_exception=True)
                     new_benefit_account_instance = benefit_account_serializer.save()
                     employee.employeebenefitaccount.add(new_benefit_account_instance)
@@ -155,12 +158,39 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @extend_schema(
+    parameters=[
+        OpenApiParameter(
+            name="delete",
+            description= "Specify 'benefitaccount' or 'bankaccount' to delete only that record, or leave empty to delete the entire employee record",
+            required=False,
+            type=str,
+            location=OpenApiParameter.QUERY),
+        OpenApiParameter(
+            name="id",
+            description="Only required for deletion of bankaccount/benefitaccount record",
+            required=False,
+            type=int,
+            location=OpenApiParameter.QUERY
+            )
+        ]
+    )
     def delete(self, request, *args, **kwargs):
         employee = self.get_object()
+        delete_param = request.query_params.get('delete')
         if employee:
-            EmployeeBankAccount.objects.filter(emp=employee).delete()
-            EmployeeBenefitAccount.objects.filter(emp=employee).delete()
-            return super().delete(request, *args, **kwargs)
+            if delete_param == 'benefitaccount':
+                id_param = request.query_params.get('id')
+                employee.employeebenefitaccount.filter(benefit_acc_id=id_param).delete()
+                return Response(status=status.HTTP_204_NO_CONTENT)
+            elif delete_param == 'bankaccount':
+                id_param = request.query_params.get('id')
+                employee.employeebankaccount.filter(bank_acc_id=id_param).delete()
+                return Response(status=status.HTTP_204_NO_CONTENT)
+            else:
+                EmployeeBankAccount.objects.filter(emp=employee).delete()
+                EmployeeBenefitAccount.objects.filter(emp=employee).delete()
+                return super().delete(request, *args, **kwargs)
         else:
             return Response({'error': 'No employee record associated with this user account found'}, status=status.HTTP_404_NOT_FOUND)
 

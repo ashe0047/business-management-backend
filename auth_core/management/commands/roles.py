@@ -1,6 +1,6 @@
-from django.contrib.auth.models import Group, Permission
+from django.contrib.auth.models import Permission
+from auth_core.models import Group
 from django.contrib.contenttypes.models import ContentType
-from auth_core.models import User
 from core.models import *
 from crm.models import *
 from hrm.models import *
@@ -15,7 +15,8 @@ class Roles(Enum):
 
 
 def init_roles_and_permissions():
-    manager_role = Group.objects.create(name=Roles.MANAGER.value)
-    employee_role = Group.objects.create(name=Roles.EMPLOYEE.value)
+    for role in list(Roles):
+        if not Group.objects.filter(name=role.value).exists():
+            Group.objects.create(name=role.value)
 
     

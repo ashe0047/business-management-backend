@@ -9,6 +9,7 @@ djangorestframework-simplejwt==5.2.2
 drf-spectacular==0.26.1
 python-dotenv==1.0.0
 idna==3.4
+Pillow==9.5.0
 proto-plus==1.22.2
 protobuf==4.22.1
 psycopg2-binary==2.9.5
