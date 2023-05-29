@@ -14,35 +14,39 @@ class Commission(Model):
     class Meta:
         db_table = 'commission'
 
-class CommissionSharingPlan(Model):
-    com_sharing_id = BigAutoField(primary_key=True)
-    com_sharing_name = CharField(max_length=150, blank=False, null= False)
-    com_sharing_desc = TextField(max_length=350, blank=True, null=True)
-    class Meta:
-        db_table = 'commission_sharing_plan'
-        unique_together = (('com_sharing_name',))
+# class CommissionSharingPlan(Model):
+#     com_sharing_id = BigAutoField(primary_key=True)
+#     com_sharing_name = CharField(max_length=150, blank=False, null= False)
+#     com_sharing_desc = TextField(max_length=350, blank=True, null=True)
+#     class Meta:
+#         db_table = 'commission_sharing_plan'
+#         unique_together = (('com_sharing_name',))
 
 class CommissionSharingDetail(Model):
     com_sharing_detail_id = BigAutoField(primary_key=True)
-    sales = ForeignKey('pos.Sale', on_delete=PROTECT, related_name='commissionsharingdetail', null=True, blank=True)
-    sales_item = ForeignKey('pos.SaleItem', on_delete=PROTECT, related_name='commissionsharingdetail', null=True, blank=True)
-    com_sharing = ForeignKey(CommissionSharingPlan, on_delete=PROTECT, related_name='commissionsharingplan', null=False, blank=False)
-    emp_share_percent = ManyToManyField('hrm.Employee', related_name='commissionsharingdetail', through='EmployeeCommissionSharingPercentage')
+    sales = ForeignKey('pos.Sale', on_delete=PROTECT, related_name='commissionsharingdetail', null=True, blank=True) #null if salesitem sharing
+    sales_item = ForeignKey('pos.SaleItem', on_delete=PROTECT, related_name='commissionsharingdetail', null=True, blank=True) #null if sales sharing
+    # com_sharing = ForeignKey(CommissionSharingPlan, on_delete=PROTECT, related_name='commissionsharingplan', null=False, blank=False)
+    custom_percent = BooleanField(default=False)
+    emp_share_percent = ManyToManyField('hrm.Employee', related_name='commissionsharingdetail', through='EmployeeCommissionSharingPercentage') #percentage for each emp involved
 
     class Meta:
         db_table = 'commission_sharing_detail'
 
+#Junction table to link commissionsharing table to employee while tracking sharing percentage 
 class EmployeeCommissionSharingPercentage(Model):
     com_sharing_detail = ForeignKey(CommissionSharingDetail, related_name='employeecommissionsharingpercentage', on_delete=PROTECT)
     emp = ForeignKey('hrm.Employee', related_name='employeecommissionsharingpercentage', on_delete=PROTECT)
-    share_percent = DecimalField(max_digits=3, decimal_places=2, default=0.00)
+    share_percent = DecimalField(max_digits=3, decimal_places=2)
 
     def save(self, *args, **kwargs):
-        if self.percentage_share == 0.0:
+        if not self.com_sharing_detail.custom_percent:
             # Set default equal percentage among all involved employees
-            employees_count = self.commission_sharing.employees.count()
-            self.percentage_share = Decimal('1.0') / employees_count
+            employees_count = self.com_sharing_detail.emp_share_percent.count()
+            self.share_percent = Decimal('1.0') / employees_count
+            
         super().save(*args, **kwargs)
+
     class Meta:
         db_table = 'employee_commission_sharing_percentage'
 

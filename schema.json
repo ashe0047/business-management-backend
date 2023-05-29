@@ -1,0 +1,1673 @@
+openapi: 3.0.3
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /api/auth/register/:
+    post:
+      operationId: api_auth_register_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSerializerWithToken'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserSerializerWithToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserSerializerWithToken'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSerializerWithToken'
+          description: ''
+  /api/auth/remove/{id}:
+    delete:
+      operationId: api_auth_remove_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/auth/token/:
+    post:
+      operationId: api_auth_token_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /api/auth/token/refresh/:
+    post:
+      operationId: api_auth_token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /api/auth/user/:
+    get:
+      operationId: api_auth_user_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSerializerWithToken'
+          description: ''
+    put:
+      operationId: api_auth_user_update
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSerializerWithToken'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserSerializerWithToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserSerializerWithToken'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSerializerWithToken'
+          description: ''
+    patch:
+      operationId: api_auth_user_partial_update
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserSerializerWithToken'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserSerializerWithToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserSerializerWithToken'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSerializerWithToken'
+          description: ''
+  /api/auth/users/:
+    get:
+      operationId: api_auth_users_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserSerializerWithToken'
+          description: ''
+  /api/crm/cust:
+    get:
+      operationId: api_crm_cust_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+          description: ''
+    post:
+      operationId: api_crm_cust_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+  /api/crm/cust/{cust_id}:
+    get:
+      operationId: api_crm_cust_retrieve
+      parameters:
+      - in: path
+        name: cust_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this customer.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerTreatment'
+          description: ''
+    put:
+      operationId: api_crm_cust_update
+      parameters:
+      - in: path
+        name: cust_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this customer.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+    patch:
+      operationId: api_crm_cust_partial_update
+      parameters:
+      - in: path
+        name: cust_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this customer.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomer'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+    delete:
+      operationId: api_crm_cust_destroy
+      parameters:
+      - in: path
+        name: cust_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this customer.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/hrm/emp:
+    get:
+      operationId: api_hrm_emp_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+    post:
+      operationId: api_hrm_emp_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+    put:
+      operationId: api_hrm_emp_update
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Employee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+    patch:
+      operationId: api_hrm_emp_partial_update
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedEmployee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedEmployee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedEmployee'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+    delete:
+      operationId: api_hrm_emp_destroy
+      parameters:
+      - in: query
+        name: delete
+        schema:
+          type: string
+        description: Specify 'benefitaccount' or 'bankaccount' to delete only that
+          record, or leave empty to delete the entire employee record
+      - in: query
+        name: id
+        schema:
+          type: integer
+        description: Only required for deletion of bankaccount/benefitaccount record
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/hrm/emp/accounts:
+    get:
+      operationId: api_hrm_emp_accounts_retrieve
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+          description: ''
+  /api/hrm/emp/all:
+    get:
+      operationId: api_hrm_emp_all_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+          description: ''
+  /api/inventory/product/:
+    get:
+      operationId: api_inventory_product_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+          description: ''
+    post:
+      operationId: api_inventory_product_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+  /api/inventory/product/{prod_id}/:
+    get:
+      operationId: api_inventory_product_retrieve
+      parameters:
+      - in: path
+        name: prod_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+    put:
+      operationId: api_inventory_product_update
+      parameters:
+      - in: path
+        name: prod_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+    patch:
+      operationId: api_inventory_product_partial_update
+      parameters:
+      - in: path
+        name: prod_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+    delete:
+      operationId: api_inventory_product_destroy
+      parameters:
+      - in: path
+        name: prod_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/inventory/service/:
+    get:
+      operationId: api_inventory_service_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+          description: ''
+    post:
+      operationId: api_inventory_service_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Service'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Service'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+  /api/inventory/service/{service_id}/:
+    get:
+      operationId: api_inventory_service_retrieve
+      parameters:
+      - in: path
+        name: service_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this service.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+    put:
+      operationId: api_inventory_service_update
+      parameters:
+      - in: path
+        name: service_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this service.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Service'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Service'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+    patch:
+      operationId: api_inventory_service_partial_update
+      parameters:
+      - in: path
+        name: service_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this service.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedService'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedService'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedService'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+    delete:
+      operationId: api_inventory_service_destroy
+      parameters:
+      - in: path
+        name: service_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this service.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/pos/sale:
+    get:
+      operationId: api_pos_sale_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SaleItemSale'
+          description: ''
+    post:
+      operationId: api_pos_sale_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaleItemSale'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SaleItemSale'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SaleItemSale'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaleItemSale'
+          description: ''
+  /api/pos/sale/{sales_id}:
+    get:
+      operationId: api_pos_sale_retrieve
+      parameters:
+      - in: path
+        name: sales_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this sale.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaleItemSale'
+          description: ''
+    put:
+      operationId: api_pos_sale_update
+      parameters:
+      - in: path
+        name: sales_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this sale.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaleItemSale'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SaleItemSale'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SaleItemSale'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaleItemSale'
+          description: ''
+    patch:
+      operationId: api_pos_sale_partial_update
+      parameters:
+      - in: path
+        name: sales_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this sale.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSaleItemSale'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSaleItemSale'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSaleItemSale'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaleItemSale'
+          description: ''
+    delete:
+      operationId: api_pos_sale_destroy
+      parameters:
+      - in: path
+        name: sales_id
+        schema:
+          type: integer
+        description: A unique integer value identifying this sale.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/schema/:
+    get:
+      operationId: api_schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+components:
+  schemas:
+    BankDatabase:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        bank_name:
+          type: string
+          maxLength: 100
+        bank_swift_code:
+          type: string
+          pattern: ^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$
+          maxLength: 11
+        bank_city:
+          type: string
+          pattern: ^[A-Za-z\s]+$
+          maxLength: 100
+      required:
+      - bank_city
+      - bank_name
+      - bank_swift_code
+      - id
+    Customer:
+      type: object
+      properties:
+        cust_id:
+          type: integer
+          readOnly: true
+        cust_name:
+          type: string
+          maxLength: 150
+        cust_phone_num:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        cust_address:
+          type: string
+          nullable: true
+          maxLength: 1000
+        cust_dob:
+          type: string
+          format: date
+          nullable: true
+        cust_email:
+          type: string
+          nullable: true
+          maxLength: 300
+        cust_nric:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+      required:
+      - cust_email
+      - cust_id
+      - cust_name
+      - cust_nric
+      - cust_phone_num
+    CustomerTreatment:
+      type: object
+      properties:
+        cust_id:
+          type: integer
+          readOnly: true
+        treatments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Treatment'
+        cust_name:
+          type: string
+          maxLength: 150
+        cust_phone_num:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        cust_address:
+          type: string
+          nullable: true
+          maxLength: 1000
+        cust_dob:
+          type: string
+          format: date
+          nullable: true
+        cust_email:
+          type: string
+          nullable: true
+          maxLength: 300
+        cust_nric:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+      required:
+      - cust_email
+      - cust_id
+      - cust_name
+      - cust_nric
+      - cust_phone_num
+    Employee:
+      type: object
+      properties:
+        emp_id:
+          type: integer
+          readOnly: true
+        emp_name:
+          type: string
+          maxLength: 150
+        emp_dob:
+          type: string
+          format: date
+        emp_address:
+          type: string
+          maxLength: 1000
+        emp_nric:
+          type: string
+          maxLength: 50
+        emp_phone_num:
+          type: string
+          maxLength: 50
+        emp_salary:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+        employeebankaccount:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployeeBankAccount'
+        employeebenefitaccount:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployeeBenefitAccount'
+      required:
+      - emp_address
+      - emp_dob
+      - emp_id
+      - emp_name
+      - emp_nric
+      - emp_phone_num
+      - emp_salary
+    EmployeeBankAccount:
+      type: object
+      properties:
+        bank_acc_id:
+          type: integer
+          readOnly: true
+        bank:
+          $ref: '#/components/schemas/BankDatabase'
+        bank_acc_num:
+          type: string
+          maxLength: 150
+        bank_acc_type:
+          type: string
+          maxLength: 100
+      required:
+      - bank
+      - bank_acc_id
+      - bank_acc_num
+      - bank_acc_type
+    EmployeeBenefitAccount:
+      type: object
+      properties:
+        benefit_acc_id:
+          type: integer
+          readOnly: true
+        benefit_acc_name:
+          type: string
+          maxLength: 150
+        benefit_acc_type:
+          type: string
+          maxLength: 100
+        benefit_acc_num:
+          type: string
+          maxLength: 150
+      required:
+      - benefit_acc_id
+      - benefit_acc_name
+      - benefit_acc_num
+      - benefit_acc_type
+    PackageSubscription:
+      type: object
+      properties:
+        pkg_sub_id:
+          type: integer
+          readOnly: true
+        pkg:
+          $ref: '#/components/schemas/ServicePackage'
+        cust:
+          $ref: '#/components/schemas/Customer'
+        deposit_amt:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+        payment_datetime:
+          type: string
+          format: date-time
+      required:
+      - cust
+      - deposit_amt
+      - payment_datetime
+      - pkg
+      - pkg_sub_id
+    PatchedCustomer:
+      type: object
+      properties:
+        cust_id:
+          type: integer
+          readOnly: true
+        cust_name:
+          type: string
+          maxLength: 150
+        cust_phone_num:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        cust_address:
+          type: string
+          nullable: true
+          maxLength: 1000
+        cust_dob:
+          type: string
+          format: date
+          nullable: true
+        cust_email:
+          type: string
+          nullable: true
+          maxLength: 300
+        cust_nric:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+    PatchedEmployee:
+      type: object
+      properties:
+        emp_id:
+          type: integer
+          readOnly: true
+        emp_name:
+          type: string
+          maxLength: 150
+        emp_dob:
+          type: string
+          format: date
+        emp_address:
+          type: string
+          maxLength: 1000
+        emp_nric:
+          type: string
+          maxLength: 50
+        emp_phone_num:
+          type: string
+          maxLength: 50
+        emp_salary:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+          readOnly: true
+        employeebankaccount:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployeeBankAccount'
+        employeebenefitaccount:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmployeeBenefitAccount'
+    PatchedProduct:
+      type: object
+      properties:
+        prod_id:
+          type: integer
+          readOnly: true
+        prod_name:
+          type: string
+          maxLength: 300
+        prod_desc:
+          type: string
+          nullable: true
+        prod_category:
+          type: string
+          nullable: true
+          maxLength: 100
+        prod_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+          nullable: true
+        prod_qty:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        prod_img:
+          type: string
+          format: byte
+          readOnly: true
+          nullable: true
+        supplier:
+          type: integer
+        prod_com:
+          type: integer
+    PatchedSaleItemSale:
+      type: object
+      properties:
+        sales_id:
+          type: integer
+          readOnly: true
+        cust:
+          $ref: '#/components/schemas/Customer'
+        sales_datetime:
+          type: string
+          format: date-time
+          readOnly: true
+        sales_total_amt:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+        sales_payment_type:
+          type: string
+          maxLength: 100
+        sales_item:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaleItem'
+    PatchedService:
+      type: object
+      properties:
+        service_id:
+          type: integer
+          readOnly: true
+        service_name:
+          type: string
+          maxLength: 300
+        service_desc:
+          type: string
+          nullable: true
+        service_category:
+          type: string
+          nullable: true
+          maxLength: 100
+        service_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+          nullable: true
+        service_img:
+          type: string
+          format: byte
+          readOnly: true
+          nullable: true
+        service_com:
+          type: integer
+    PatchedUserSerializerWithToken:
+      type: object
+      properties:
+        username:
+          type: string
+          maxLength: 255
+        email:
+          type: string
+          format: email
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 255
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+          minLength: 6
+        phone_num:
+          type: integer
+          writeOnly: true
+        token:
+          type: string
+          readOnly: true
+    Product:
+      type: object
+      properties:
+        prod_id:
+          type: integer
+          readOnly: true
+        prod_name:
+          type: string
+          maxLength: 300
+        prod_desc:
+          type: string
+          nullable: true
+        prod_category:
+          type: string
+          nullable: true
+          maxLength: 100
+        prod_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+          nullable: true
+        prod_qty:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        prod_img:
+          type: string
+          format: byte
+          readOnly: true
+          nullable: true
+        supplier:
+          type: integer
+        prod_com:
+          type: integer
+      required:
+      - prod_com
+      - prod_id
+      - prod_img
+      - prod_name
+      - supplier
+    SaleItem:
+      type: object
+      properties:
+        sales_item_id:
+          type: integer
+          readOnly: true
+        service:
+          $ref: '#/components/schemas/Service'
+        pkg_sub:
+          $ref: '#/components/schemas/PackageSubscription'
+        prod:
+          $ref: '#/components/schemas/Product'
+        sale_item_type:
+          type: string
+          nullable: true
+          maxLength: 50
+        sales_item_qty:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        sales_item_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+          nullable: true
+      required:
+      - pkg_sub
+      - prod
+      - sales_item_id
+      - service
+    SaleItemSale:
+      type: object
+      properties:
+        sales_id:
+          type: integer
+          readOnly: true
+        cust:
+          $ref: '#/components/schemas/Customer'
+        sales_datetime:
+          type: string
+          format: date-time
+          readOnly: true
+        sales_total_amt:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+        sales_payment_type:
+          type: string
+          maxLength: 100
+        sales_item:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaleItem'
+      required:
+      - cust
+      - sales_datetime
+      - sales_id
+      - sales_item
+      - sales_payment_type
+      - sales_total_amt
+    Service:
+      type: object
+      properties:
+        service_id:
+          type: integer
+          readOnly: true
+        service_name:
+          type: string
+          maxLength: 300
+        service_desc:
+          type: string
+          nullable: true
+        service_category:
+          type: string
+          nullable: true
+          maxLength: 100
+        service_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+          nullable: true
+        service_img:
+          type: string
+          format: byte
+          readOnly: true
+          nullable: true
+        service_com:
+          type: integer
+      required:
+      - service_com
+      - service_id
+      - service_img
+      - service_name
+    ServicePackage:
+      type: object
+      properties:
+        pkg_id:
+          type: integer
+          readOnly: true
+        service:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        pkg_name:
+          type: string
+          maxLength: 300
+        pkg_desc:
+          type: string
+          nullable: true
+        pkg_category:
+          type: string
+          nullable: true
+          maxLength: 100
+        pkg_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,990}(?:\.\d{0,10})?$
+          nullable: true
+        pkg_img:
+          type: string
+          format: byte
+          readOnly: true
+          nullable: true
+      required:
+      - pkg_id
+      - pkg_img
+      - pkg_name
+      - service
+    TokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - username
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+    Treatment:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        treatment_date:
+          type: string
+          format: date-time
+        treatment_notes:
+          type: string
+        treatment_img:
+          type: string
+          format: uri
+        cust:
+          type: integer
+        emp:
+          type: integer
+        service:
+          type: integer
+        pkg_sub:
+          type: integer
+      required:
+      - cust
+      - emp
+      - id
+      - pkg_sub
+      - service
+      - treatment_date
+      - treatment_img
+    UserSerializerWithToken:
+      type: object
+      properties:
+        username:
+          type: string
+          maxLength: 255
+        email:
+          type: string
+          format: email
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 255
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+          minLength: 6
+        phone_num:
+          type: integer
+          writeOnly: true
+        token:
+          type: string
+          readOnly: true
+      required:
+      - email
+      - name
+      - password
+      - phone_num
+      - token
+      - username
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

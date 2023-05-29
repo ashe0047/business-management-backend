@@ -7,7 +7,7 @@ from hrm.models import *
 from hrm.serializers import *
 from hrm.permissions import *
 from django.db.models import Prefetch
-from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiResponse, OpenApiExample
 # from hrm.permissions import DeleteCustomerPerm
 # Create your views here.
 
@@ -20,7 +20,7 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
     def create(self, request, *args, **kwargs):
         bank_accounts_data = []
         benefit_accounts_data = []
-
+    
         if 'employeebankaccount' in request.data:
             bank_accounts_data = request.data.pop('employeebankaccount', [])
 
@@ -50,8 +50,8 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
     
     def get_object(self):
         employee = Employee.objects.filter(user=self.request.user)
-        prefetch_accounts = Prefetch('employeebankaccount', queryset=EmployeeBankAccount.objects.all(), to_attr='bank_accounts')
-        prefetch_benefits = Prefetch('employeebenefitaccount', queryset=EmployeeBenefitAccount.objects.all(), to_attr='benefit_accounts')
+        prefetch_accounts = Prefetch('employeebankaccount', queryset=EmployeeBankAccount.objects.all())
+        prefetch_benefits = Prefetch('employeebenefitaccount', queryset=EmployeeBenefitAccount.objects.all())
         employee = employee.prefetch_related(prefetch_accounts, prefetch_benefits).first()
         return employee
 
@@ -159,21 +159,25 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     @extend_schema(
-    parameters=[
-        OpenApiParameter(
-            name="delete",
-            description= "Specify 'benefitaccount' or 'bankaccount' to delete only that record, or leave empty to delete the entire employee record",
-            required=False,
-            type=str,
-            location=OpenApiParameter.QUERY),
-        OpenApiParameter(
-            name="id",
-            description="Only required for deletion of bankaccount/benefitaccount record",
-            required=False,
-            type=int,
-            location=OpenApiParameter.QUERY
-            )
-        ]
+        parameters=[
+            OpenApiParameter(
+                name="delete",
+                description= "Specify 'benefitaccount' or 'bankaccount' to delete only that record, or leave empty to delete the entire employee record",
+                required=False,
+                type=str,
+                location=OpenApiParameter.QUERY),
+            OpenApiParameter(
+                name="id",
+                description="Only required for deletion of bankaccount/benefitaccount record",
+                required=False,
+                type=int,
+                location=OpenApiParameter.QUERY
+                )
+            ],
+        responses={
+            '404': OpenApiResponse(response=str, examples=[OpenApiExample(name="404",value={"error": "error_message"})]),
+            '204': OpenApiResponse(examples=[OpenApiExample(name='204', description='No message will be returned')])
+        }
     )
     def delete(self, request, *args, **kwargs):
         employee = self.get_object()
@@ -194,11 +198,11 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
         else:
             return Response({'error': 'No employee record associated with this user account found'}, status=status.HTTP_404_NOT_FOUND)
 
-class GetEmployeeView(ListAPIView):
+class EmployeeListView(ListAPIView):
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
     permission_classes = [IsAuthenticated, ViewAllEmployeeRecordPermission]
-
+    
 class GetEmployeeViewWithAccounts(RetrieveAPIView):
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()

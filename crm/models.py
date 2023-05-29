@@ -2,6 +2,7 @@ from django.db import models
 from hrm.models import *
 from inventory.models import *
 
+
 class Customer(models.Model):
     cust_id = models.BigAutoField(primary_key=True)
     cust_name = models.CharField(max_length=150)
@@ -17,8 +18,8 @@ class Customer(models.Model):
 
 
 class Treatment(models.Model):
-    cust = models.ForeignKey(Customer, on_delete=models.PROTECT)
-    emp = models.ForeignKey(Employee, on_delete=models.PROTECT)
+    cust = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='treatment')
+    emp = models.ForeignKey(Employee, on_delete=models.PROTECT, related_name='treatment')
     service = models.ForeignKey(Service, on_delete=models.PROTECT)
     pkg_sub = models.ForeignKey('pos.PackageSubscription', on_delete=models.PROTECT)
     treatment_date = models.DateTimeField()

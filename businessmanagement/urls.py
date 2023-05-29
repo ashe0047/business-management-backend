@@ -29,7 +29,7 @@ urlpatterns = [
     path("api/crm/", include('crm.urls')),
     path("api/hrm/", include('hrm.urls')),
     path("api/inventory/", include('inventory.urls')),
-    # path("api/pos/", include('pos.urls')),
+    path("api/pos/", include('pos.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

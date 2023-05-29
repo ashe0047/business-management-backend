@@ -1,8 +1,10 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework.fields import empty
 from hrm.models import *
+from core.serializers import BankDatabaseSerializer
 
 class EmployeeBankAccountSerializer(ModelSerializer):
+    bank = BankDatabaseSerializer(required=True)
 
     def create(self, validated_data):
         emp_id = self.context.get('emp_id')
@@ -11,7 +13,7 @@ class EmployeeBankAccountSerializer(ModelSerializer):
     
     class Meta:
         model = EmployeeBankAccount
-        fields = ('bank_acc_id', 'bank_name', 'bank_acc_num', 'bank_acc_type', 'bank_routing_num')
+        fields = ('bank_acc_id', 'bank', 'bank_acc_num', 'bank_acc_type')
         read_only_fields = ['bank_acc_id']
 
 

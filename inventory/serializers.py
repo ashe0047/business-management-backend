@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from inventory.models import Product, ProductSupplier, Service
+from inventory.models import Product, ProductSupplier, Service, ServicePackage, ServicePackageService
 
 class ProductSerializer(serializers.ModelSerializer):
 
@@ -21,3 +21,34 @@ class ServiceSerializer(serializers.ModelSerializer):
         model = Service
         fields = '__all__'
         read_only_fields = ['service_id']
+
+class ServicePackageSerializer(serializers.ModelSerializer):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['service'] = self.service_build_field()
+        
+    
+    def service_build_field(self, *args, **kwargs):
+        if self.context['request'].method in ['PUT', 'PATCH', 'POST']:
+            return serializers.PrimaryKeyRelatedField(queryset=Service.objects.all(), required=True, write_only=True, many=True, *args, **kwargs)
+        else:
+            return ServiceSerializer(read_only=True, many=True, *args, **kwargs)
+    class Meta:
+        model = ServicePackage
+        fields = '__all__'
+        read_only_fields = ['pkg_id']
+
+
+
+class ServicePackageServiceSerializer(serializers.ModelSerializer):
+    service = ServiceSerializer()
+
+    def __init__(self, instance=None, data=..., **kwargs):
+        super().__init__(instance, data, **kwargs)
+        self.fields['pkg'] = ServicePackageSerializer()
+
+    class Meta:
+        model = ServicePackageService
+        fields = '__all__'
+        read_only_fields = ['sps_id']

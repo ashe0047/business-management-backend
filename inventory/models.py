@@ -42,12 +42,12 @@ class Service(models.Model):
 
 class ServicePackage(models.Model):
     pkg_id = models.BigAutoField(primary_key=True)
-    pkg_name = models.CharField(max_length=300)
+    pkg_name = models.CharField(max_length=300, blank=False, null=False)
     pkg_desc = models.TextField(blank=True, null=True)
-    pkg_category = models.CharField(max_length=100, blank=True, null=True)
-    pkg_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
+    pkg_category = models.CharField(max_length=100, blank=False, null=False)
+    pkg_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=False, null=False)
     pkg_img = models.BinaryField(blank=True, null=True)
-    service = models.ManyToManyField(Service, related_name='service', through='ServicePackageService')
+    service = models.ManyToManyField(Service, related_name='servicepackage', through='ServicePackageService')
 
     class Meta:
         db_table = 'service_package'

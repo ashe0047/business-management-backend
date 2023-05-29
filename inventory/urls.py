@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('product', ProductViewSet)
 router.register('service', ServiceViewSet)
-
+router.register('servicepackage', ServicePackageViewSet)
 app_name = 'inventory'
 
 
