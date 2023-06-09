@@ -8,71 +8,120 @@ from pos.models import *
 from pos.serializers import *
 from pos.permissions import DeleteSalesPerm
 from crm.serializers import *
-from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiResponse, OpenApiExample
+from drf_spectacular.utils import *
 
 
 # Create your views here.
 
-class SaleView(RetrieveUpdateAPIView, DestroyAPIView):
-    serializer_class = SaleItemSaleSerializer
+class SaleView(RetrieveUpdateAPIView):
+    serializer_class = BaseSaleItemSaleSerializer
     queryset = Sale.objects.all()
     # permission_classes = [IsAuthenticated, DeleteSalesPerm]
     
-    def get_object(self):
-        prefetch_saleitem = Prefetch('saleitem', queryset=SaleItem.objects.all())
-        sale = Sale.objects.prefetch_related(prefetch_saleitem).first()
-        return sale
+    def get_serializer_class(self):
+        method = self.request.method
+        if method in ['PUT', 'PATCH']:
+            return SaleItemSaleWriteSerializer
+        elif method in ['GET']:
+            return SaleItemSaleReadSerializer
 
-    def get(self, request, *args, **kwargs):
-        return super().get(request, *args, **kwargs)
+    #override get_object to prefetch salesitem for sales object
+    def get_object(self):
+        instance = super().get_object()
+        prefetch_saleitem = Prefetch('saleitem', queryset=SaleItem.objects.all())
+        instance = Sale.objects.prefetch_related(prefetch_saleitem).get(sales_id=instance.sales_id)
+        
+        return instance
     
     def put(self, request, *args, **kwargs):
         sale_instance = self.get_object()
+        sale_serializer = self.get_serializer(sale_instance, data=request.data)
+        sale_serializer.is_valid(raise_exception=True)
+        saleitem = []
+        cust = {}
+        try:
+            if 'cust' in sale_serializer.validated_data:
+                cust = sale_serializer.validated_data.pop('cust', {})
+                cust_instance = Customer.objects.get(cust_nric=cust['cust_nric'])
+                sale_serializer.validated_data['cust'] = cust_instance               
+
+            if 'saleitem' in sale_serializer.validated_data:
+                saleitem = sale_serializer.validated_data.pop('saleitem',  [])
+            sale_instance = sale_serializer.save()
+            if saleitem:
+                sale_instance.saleitem.all().delete()
+
+                sale_item_instances = []
+                sales_id = sale_instance.sales_id
+                for item in saleitem:
+                    if 'pkg_sub' in item:
+                        pkg_sub = item.pop('pkg_sub')
+                        pkg_sub['cust_id'] = cust_instance.cust_id
+                        pkg_sub_instance = PackageSubscription.objects.create(**pkg_sub)
+                        item['pkg_sub'] = pkg_sub_instance
+
+                    sale_item_instance = SaleItem.objects.create(sales_id=sales_id, **item)
+                    sale_item_instance.save()
+                    sale_item_instances.append(sale_item_instance)
+                sale_instance.saleitem.set(sale_item_instances)
+            return Response(sale_serializer.data, status=status.HTTP_200_OK)
+        
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
 
     def patch(self, request, *args, **kwargs):
-        return super().patch(request, *args, **kwargs)
+        sale_instance = self.get_object()
+        sale_serializer = self.get_serializer(sale_instance, data=request.data, partial=True)
+        sale_serializer.is_valid(raise_exception=True)
+        saleitem = []
+        cust = {}
+        try:
+            if 'cust' in sale_serializer.validated_data:
+                cust = sale_serializer.validated_data.pop('cust', {})
+                cust_instance = Customer.objects.get(cust_nric=cust['cust_nric'])
+                sale_serializer.validated_data['cust'] = cust_instance    
 
-    @extend_schema(
-        parameters=[
-            OpenApiParameter(
-                name="saleitem",
-                description= "Specify 'sale_item_id(s)' to delete a single/multiple SaleItem record or leave empty to delete entire Sale",
-                required=False,
-                type={'type': 'array', 'items': {'type': 'number'}},
-                location=OpenApiParameter.QUERY)
-            ],
-        responses={
-            '404': OpenApiResponse(response=str, examples=[OpenApiExample(name="404",value={"error": "error_message"})]),
-            '204': OpenApiResponse(examples=[OpenApiExample(name='204', description='No message will be returned')])
-        }
-    )
-    def delete(self, request, *args, **kwargs):
-        sale = self.get_object()
-        if sale:
-            sale_item_ids = request.query_params.getlist('saleitem')
-            item_not_deleted = []
-            if sale_item_ids:
-                for sale_item_id in sale_item_ids:
-                    try:
-                        sale_item = SaleItem.objects.get(sales_item_id=sale_item_id)
-                        sale_item.delete()
-                    except SaleItem.DoesNotExist:
-                        item_not_deleted.append(sale_item_id)
+            if 'saleitem' in sale_serializer.validated_data:
+                saleitem = sale_serializer.validated_data.pop('saleitem',  [])
+            sale_instance = sale_serializer.save()
 
-                if len(item_not_deleted) == 0:
-                    return Response(status=status.HTTP_204_NO_CONTENT)
-                else:
-                    return Response({'error': 'SaleItems with id in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
-            else:
-                sale.delete()
-                return Response(status=status.HTTP_204_NO_CONTENT)
-            
-class SalesView(CreateAPIView, ListAPIView):
-    serializer_class = SaleItemSaleSerializer
+            if saleitem:
+                sale_instance.saleitem.all().delete()
+                sale_item_instances = []
+                sales_id = sale_instance.sales_id
+                for item in saleitem:
+                    if 'pkg_sub' in item:
+                        pkg_sub = item.pop('pkg_sub')
+                        pkg_sub['cust_id'] = cust_instance.cust_id
+                        pkg_sub_instance = PackageSubscription.objects.create(**pkg_sub)
+                        item['pkg_sub'] = pkg_sub_instance
+
+                    sale_item_instance = SaleItem.objects.create(sales_id=sales_id, **item)
+                    sale_item_instance.save()
+                    sale_item_instances.append(sale_item_instance)
+                sale_instance.saleitem.set(sale_item_instances)
+            return Response(sale_serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+ 
+class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
+    serializer_class = BaseSaleItemSaleSerializer
     queryset = Sale.objects.all()
     # permission_classes = [IsAuthenticated]
 
+    def get_serializer_class(self):
+        method = self.request.method
+        if method in ['POST']:
+            return SaleItemSaleWriteSerializer
+        elif method in ['GET']:
+            return SaleItemSaleReadSerializer
+        
     def create(self, request, *args, **kwargs):
+        cust_instance = Customer.objects.filter(cust_nric=request.data['cust']['cust_nric'])
+        if cust_instance.exists():
+            request.data.pop('cust')
+            cust_instance = cust_instance.first()
         sale_serializer = self.get_serializer(data=request.data)
         sale_serializer.is_valid(raise_exception=True)
 
@@ -83,10 +132,11 @@ class SalesView(CreateAPIView, ListAPIView):
         
         if 'cust' in sale_serializer.validated_data:
             cust = sale_serializer.validated_data.pop('cust', {})
+            cust_serializer = CustomerSerializer(data=cust)
+            cust_serializer.is_valid(raise_exception=True)
+            cust_instance = cust_serializer.save()
 
-        cust_instance, created = Customer.objects.get_or_create(cust_nric=cust['cust_nric'], defaults=cust)
-
-        sale_serializer.validated_data['cust_id'] = cust_instance.cust_id    
+        sale_serializer.validated_data['cust'] = cust_instance   
         sale_instance = sale_serializer.save()
         
         sale_item_instances = []
@@ -125,13 +175,82 @@ class SalesView(CreateAPIView, ListAPIView):
         headers = self.get_success_headers(sale_serializer.data)
         return Response(sale_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-class SaleItemView(RetrieveUpdateAPIView, DestroyAPIView):
-    serializer_class = SaleItemSerializer
+    
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="sale",
+                description= "Specify 'sale_id(s)' to delete a single/multiple Sale record",
+                required=False,
+                type={'type': 'array', 'items': {'type': 'number'}},
+                location=OpenApiParameter.QUERY)
+            ],
+        responses={
+            '400': OpenApiResponse(response=str, examples=[OpenApiExample(name="400",value={"error": "error_message"})]),
+            '204': OpenApiResponse(examples=[OpenApiExample(name='204', description='No message will be returned')])
+        }
+    )
+    def delete(self, request, *args, **kwargs):
+        #deletes all linked sale item to prevent protected error then delete sale
+        sales_ids = request.query_params.getlist('sale', [])
+        item_not_deleted = []
+        if sales_ids:
+            for sales_id in sales_ids:
+                try:
+                    sale = Sale.objects.get(sales_id=sales_id)
+                    sale.saleitem.all().delete()
+                    sale.delete()               
+                except Exception as e:
+                    item_not_deleted.append({"sales_id": sales_id, "err_msg": str(e)})
+            if len(item_not_deleted) == 0:
+                    return Response(status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response({'error': 'Sale with id in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'error': "Please provide at least one sale to delete"}, status=status.HTTP_404_NOT_FOUND)
+        # option to delete selected saleitem from sale
+        # if sale:
+        #     sale_item_ids = request.query_params.getlist('saleitem')
+        #     item_not_deleted = []
+        #     if sale_item_ids:
+        #         for sale_item_id in sale_item_ids:
+        #             try:
+        #                 sale_item = SaleItem.objects.get(sales_item_id=sale_item_id)
+        #                 sale_item.delete()
+        #             except SaleItem.DoesNotExist:
+        #                 item_not_deleted.append(sale_item_id)
+
+        #         if len(item_not_deleted) == 0:
+        #             return Response(status=status.HTTP_204_NO_CONTENT)
+        #         else:
+        #             return Response({'error': 'SaleItems with id in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
+        #     else:
+        #         sale.delete()
+        #         return Response(status=status.HTTP_204_NO_CONTENT)
+           
+class SaleItemView(RetrieveUpdateAPIView):
+    serializer_class = BaseSaleItemSerializer
     queryset = SaleItem.objects.all()
     # permission_classes = [IsAuthenticated, DeleteSalesPerm]
+    
+    def get_serializer_class(self):
+        method = self.request.method
+        if method in ['PUT', 'PATCH']:
+            return SaleItemWriteSerializer
+        elif method in ['GET']:
+            return SaleItemReadSerializer
+   
 
     def put(self, request, *args, **kwargs):
         sale_item_instance = self.get_object()
+        #reset existing special fields in saleitem
+        special_fields = ['prod', 'service', 'pkg_sub']
+        for field in special_fields:
+            if field in request.data:
+                for existing_field in special_fields:
+                    #unlink and delete only if exisiting field for saleitem is pkg_sub
+                    setattr(sale_item_instance, existing_field, None)
+                    
         sale_item_serializer = self.get_serializer(sale_item_instance, data=request.data)
         sale_item_serializer.is_valid(raise_exception=True)
 
@@ -155,9 +274,17 @@ class SaleItemView(RetrieveUpdateAPIView, DestroyAPIView):
 
     def patch(self, request, *args, **kwargs):
         sale_item_instance = self.get_object()
-        sale_item_serializer = self.get_serializer(sale_item_instance, data=request.data, partial=True)
-        sale_item_serializer.is_valid()
+        #reset existing special fields in saleitem
+        special_fields = ['prod', 'service', 'pkg_sub']
+        for field in special_fields:
+            if field in request.data:
+                for existing_field in special_fields:
+                    #unlink and delete only if exisiting field for saleitem is pkg_sub
+                    setattr(sale_item_instance, existing_field, None)
 
+        sale_item_serializer = self.get_serializer(sale_item_instance, data=request.data, partial=True)
+        sale_item_serializer.is_valid(raise_exception=True)
+                
         if 'pkg_sub' in request.data:
             pkg_sub_data = sale_item_serializer.validated_data.pop('pkg_sub',{})
             old_pkg_sub = sale_item_instance.pkg_sub
@@ -176,11 +303,18 @@ class SaleItemView(RetrieveUpdateAPIView, DestroyAPIView):
 
         return Response(sale_item_serializer.data, status=status.HTTP_200_OK)
     
-class SaleItemsView(CreateAPIView, ListAPIView):
-    serializer_class = SaleItemSerializer
+class SaleItemsView(CreateAPIView, ListAPIView, DestroyAPIView):
+    serializer_class = BaseSaleItemSerializer
     queryset = SaleItem.objects.all()
     # permission_classes = [IsAuthenticated]
     
+    def get_serializer_class(self):
+        method = self.request.method
+        if method in ['POST']:
+            return SaleItemWriteSerializer
+        elif method in ['GET']:
+            return SaleItemReadSerializer
+        
     #custom post function for handling the creation of saleitem with nested packagesubscription
     def post(self, request, *args, **kwargs):
         sale_item_data = request.data
@@ -201,3 +335,34 @@ class SaleItemsView(CreateAPIView, ListAPIView):
         headers = self.get_success_headers(sale_item_serializer.data)
         return Response(sale_item_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
     
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="saleitem",
+                description= "Specify 'sale_item_id(s)' to delete a single/multiple SaleItem record or leave empty to delete entire Sale",
+                required=False,
+                type={'type': 'array', 'items': {'type': 'number'}},
+                location=OpenApiParameter.QUERY)
+            ],
+        responses={
+            '404': OpenApiResponse(response=str, examples=[OpenApiExample(name="404",value={"error": "error_message"})]),
+            '204': OpenApiResponse(examples=[OpenApiExample(name='204', description='No message will be returned')])
+        }
+    )
+    def delete(self, request, *args, **kwargs):
+        sales_item_ids = request.query_params.getlist('saleitem', [])
+        item_not_deleted = []
+        if sales_item_ids:
+            for sales_item_id in sales_item_ids:
+                try:
+                    sale_item = SaleItem.objects.get(sales_item_id=sales_item_id)
+                    sale_item.delete()
+                except Exception as e:
+                    item_not_deleted.append({'sales_item_id': sales_item_id, "err_msg": str(e)})
+
+            if len(item_not_deleted) == 0:
+                return Response(status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response({'error': 'SaleItems with id in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'error': "Please provide at least one saleitem to delete"}, status=status.HTTP_404_NOT_FOUND)

@@ -30,7 +30,7 @@ class ServicePackageSerializer(serializers.ModelSerializer):
         
     
     def service_build_field(self, *args, **kwargs):
-        if self.context['request'].method in ['PUT', 'PATCH', 'POST']:
+        if self.context.get('request', {}) and self.context['request'].method in ['PUT', 'PATCH', 'POST']:
             return serializers.PrimaryKeyRelatedField(queryset=Service.objects.all(), required=True, write_only=True, many=True, *args, **kwargs)
         else:
             return ServiceSerializer(read_only=True, many=True, *args, **kwargs)

@@ -149,7 +149,8 @@ AUTH_USER_MODEL = "auth_core.User"
 AUTH_GROUP_MODEL = "auth_core.Group"
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'businessmanagement.autoschema.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )

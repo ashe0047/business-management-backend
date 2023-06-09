@@ -6,7 +6,7 @@ from inventory.models import Product, Service, ServicePackage, ServicePackageSer
 
 class Sale(models.Model):
     sales_id = models.BigAutoField(primary_key=True)
-    cust = models.ForeignKey(Customer, on_delete=models.PROTECT, blank=True, null=True, related_name='customer')
+    cust = models.ForeignKey(Customer, on_delete=models.PROTECT, blank=False, null=False, related_name='customer')
     sales_datetime = models.DateTimeField(auto_now_add=True,blank=False, null=False)
     sales_total_amt = models.DecimalField(max_digits=1000, decimal_places=10, blank=False, null=False)
     sales_payment_type = models.CharField(max_length=100, blank=False, null=False)
