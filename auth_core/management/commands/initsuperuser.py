@@ -11,4 +11,4 @@ class Command(BaseCommand):
             User.objects.create_superuser('shapebeautyadmin', 'Shape Beauty Admin', 'shapebeautysc@gmail.com', '9761988shape')
             self.stdout.write(self.style.SUCCESS('Superuser created successfully.'))
         else:
-            self.stdout.write(self.style.SUCCESS('Superuser already exists.'))
+            self.stdout.write(self.style.ERROR('Superuser already exists.'))

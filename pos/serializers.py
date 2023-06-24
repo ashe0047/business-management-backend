@@ -10,6 +10,8 @@ class BasePackageSubscriptionSerializer(serializers.ModelSerializer):
         super().__init__(*args, **kwargs)
         # self.fields['pkg'] = self.pkg_build_field(context=self.context)
         # Check if the serializer is used as a nested serializer
+        if self._context.get('parent'):
+            self.fields['pkg_sub_id'] = serializers.IntegerField(required=False)
         if isinstance(self._context.get('parent'), BaseSaleItemSaleSerializer):
             # Remove cust field as the value can be obtained automatically from parent serializer
             self.fields.pop('cust', None)
@@ -36,8 +38,11 @@ class BasePackageSubscriptionSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = PackageSubscription
-        fields = ('pkg_sub_id', 'pkg', 'cust', 'deposit_amt')
-        read_only_fields = ('pkg_sub_id', 'cust')
+        fields = ('pkg_sub_id', 'pkg', 'cust', 'paid_amt')
+        read_only_fields = ('cust',)
+        extra_kwargs = {
+            "pkg_sub_id": {"required": False}
+        }
 
 class PackageSubscriptionWriteSerializer(BasePackageSubscriptionSerializer):
     cust = serializers.PrimaryKeyRelatedField(queryset=Customer.objects.all(), required=True, write_only=True)
@@ -165,6 +170,15 @@ class SaleItemSaleWriteSerializer(BaseSaleItemSaleSerializer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['saleitem'] = SaleItemWriteSerializer(required=True, many=True, context=self.context_update_parent())
+    
+    def validate(self, data):
+        data = super().validate(data)
+        total_sales_item_amt = sum(item['sales_item_price'] for item in data['saleitem'])
+        if data['sales_total_amt'] != total_sales_item_amt:
+            raise ValidationError("Total sales amount is not equivalent to total amount of all sales item")
+
+        return data
+        
 class SaleItemSaleReadSerializer(BaseSaleItemSaleSerializer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -188,6 +202,7 @@ class PackageSubscriptionServiceSerializer(serializers.ModelSerializer):
 
     def pkg_sub_build_field(self, *args, **kwargs):
         return BasePackageSubscriptionSerializer(*args, **kwargs)
+    
     class Meta:
         model = PackageSubscriptionService
         fields = ('pkg_sub_service_id', 'pkg_sub', 'service', 'treatment_left')

@@ -4,14 +4,18 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404
+from django.db import transaction
 from pos.models import *
 from pos.serializers import *
 from pos.permissions import DeleteSalesPerm
+from pos.utils import update_pkg_sub_payment
 from crm.serializers import *
 from drf_spectacular.utils import *
 
 
 # Create your views here.
+#use try-except block
+#use serializer where possible
 
 class SaleView(RetrieveUpdateAPIView):
     serializer_class = BaseSaleItemSaleSerializer
@@ -26,6 +30,7 @@ class SaleView(RetrieveUpdateAPIView):
             return SaleItemSaleReadSerializer
 
     #override get_object to prefetch salesitem for sales object
+    @transaction.atomic
     def get_object(self):
         instance = super().get_object()
         prefetch_saleitem = Prefetch('saleitem', queryset=SaleItem.objects.all())
@@ -33,6 +38,7 @@ class SaleView(RetrieveUpdateAPIView):
         
         return instance
     
+    @transaction.atomic
     def put(self, request, *args, **kwargs):
         sale_instance = self.get_object()
         sale_serializer = self.get_serializer(sale_instance, data=request.data)
@@ -69,7 +75,7 @@ class SaleView(RetrieveUpdateAPIView):
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-
+    @transaction.atomic
     def patch(self, request, *args, **kwargs):
         sale_instance = self.get_object()
         sale_serializer = self.get_serializer(sale_instance, data=request.data, partial=True)
@@ -117,6 +123,7 @@ class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
         elif method in ['GET']:
             return SaleItemSaleReadSerializer
         
+    @transaction.atomic       
     def create(self, request, *args, **kwargs):
         cust_instance = Customer.objects.filter(cust_nric=request.data['cust']['cust_nric'])
         if cust_instance.exists():
@@ -174,7 +181,6 @@ class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
 
         headers = self.get_success_headers(sale_serializer.data)
         return Response(sale_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
     
     @extend_schema(
         parameters=[
@@ -190,6 +196,7 @@ class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
             '204': OpenApiResponse(examples=[OpenApiExample(name='204', description='No message will be returned')])
         }
     )
+    @transaction.atomic
     def delete(self, request, *args, **kwargs):
         #deletes all linked sale item to prevent protected error then delete sale
         sales_ids = request.query_params.getlist('sale', [])
@@ -205,7 +212,7 @@ class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
             if len(item_not_deleted) == 0:
                     return Response(status=status.HTTP_204_NO_CONTENT)
             else:
-                return Response({'error': 'Sale with id in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
+                return Response({'error': 'Sale with id(s) in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'error': "Please provide at least one sale to delete"}, status=status.HTTP_404_NOT_FOUND)
         # option to delete selected saleitem from sale
@@ -227,7 +234,10 @@ class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
         #     else:
         #         sale.delete()
         #         return Response(status=status.HTTP_204_NO_CONTENT)
-           
+    
+    @transaction.atomic
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 class SaleItemView(RetrieveUpdateAPIView):
     serializer_class = BaseSaleItemSerializer
     queryset = SaleItem.objects.all()
@@ -240,7 +250,7 @@ class SaleItemView(RetrieveUpdateAPIView):
         elif method in ['GET']:
             return SaleItemReadSerializer
    
-
+    @transaction.atomic
     def put(self, request, *args, **kwargs):
         sale_item_instance = self.get_object()
         #reset existing special fields in saleitem
@@ -271,7 +281,8 @@ class SaleItemView(RetrieveUpdateAPIView):
             sale_item_serializer.save()
 
         return Response(sale_item_serializer.data, status=status.HTTP_200_OK)
-
+    
+    @transaction.atomic
     def patch(self, request, *args, **kwargs):
         sale_item_instance = self.get_object()
         #reset existing special fields in saleitem
@@ -316,6 +327,7 @@ class SaleItemsView(CreateAPIView, ListAPIView, DestroyAPIView):
             return SaleItemReadSerializer
         
     #custom post function for handling the creation of saleitem with nested packagesubscription
+    @transaction.atomic
     def post(self, request, *args, **kwargs):
         sale_item_data = request.data
         sale_item_serializer = self.get_serializer(data=sale_item_data)
@@ -323,10 +335,25 @@ class SaleItemsView(CreateAPIView, ListAPIView, DestroyAPIView):
 
         if 'pkg_sub' in sale_item_serializer.validated_data:
                 pkg_sub = sale_item_serializer.validated_data.pop('pkg_sub', {})
-                #retireve customer_id
-                pkg_sub['cust'] = sale_item_serializer.validated_data['sales'].cust
-                pkg_sub_instance = PackageSubscription.objects.create(**pkg_sub)
-                pkg_sub_instance.save()
+                #payment handler for existing pkg_sub
+                if 'pkg_sub_id' in pkg_sub:
+                    pkg_sub_id = pkg_sub.pop('pkg_sub_id', None)
+                    pkg_sub_instance = update_pkg_sub_payment(pkg_sub_id, sale_item_serializer.validated_data['sales_item_price'])
+                    # pkg_sub_instance = PackageSubscription.objects.get(pkg_sub_id=pkg_sub_id)
+                    # #update paid amount
+                    # pkg_sub['paid_amt'] = pkg_sub_instance.paid_amt + sale_item_serializer.validated_data['sales_item_price']
+                    # pkg_sub_serializer = PackageSubscriptionWriteSerializer(
+                    #     instance=pkg_sub_instance,
+                    #     data=pkg_sub,
+                    #     partial=True
+                    #     )
+                    # pkg_sub_serializer.is_valid(raise_exception=True)
+                    # pkg_sub_instance = pkg_sub_serializer.save()
+                else:
+                    #retireve customer_id
+                    pkg_sub['cust'] = sale_item_serializer.validated_data['sales'].cust
+                    pkg_sub_instance = PackageSubscription.objects.create(**pkg_sub)
+                    pkg_sub_instance.save()
                 sale_item_serializer.validated_data['pkg_sub'] = pkg_sub_instance
         # sale_item_instance = SaleItem.objects.create(**sale_item_serializer.validated_data)
 
@@ -349,6 +376,7 @@ class SaleItemsView(CreateAPIView, ListAPIView, DestroyAPIView):
             '204': OpenApiResponse(examples=[OpenApiExample(name='204', description='No message will be returned')])
         }
     )
+    @transaction.atomic
     def delete(self, request, *args, **kwargs):
         sales_item_ids = request.query_params.getlist('saleitem', [])
         item_not_deleted = []
@@ -363,6 +391,10 @@ class SaleItemsView(CreateAPIView, ListAPIView, DestroyAPIView):
             if len(item_not_deleted) == 0:
                 return Response(status=status.HTTP_204_NO_CONTENT)
             else:
-                return Response({'error': 'SaleItems with id in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
+                return Response({'error': 'SaleItems with id(s) in '+str(item_not_deleted)+" are not deleted"}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'error': "Please provide at least one saleitem to delete"}, status=status.HTTP_404_NOT_FOUND)
+        
+    @transaction.atomic
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)

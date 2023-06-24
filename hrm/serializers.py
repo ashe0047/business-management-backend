@@ -1,7 +1,13 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework.fields import empty
 from hrm.models import *
-from core.serializers import BankDatabaseSerializer
+
+class BankDatabaseSerializer(ModelSerializer):
+
+    class Meta:
+        model = BankDatabase
+        fields = '__all__'
+        read_only_fields = ['id']
 
 class EmployeeBankAccountSerializer(ModelSerializer):
     bank = BankDatabaseSerializer(required=True)

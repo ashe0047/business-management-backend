@@ -1,29 +1,27 @@
 from rest_framework import serializers
-from rest_framework.fields import empty
 from core.models import *
 from pos.serializers import *
 from hrm.serializers import *
+from core.utils import context_update_parent
 
+# class CommissionSerializer(serializers.ModelSerializer):
+#     sales_item = serializers.SerializerMethodField()
+#     emp = serializers.SerializerMethodField()
 
-class BankDatabaseSerializer(serializers.ModelSerializer):
+#     def __init__(self, instance=None, data=..., **kwargs):
+#         super().__init__(instance, data, **kwargs)
+#         self.fields['saleitem'] = self.sales_item_build_field()
+#         self.fields['emp'] = self.emp_build_field()
 
-    class Meta:
-        model = BankDatabase
-        fields = '__all__'
-        read_only_fields = ['id']
-
-class CommissionSerializer(serializers.ModelSerializer):
-    sales_item = serializers.SerializerMethodField()
-    emp = serializers.SerializerMethodField()
-
-    def get_sales_item(self, obj):
-        return SaleItemSerializer(obj.data).data
+#     def sales_item_build_field(self, obj):
+#         return BaseSaleItemSerializer()
     
-    def get_emp(self, obj):
-        return EmployeeSerializer(obj.data).data
-    class Meta:
-        model = Commission
-        fields = ('com_id', 'sales_item', 'emp', 'com_amt', 'com_datetime', 'com_type')
+#     def emp_build_field(self, obj):
+#         return EmployeeSerializer(obj.data).data
+    
+#     class Meta:
+#         model = FixedCommissionSharing
+#         fields = ('com_id', 'sales_item', 'emp', 'com_amt', 'com_datetime', 'com_type')
 
 
 # class CommissionSharingPlanSerializer(serializers.ModelSerializer):
@@ -31,37 +29,132 @@ class CommissionSerializer(serializers.ModelSerializer):
 #         model = CommissionSharingPlan
 #         fields = ('com_sharing_id', 'com_sharing_name', 'com_sharing_desc')
 
-class EmployeeCommissionSharingPercentageSerializer(serializers.ModelSerializer):
-    com_sharing_detail = serializers.SerializerMethodField()
-    emp = serializers.SerializerMethodField()
 
-    def get_emp(self, obj):
-        return EmployeeSerializer(obj.data).data
+class BaseEmployeeCommissionSerializer(serializers.ModelSerializer):
+    emp = serializers.PrimaryKeyRelatedField(queryset=Employee.objects.all(), required=True)
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['com'] = self.sales_sharing_detail_build_field(*args, **kwargs)
+        # self.fields['emp'] = self.emp_build_field(*args, **kwargs)
+        if self.context.get('parent'):
+            self.fields.pop('com')
 
-    def get_com_sharing_detail(self, obj):
-        return CommissionSharingDetailSerializer(obj.data).data
+    def sales_sharing_detail_build_field(self, *args, **kwargs):
+        return BaseCommissionSerializer(*args, **kwargs)
     
     class Meta:
-        model = EmployeeCommissionSharingPercentage
-        fields = ('com_sharing_detail', 'emp', 'share_percent')
+        model = EmployeeCommission
+        fields = ('com', 'emp', 'sales_amount')
+        extra_kwargs = {
+            "sales_amount": {"required": False}
+        }
 
-class CommissionSharingDetailSerializer(serializers.ModelSerializer):
-    sales = SaleSerializer()
-    sales_item = serializers.SerializerMethodField()
-    # com_sharing = CommissionSharingPlanSerializer()
-    emp_share_percent = EmployeeCommissionSharingPercentageSerializer(many=True)
-    
-    def __init__(self, instance=None, data=..., **kwargs):
-        super().__init__(instance, data, **kwargs)
-        self.fields['sales_item'] = self.get_sales_item()
-        
-    def get_sales_item(self, *args, **kwargs):
-        return SaleItemSerializer(*args, **kwargs)
-    
+
+# class EmployeeCommissionSharingPercentageWriteSerializer(BaseEmployeeCommissionSharingPercentageSerializer):
+#     emp = serializers.PrimaryKeyRelatedField(queryset=Employee.objects.all(), required=True)
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+
+# class EmployeeCommissionSharingPercentageReadSerializer(BaseEmployeeCommissionSharingPercentageSerializer):
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['emp'] = self.emp_build_field(*args, **kwargs)
+
+#     def emp_build_field(self, *args, **kwargs):
+#         return EmployeeSerializer(*args, **kwargs)
+
+class BaseCommissionSerializer(serializers.ModelSerializer):
+
+    def context_update_parent(self):
+        #pass parent serializer to package_subscription for checking
+        context = self.context.copy()
+        if not context.get('parent'):
+            context['parent'] = self
+        else:
+            context['parent2'] = self
+        return context
     class Meta:
-        model = CommissionSharingDetail
-        fields = ('com_sharing_detail_id', 'sales', 'sales_item', 'emp_share_percent')
-        
+        model = Commission
+        fields = ('com_id', 'sales', 'sales_item', 'custom_sharing', 'emp_share_percent')
+        extra_kwargs = {
+            "custom_sharing": {"required": False}
+        }
+
+class CommissionWriteSerializer(BaseCommissionSerializer):    
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['emp_share_percent'] = BaseEmployeeCommissionSerializer(required=True, write_only=True, many=True, context=self.context_update_parent())
+    
+    def validate(self, data):
+        #If custom_sharing is True
+        if 'custom_sharing' in data and data['custom_sharing']:
+            total_share_amount = 0
+            for emp_share_percent in data['emp_share_percent']:
+                #Ensure that sales_amount must exists 
+                if 'sales_amount' not in emp_share_percent:
+                    raise ValidationError("Custom sharing is True but sales_amount does not exists")
+                #sum the total share amount if it exists
+                total_share_amount += emp_share_percent['sales_amount']
+
+            #Ensure that total sales_amount for each employee totals to the amount of sales/sales_item
+            # total_share_amount = sum(emp_share_percent['sales_amount'] for emp_share_percent in data['emp_share_percent'])
+            if total_share_amount != data['sales'].sales_total_amt or total_share_amount != data['sales_item'].sales_item_price:
+                raise ValidationError("Total share amount for each employee is not equal to total sales/salesitem amount")
+
+        #Ensure if sale item is used, the Sale that contain the sale item should not exists in Commission entry and vice versa
+        if 'sales_item' in data and Commission.objects.filter(sales=data['sales_item'].sales).exists():
+            raise ValidationError('Sale for this saleitem already exists in Commission and can no longer be used')
+        elif 'sales' in data:
+            sales_item = data['sales'].saleitem.all()
+            if any(Commission.objects.filter(sales_item=item).exists() for item in sales_item):
+                raise ValidationError("saleitem for this sale already exists in Commission and can no longer be used") 
+            
+        return data
+    
+class CommissionReadSerializer(BaseCommissionSerializer):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['emp_share_percent'] = BaseEmployeeCommissionSerializer(many=True, read_only=True, context=self.context_update_parent(), source='employeecommission')
+
+# class BaseEmployeeFixedCommissionSharing(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = EmployeeFixedCommissionSharing
+#         fields = ('com', 'emp', 'share_percent', 'sales_amount')
+#         extra_kwargs = {
+#             'sales_amount': {'required': False}
+#         }
+# class BaseFixedCommissionSharingSerializer(serializers.ModelSerializer):
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['com'] = self.com_build_field(*args, **kwargs)
+#         # self.fields['emp'] = self.emp_build_field(*args, **kwargs)
+#         if self.context.get('parent'):
+#             self.fields.pop('com')
+    
+#     def com_build_field(self, *args, **kwargs):
+#         return BaseFixedCommissionSharingSerializer(*args, **kwargs)
+#     class Meta:
+#         model = FixedCommissionSharing
+#         fields = ('com_id', 'sales_item', 'com_amt', 'service_com', 'voucher_com', 'emp_share_percent')
+
+# class FixedCommissionSharingWriteSerializer(BaseFixedCommissionSharingSerializer):
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['emp_share_percent'] = BaseEmployeeFixedCommissionSharing(required=True, write_only=True, many=True, context=context_update_parent(self))
+
+# class FixedCommissionSharingReadSerializer(BaseFixedCommissionSharingSerializer):
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['emp_share_percent'] = BaseEmployeeFixedCommissionSharing(many=True, read_only=True, context=context_update_parent(self), source='employeefixedcommissionsharing')
+
+
 class ProductCommissionStructureSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductCommissionStructure
@@ -77,4 +170,6 @@ class ServiceCommissionStructureSerializer(serializers.ModelSerializer):
 class PercentageMultiplierThresholdSerializer(serializers.ModelSerializer):
     class Meta:
         model = PercentageMultiplierThreshold
-        fields = ('thres_id', 'sales_amt', 'percent_multiplier')
+        fields = ('thres_id', 'sales_amt', 'percent_multiplier', 'bonus_amt')
+
+

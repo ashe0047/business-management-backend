@@ -5,3 +5,4 @@ from hrm.models import *
 admin.site.register(EmployeeBankAccount)
 admin.site.register(Employee)
 admin.site.register(EmployeeBenefitAccount)
+admin.site.register(BankDatabase)
