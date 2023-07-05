@@ -1,5 +1,5 @@
 from django.contrib import admin
-from marketing.models import *
+from marketing.models.models import *
 # Register your models here.
 
 admin.site.register(GenericVoucher)

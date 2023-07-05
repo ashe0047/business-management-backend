@@ -7,6 +7,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('productcommissionstructure', ProductCommissionStructureViewset)
 router.register('servicecommissionstructure', ServiceCommissionStructureViewset)
+router.register('vouchercommissionstructure', VoucherCommissionStructureViewset)
 router.register('percentagemultiplierthreshold', PercentageMultiplierThresholdViewset)
 app_name = 'core'
 

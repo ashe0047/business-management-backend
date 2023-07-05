@@ -3,16 +3,17 @@ from auth_core.models import User
 from django.core.validators import RegexValidator
 
 class BankDatabase(models.Model):
-    bank_name = models.CharField(max_length=100)
+    bank_name = models.CharField(max_length=100, unique=True, blank=False, null=False)
     bank_swift_code = models.CharField(max_length=11, validators=[
         RegexValidator(r'^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$', message='Invalid SWIFT code')
-    ])
+    ], unique=True, blank=False, null=False)
     bank_city = models.CharField(max_length=100, validators=[
         RegexValidator(r'^[A-Za-z\s]+$', message='City name can only contain letters and spaces')
     ])
 
     class Meta:
         db_table = 'bank_database'
+
 class Employee(models.Model):
     emp_id = models.BigAutoField(primary_key=True)
     emp_name = models.CharField(max_length=150, blank=False, null=False)
@@ -25,7 +26,7 @@ class Employee(models.Model):
     
     class Meta:
         db_table = 'employee'
-        unique_together = (('emp_name', 'emp_nric', 'emp_phone_num'),)
+        unique_together = (('emp_nric',), ('emp_phone_num',),)
 
 
 class EmployeeBankAccount(models.Model): #Junction table for employee and bank database with extra fields to store bank acc number etc
@@ -37,7 +38,7 @@ class EmployeeBankAccount(models.Model): #Junction table for employee and bank d
 
     class Meta:
         db_table = 'employee_bank_account'
-        unique_together = (('bank_acc_num'),)
+        unique_together = (('bank_acc_num',),)
 
     
 
@@ -50,5 +51,5 @@ class EmployeeBenefitAccount(models.Model):
 
     class Meta:
         db_table = 'employee_benefit_account'
-        unique_together = (('benefit_acc_num'),)
+        unique_together = (('benefit_acc_num',),)
 

@@ -28,9 +28,10 @@ class Customer(models.Model):
     cust_occupation = models.CharField(max_length=300, blank=True, null=True)
     cust_source = models.CharField(max_length=30, choices=CUST_SOURCE, blank=True, null=True) #fixed choices
     cust_med_hist = models.TextField(blank=True, null=True)
+
     class Meta:
         db_table = 'customer'
-        unique_together = (('cust_phone_num', 'cust_nric', 'cust_name', 'cust_email'),)
+        unique_together = (('cust_phone_num',), ('cust_nric',), ('cust_email',),)
 
 
 class Treatment(models.Model):
@@ -44,3 +45,4 @@ class Treatment(models.Model):
 
     class Meta:
         db_table = 'treatment'
+        unique_together = (('cust', 'emp',),)

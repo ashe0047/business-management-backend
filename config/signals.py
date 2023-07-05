@@ -9,8 +9,8 @@ def update_config_cache(sender, instance, **kwargs):
     config_cache = cache.get(CACHE_KEY)
     if config_cache is not None:
         # Update the cache when a config value is added, updated, or deleted
-        if kwargs.get('created', False):
+        if kwargs.get('signal', None) == post_save:
             config_cache[instance.config_key] = instance.config_value
-        else:
+        elif kwargs.get('signal', None) == post_delete:
             config_cache.pop(instance.config_key, None)
         cache.set(CACHE_KEY, config_cache)

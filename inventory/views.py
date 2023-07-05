@@ -2,8 +2,8 @@ from rest_framework.viewsets import *
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
-from inventory.models import Product, ProductSupplier, Service, ServicePackage
-from inventory.serializers import ProductSerializer, ProductSupplierSerializer, ServiceSerializer, ServicePackageSerializer
+from inventory.models import *
+from inventory.serializers import *
 from inventory.permissions import DeleteInventoryPerm
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiResponse, OpenApiExample
 
@@ -25,6 +25,11 @@ class ServiceViewSet(ModelViewSet):
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
     permission_classes = [IsAuthenticated, DeleteInventoryPerm]
+
+class InventoryCategoryViewset(ModelViewSet):
+    serializer_class = InventoryCategorySerializer
+    queryset = InventoryCategory.objects.all()
+    # permission_classes = [IsAuthenticated, DeleteInventoryPerm]
 
 class ServicePackageViewSet(ModelViewSet):
     serializer_class = ServicePackageSerializer

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from core.models import *
-from pos.serializers import *
+from pos.serializers.sale_serializers import *
+from pos.serializers.saleitem_serializers import *
 from hrm.serializers import *
 from core.utils import context_update_parent
 
@@ -102,7 +103,7 @@ class CommissionWriteSerializer(BaseCommissionSerializer):
 
             #Ensure that total sales_amount for each employee totals to the amount of sales/sales_item
             # total_share_amount = sum(emp_share_percent['sales_amount'] for emp_share_percent in data['emp_share_percent'])
-            if total_share_amount != data['sales'].sales_total_amt or total_share_amount != data['sales_item'].sales_item_price:
+            if total_share_amount != data['sales'].net_sales_amt or total_share_amount != data['sales_item'].net_sales_item_price:
                 raise ValidationError("Total share amount for each employee is not equal to total sales/salesitem amount")
 
         #Ensure if sale item is used, the Sale that contain the sale item should not exists in Commission entry and vice versa
@@ -166,6 +167,11 @@ class ServiceCommissionStructureSerializer(serializers.ModelSerializer):
         model = ServiceCommissionStructure
         fields = ('service_com_id', 'service_com_type', 'service_com_category', 'service_com_rate')
 
+
+class VoucherCommissionStructureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VoucherCommissionStructure
+        fields = ('voucher_com_id', 'voucher_com_type', 'voucher_com_rate', 'voucher_com_amt')
 
 class PercentageMultiplierThresholdSerializer(serializers.ModelSerializer):
     class Meta:

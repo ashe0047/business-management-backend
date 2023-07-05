@@ -1,6 +1,6 @@
 from rest_framework.generics import *
 from rest_framework.permissions import IsAuthenticated
-from crm.models import *
+from crm.models.models import *
 from crm.serializers import *
 from crm.permissions import DeleteCustomerPerm
 from rest_framework.response import Response

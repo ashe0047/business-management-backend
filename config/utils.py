@@ -15,3 +15,11 @@ def get_config_value(key):
         raise KeyError('Config key '+key+' does not exists')
     
     return config_cache.get(key)
+
+def update_config_value(key, value):
+    try:
+        instance = AppConfig.objects.get(config_key=key)
+        instance.config_value = value
+        instance.save()
+    except Exception as e:
+        raise e

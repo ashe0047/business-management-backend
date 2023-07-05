@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pos.models import *
+from pos.models.models import *
 
 # Register your models here.
 admin.site.register(Sale)

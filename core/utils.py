@@ -1,5 +1,5 @@
 from decimal import Decimal
-from pos.models import Sale, PackageSubscription, SaleItem
+from pos.models.models import Sale, PackageSubscription, SaleItem
 
 #helper function
 
@@ -70,12 +70,12 @@ def share_size_calculation(validated_data: dict):
                 #loop through each detail and calc share percentage, sales amount and fixed com amount
                 for item in emp_share_percent:
                     sales_amount = com_item['sales_amount'] if 'sales_amount' in item else None
-                    item['share_percent'] = sales_amount/sales.sales_total_amt if sales else sales_amount/sales_item.sales_item_price
+                    item['share_percent'] = sales_amount/sales.net_sales_amt if sales else sales_amount/sales_item.net_sales_item_price
                     item['fixed_com_amount'] = item['share_percent'] * sales_total_fixed_com if sales else item['share_percent'] * get_sale_item_fixed_com(sales_item)
             else:
                 for item in emp_share_percent:
                     item['share_percent'] = Decimal('1.0')/len(emp_share_percent)
-                    item['sales_amount'] = sales.sales_total_amt/len(emp_share_percent) if sales else sales_item.sales_item_price/len(emp_share_percent)
+                    item['sales_amount'] = sales.net_sales_amt/len(emp_share_percent) if sales else sales_item.net_sales_item_price/len(emp_share_percent)
                     item['fixed_com_amount'] = item['share_percent'] * sales_total_fixed_com if sales else item['share_percent'] * get_sale_item_fixed_com(sales_item)
 
     except Exception as e:

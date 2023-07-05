@@ -50,6 +50,24 @@ class ServiceCommissionStructureViewset(ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
 
+class VoucherCommissionStructureViewset(ModelViewSet):
+    serializer_class = VoucherCommissionStructureSerializer
+    queryset = VoucherCommissionStructure.objects.all()
+    # permission_classes = [IsAdminUser, IsAuthenticated]
+
+    @transaction.atomic
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+    @transaction.atomic
+    def update(self, request, *args, **kwargs):
+        return super().update(request, *args, **kwargs)
+    @transaction.atomic
+    def partial_update(self, request, *args, **kwargs):
+        return super().partial_update(request, *args, **kwargs)
+    @transaction.atomic
+    def destroy(self, request, *args, **kwargs):
+        return super().destroy(request, *args, **kwargs)
+
 class PercentageMultiplierThresholdViewset(ModelViewSet):
     serializer_class = PercentageMultiplierThresholdSerializer
     queryset = PercentageMultiplierThreshold.objects.all()
@@ -68,6 +86,7 @@ class PercentageMultiplierThresholdViewset(ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
 
+    
 '''
     1. If granularity is sale then only a single commissionsharingdetail object is  needed 
     2. If granularity is saleitem then create as many commissionsharingdetail object as saleitem

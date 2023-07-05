@@ -8,9 +8,13 @@ from auth_core.models import *
 from hrm.models import Employee
 from django.utils.translation import gettext_lazy as _
 from config.utils import get_config_value
+from config.enums import ConfigKeys
 
 #Change admin site title
-admin.site.site_header = get_config_value('COMPANY_NAME')+" Administration Panel"
+try:
+    admin.site.site_header = get_config_value(ConfigKeys.COMPANY_NAME.value)+" Administration Panel"
+except Exception:
+    pass
 
 # Register your models here.
 class UserCreationForm(BaseUserCreationForm):

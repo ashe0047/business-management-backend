@@ -10,7 +10,7 @@ class ProductSupplier(models.Model):
 
     class Meta:
         db_table = 'product_supplier'
-        unique_together = (('supplier_name', 'supplier_acc_num'),)
+        unique_together = (('supplier_name', 'supplier_acc_num',),)
     
 class Product(models.Model):
     prod_id = models.BigAutoField(primary_key=True)
@@ -28,19 +28,20 @@ class Product(models.Model):
     prod_com = models.ForeignKey('core.ProductCommissionStructure', on_delete=models.PROTECT, related_name='product', null=True, blank=True)
     is_active = models.BooleanField(default=True, null=False, blank=False)
 
-    @property
-    def prod_discount_price(self):
-        if self.prod_discount_percent:
-            return self.prod_price - (self.prod_price * self.prod_discount_percent)
-        else:
-            return self.prod_price
-    
+
     @property
     def prod_discount_amt(self):
         if self.prod_discount_percent:
             return self.prod_price * self.prod_discount_percent
         else:
             return 0
+        
+    @property
+    def prod_discount_price(self):
+        if self.prod_discount_percent:
+            return self.prod_price - self.prod_discount_amt
+        else:
+            return self.prod_price
 
     @property
     def prod_profit_margin(self):
@@ -49,15 +50,17 @@ class Product(models.Model):
             'profit_margin_percent': (self.prod_price - self.prod_cost)/self.prod_cost
         }
         return margin
+    
     def clean(self):
-        if self.prod_discount_percent > 1 or self.prod_discount_percent < 0:
-            raise ValidationError("prod_discount_percent value must be between 0 and 1")
+        if self.prod_discount_percent:
+            if self.prod_discount_percent > 1 or self.prod_discount_percent < 0:
+                raise ValidationError("prod_discount_percent value must be between 0 and 1")
         
         super().clean()
 
     class Meta:
         db_table = 'product'
-        unique_together = (('prod_name'),)
+        unique_together = (('prod_name',),('prod_sku',),('prod_barcode',),)
 
 class Service(models.Model):
     service_id = models.BigAutoField(primary_key=True)
@@ -71,28 +74,29 @@ class Service(models.Model):
     is_active = models.BooleanField(default=True, null=False, blank=False)
 
     @property
-    def service_discount_price(self):
-        if self.service_discount_percent:
-            return self.service_price - (self.service_price * self.service_discount_percent)
-        else:
-            return self.service_price
-    
-    @property
     def service_discount_amt(self):
         if self.service_discount_percent:
             return self.service_price * self.service_discount_percent
         else:
             return 0
+        
+    @property
+    def service_discount_price(self):
+        if self.service_discount_percent:
+            return self.service_price - self.service_discount_amt
+        else:
+            return self.service_price
 
     
     def clean(self):
-        if self.service_discount_percent > 1 or self.service_discount_percent < 0:
-            raise ValidationError("service_discount_percent value must be between 0 and 1")
+        if self.service_discount_percent:
+            if self.service_discount_percent > 1 or self.service_discount_percent < 0:
+                raise ValidationError("service_discount_percent value must be between 0 and 1")
         
         super().clean()
     class Meta:
         db_table = 'service'
-        unique_together = (('service_name'),)
+        unique_together = (('service_name',),)
 
 class ServicePackage(models.Model):
     pkg_id = models.BigAutoField(primary_key=True)
@@ -106,27 +110,30 @@ class ServicePackage(models.Model):
     is_active = models.BooleanField(default=True, null=False, blank=False)
 
     @property
-    def pkg_discount_price(self):
-        if self.pkg_discount_percent:
-            return self.pkg_price - (self.pkg_price * self.pkg_discount_percent)
-        else:
-            return self.pkg_price
-    
-    @property
     def pkg_discount_amt(self):
         if self.pkg_discount_percent:
             return self.pkg_price * self.pkg_discount_percent
         else:
             return 0
+        
+    @property
+    def pkg_discount_price(self):
+        if self.pkg_discount_percent:
+            return self.pkg_price - self.pkg_discount_amt
+        else:
+            return self.pkg_price
+    
+
     
     def clean(self):
-        if self.pkg_discount_percent > 1 or self.pkg_discount_percent < 0:
-            raise ValidationError("pkg_discount_percent value must be between 0 and 1")
-        
+        if self.pkg_discount_percent:
+            if self.pkg_discount_percent > 1 or self.pkg_discount_percent < 0:
+                raise ValidationError("pkg_discount_percent value must be between 0 and 1")
+            
         super().clean()
     class Meta:
         db_table = 'service_package'
-        unique_together = (('pkg_name', ))
+        unique_together = (('pkg_name', ),)
 
 class ServicePackageService(models.Model): #Junction table to store the information regarding each service in each package
     sps_id = models.BigAutoField(primary_key=True)
@@ -136,6 +143,7 @@ class ServicePackageService(models.Model): #Junction table to store the informat
 
     class Meta:
         db_table = 'service_package_service'
+        unique_together = (('pkg','service',),)
 
 class InventoryCategory(models.Model):
     INVENTORY_TYPES = [
@@ -146,3 +154,8 @@ class InventoryCategory(models.Model):
     cat_id = models.BigAutoField(primary_key=True)
     cat_type = models.CharField(max_length=15, choices=INVENTORY_TYPES)
     cat_name = models.CharField(max_length=30, null=False, blank=False)
+
+    class Meta:
+        db_table = 'inventory_category'
+        verbose_name_plural = 'Inventory Categories'
+        unique_together = (('cat_name',),)

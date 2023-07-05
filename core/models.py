@@ -18,14 +18,17 @@ class VariableCommissionSummary(Model):
     adjusted_sales = DecimalField(max_digits=1000, decimal_places=2, default=0)
     com_amt = DecimalField(max_digits=1000, decimal_places=2, default=0)
 
-    class Meta:
-        db_table = 'variable_commission_summary'
-        unique_together = ('emp', 'date',)
-
     def save(self, *args, **kwargs):
         #set day for all entries to a constant so that the entries can be aggregated using month and year only
         self.date = self.date.replace(day=1)
         return super().save(*args, **kwargs)
+    
+    class Meta:
+        db_table = 'variable_commission_summary'
+        verbose_name_plural = "Variable Commission Summaries"
+        unique_together = (('emp', 'date',),)
+
+
     
     # def save(self, *args, **kwargs):
     #     thres_levels = PercentageMultiplierThreshold.objects.all()
@@ -42,14 +45,17 @@ class FixedCommissionSummary(Model):
     date = DateField()
     com_amt = DecimalField(max_digits=1000, decimal_places=2, default=0)
 
-    class Meta:
-        db_table = 'fixed_commission_summary'
-        unique_together = ('emp', 'date',)
-
     def save(self, *args, **kwargs):
         #set day for all entries to a constant so that the entries can be aggregated using month and year only
         self.date = self.date.replace(day=1)
         return super().save(*args, **kwargs)
+    
+    class Meta:
+        db_table = 'fixed_commission_summary'
+        verbose_name_plural = 'Fixed Commission Summaries'
+        unique_together = (('emp', 'date',),)
+
+    
 
 #junction table for saleitem and employee to track portion of share fixed comm using percentage from employeecommission
 # class FixedCommissionSharing(Model):
@@ -92,6 +98,7 @@ class Commission(Model):
 
     class Meta:
         db_table = 'commission'
+        unique_together = (('sales',),('sales_item',),)
 
 #Junction table to link commissionsharing table to employee while tracking sharing percentage 
 class EmployeeCommission(Model):
@@ -111,6 +118,7 @@ class EmployeeCommission(Model):
 
     class Meta:
         db_table = 'employee_commission'
+        unique_together = (('com','emp',),)
 
 class ProductCommissionStructure(Model):
     prod_com_id = BigAutoField(primary_key=True)
@@ -167,4 +175,5 @@ class PercentageMultiplierThreshold(Model):
 
     class Meta:
         db_table = 'percentage_multiplier_threshold'
+        unique_together = (('sales_amt','percent_multiplier',),)
 

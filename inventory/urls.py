@@ -6,6 +6,7 @@ router = DefaultRouter()
 router.register('product', ProductViewSet)
 router.register('service', ServiceViewSet)
 router.register('servicepackage', ServicePackageViewSet)
+router.register('inventorycategory', InventoryCategoryViewset)
 app_name = 'inventory'
 
 
