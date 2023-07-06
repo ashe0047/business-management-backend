@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveUpdateAPIView, DestroyAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveUpdateAPIView, DestroyAPIView, ListCreateAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
@@ -119,7 +119,7 @@ class CommissionView(RetrieveUpdateAPIView):
         return super().patch(request, *args, **kwargs)
 
  
-class CommissionsView(CreateAPIView, ListAPIView, DestroyAPIView):
+class CommissionsView(ListCreateAPIView, DestroyAPIView):
     serializer_class = BaseCommissionSerializer
     queryset = Commission.objects.all()
     # permission_classes = [IsAuthenticated]
