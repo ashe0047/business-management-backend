@@ -129,7 +129,6 @@ class ServicePackage(models.Model):
             return self.pkg_price
     
 
-    
     def clean(self):
         if self.pkg_discount_percent:
             if self.pkg_discount_percent > 1 or self.pkg_discount_percent < 0:
