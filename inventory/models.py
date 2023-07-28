@@ -1,5 +1,10 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from gdstorage.storage import GoogleDriveStorage
+import os
+import json
+
+gd_storage = GoogleDriveStorage()
 
 class ProductSupplier(models.Model):
     supplier_id = models.BigAutoField(primary_key=True)
@@ -21,7 +26,7 @@ class Product(models.Model):
     prod_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=False, null=False)
     prod_discount_percent = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
     prod_qty = models.IntegerField(blank=False, null=False)
-    prod_img = models.BinaryField(blank=True, null=True)
+    prod_img = models.ImageField(upload_to='inventory/products', storage=gd_storage, blank=True, null=True)
     prod_sku = models.CharField(max_length=13, unique=True, blank=True, null=True)
     prod_barcode = models.CharField(max_length=13, unique=True, blank=True, null=True)
     supplier = models.ForeignKey(ProductSupplier, on_delete=models.PROTECT, related_name='product', null=True, blank=True)
@@ -69,7 +74,7 @@ class Service(models.Model):
     service_category = models.ForeignKey("inventory.InventoryCategory", on_delete=models.PROTECT, related_name='service', null=False, blank=False)
     service_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
     service_discount_percent = models.DecimalField(max_digits=1000, decimal_places=10, blank=True, null=True)
-    service_img = models.BinaryField(blank=True, null=True)
+    service_img = models.ImageField(upload_to='inventory/products', storage=gd_storage, blank=True, null=True)
     service_com = models.ForeignKey('core.ServiceCommissionStructure', on_delete=models.PROTECT, related_name='service', null=True, blank=True)
     is_active = models.BooleanField(default=True, null=False, blank=False)
 
@@ -105,7 +110,7 @@ class ServicePackage(models.Model):
     pkg_category = models.ForeignKey("inventory.InventoryCategory", on_delete=models.PROTECT, related_name='servicepackage', null=False, blank=False)
     pkg_price = models.DecimalField(max_digits=1000, decimal_places=10, blank=False, null=False)
     pkg_discount_percent = models.DecimalField(max_digits=3, decimal_places=2, blank=True, null=True) 
-    pkg_img = models.BinaryField(blank=True, null=True)
+    pkg_img = models.ImageField(upload_to='inventory/products', storage=gd_storage, blank=True, null=True)
     service = models.ManyToManyField(Service, related_name='servicepackage', through='ServicePackageService')
     is_active = models.BooleanField(default=True, null=False, blank=False)
 

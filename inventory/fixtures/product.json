@@ -1,0 +1,953 @@
+[
+  {
+    "model": "inventory.Product",
+    "pk": 1,
+    "fields": {
+      "prod_name": "Product 1",
+      "prod_desc": "Description for Product 1",
+      "prod_category": 1,
+      "prod_cost": "50.00",
+      "prod_price": "100.00",
+      "prod_discount_percent": "0.1",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0001",
+      "prod_barcode": "BARCODE0001",
+      "supplier": 1,
+      "prod_com": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 2,
+    "fields": {
+      "prod_name": "Product 2",
+      "prod_desc": "Description for Product 2",
+      "prod_category": 2,
+      "prod_cost": "60.00",
+      "prod_price": "110.00",
+      "prod_discount_percent": "0.15",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0002",
+      "prod_barcode": "BARCODE0002",
+      "supplier": 2,
+      "prod_com": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 3,
+    "fields": {
+      "prod_name": "Product 3",
+      "prod_desc": "Description for Product 3",
+      "prod_category": 3,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.2",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0003",
+      "prod_barcode": "BARCODE0003",
+      "supplier": 3,
+      "prod_com": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 4,
+    "fields": {
+      "prod_name": "Product 4",
+      "prod_desc": "Description for Product 4",
+      "prod_category": 4,
+      "prod_cost": "80.00",
+      "prod_price": "130.00",
+      "prod_discount_percent": "0.12",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0004",
+      "prod_barcode": "BARCODE0004",
+      "supplier": 4,
+      "prod_com": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 5,
+    "fields": {
+      "prod_name": "Product 5",
+      "prod_desc": "Description for Product 5",
+      "prod_category": 5,
+      "prod_cost": "90.00",
+      "prod_price": "140.00",
+      "prod_discount_percent": "0.18",
+      "prod_qty": 120,
+      "prod_img": null,
+      "prod_sku": "SKU0005",
+      "prod_barcode": "BARCODE0005",
+      "supplier": 5,
+      "prod_com": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 6,
+    "fields": {
+      "prod_name": "Product 6",
+      "prod_desc": "Description for Product 6",
+      "prod_category": 6,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.14",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0006",
+      "prod_barcode": "BARCODE0006",
+      "supplier": 6,
+      "prod_com": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 7,
+    "fields": {
+      "prod_name": "Product 7",
+      "prod_desc": "Description for Product 7",
+      "prod_category": 7,
+      "prod_cost": "100.00",
+      "prod_price": "150.00",
+      "prod_discount_percent": "0.09",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0007",
+      "prod_barcode": "BARCODE0007",
+      "supplier": 7,
+      "prod_com": 7,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 8,
+    "fields": {
+      "prod_name": "Product 8",
+      "prod_desc": "Description for Product 8",
+      "prod_category": 8,
+      "prod_cost": "110.00",
+      "prod_price": "160.00",
+      "prod_discount_percent": "0.08",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0008",
+      "prod_barcode": "BARCODE0008",
+      "supplier": 8,
+      "prod_com": 8,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 9,
+    "fields": {
+      "prod_name": "Product 9",
+      "prod_desc": "Description for Product 9",
+      "prod_category": 9,
+      "prod_cost": "120.00",
+      "prod_price": "170.00",
+      "prod_discount_percent": "0.06",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0009",
+      "prod_barcode": "BARCODE0009",
+      "supplier": 9,
+      "prod_com": 9,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 10,
+    "fields": {
+      "prod_name": "Product 10",
+      "prod_desc": "Description for Product 10",
+      "prod_category": 10,
+      "prod_cost": "80.00",
+      "prod_price": "130.00",
+      "prod_discount_percent": "0.1",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0010",
+      "prod_barcode": "BARCODE0010",
+      "supplier": 10,
+      "prod_com": 10,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 11,
+    "fields": {
+      "prod_name": "Product 11",
+      "prod_desc": "Description for Product 11",
+      "prod_category": 11,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.15",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0011",
+      "prod_barcode": "BARCODE0011",
+      "supplier": 11,
+      "prod_com": 11,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 12,
+    "fields": {
+      "prod_name": "Product 12",
+      "prod_desc": "Description for Product 12",
+      "prod_category": 12,
+      "prod_cost": "60.00",
+      "prod_price": "110.00",
+      "prod_discount_percent": "0.2",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0012",
+      "prod_barcode": "BARCODE0012",
+      "supplier": 12,
+      "prod_com": 12,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 13,
+    "fields": {
+      "prod_name": "Product 13",
+      "prod_desc": "Description for Product 13",
+      "prod_category": 13,
+      "prod_cost": "50.00",
+      "prod_price": "100.00",
+      "prod_discount_percent": "0.18",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0013",
+      "prod_barcode": "BARCODE0013",
+      "supplier": 13,
+      "prod_com": 13,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 14,
+    "fields": {
+      "prod_name": "Product 14",
+      "prod_desc": "Description for Product 14",
+      "prod_category": 14,
+      "prod_cost": "90.00",
+      "prod_price": "140.00",
+      "prod_discount_percent": "0.12",
+      "prod_qty": 120,
+      "prod_img": null,
+      "prod_sku": "SKU0014",
+      "prod_barcode": "BARCODE0014",
+      "supplier": 14,
+      "prod_com": 14,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 15,
+    "fields": {
+      "prod_name": "Product 15",
+      "prod_desc": "Description for Product 15",
+      "prod_category": 15,
+      "prod_cost": "100.00",
+      "prod_price": "150.00",
+      "prod_discount_percent": "0.09",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0015",
+      "prod_barcode": "BARCODE0015",
+      "supplier": 15,
+      "prod_com": 15,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 16,
+    "fields": {
+      "prod_name": "Product 16",
+      "prod_desc": "Description for Product 16",
+      "prod_category": 16,
+      "prod_cost": "80.00",
+      "prod_price": "130.00",
+      "prod_discount_percent": "0.08",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0016",
+      "prod_barcode": "BARCODE0016",
+      "supplier": 16,
+      "prod_com": 16,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 17,
+    "fields": {
+      "prod_name": "Product 17",
+      "prod_desc": "Description for Product 17",
+      "prod_category": 17,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.06",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0017",
+      "prod_barcode": "BARCODE0017",
+      "supplier": 17,
+      "prod_com": 17,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 18,
+    "fields": {
+      "prod_name": "Product 18",
+      "prod_desc": "Description for Product 18",
+      "prod_category": 18,
+      "prod_cost": "120.00",
+      "prod_price": "170.00",
+      "prod_discount_percent": "0.1",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0018",
+      "prod_barcode": "BARCODE0018",
+      "supplier": 18,
+      "prod_com": 18,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 19,
+    "fields": {
+      "prod_name": "Product 19",
+      "prod_desc": "Description for Product 19",
+      "prod_category": 19,
+      "prod_cost": "60.00",
+      "prod_price": "110.00",
+      "prod_discount_percent": "0.15",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0019",
+      "prod_barcode": "BARCODE0019",
+      "supplier": 19,
+      "prod_com": 19,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 20,
+    "fields": {
+      "prod_name": "Product 20",
+      "prod_desc": "Description for Product 20",
+      "prod_category": 20,
+      "prod_cost": "50.00",
+      "prod_price": "100.00",
+      "prod_discount_percent": "0.2",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0020",
+      "prod_barcode": "BARCODE0020",
+      "supplier": 20,
+      "prod_com": 20,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 21,
+    "fields": {
+      "prod_name": "Product 21",
+      "prod_desc": "Description for Product 21",
+      "prod_category": 1,
+      "prod_cost": "90.00",
+      "prod_price": "140.00",
+      "prod_discount_percent": "0.18",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0021",
+      "prod_barcode": "BARCODE0021",
+      "supplier": 21,
+      "prod_com": 21,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 22,
+    "fields": {
+      "prod_name": "Product 22",
+      "prod_desc": "Description for Product 22",
+      "prod_category": 2,
+      "prod_cost": "100.00",
+      "prod_price": "150.00",
+      "prod_discount_percent": "0.09",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0022",
+      "prod_barcode": "BARCODE0022",
+      "supplier": 22,
+      "prod_com": 22,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 23,
+    "fields": {
+      "prod_name": "Product 23",
+      "prod_desc": "Description for Product 23",
+      "prod_category": 3,
+      "prod_cost": "80.00",
+      "prod_price": "130.00",
+      "prod_discount_percent": "0.08",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0023",
+      "prod_barcode": "BARCODE0023",
+      "supplier": 23,
+      "prod_com": 23,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 24,
+    "fields": {
+      "prod_name": "Product 24",
+      "prod_desc": "Description for Product 24",
+      "prod_category": 4,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.06",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0024",
+      "prod_barcode": "BARCODE0024",
+      "supplier": 24,
+      "prod_com": 24,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 25,
+    "fields": {
+      "prod_name": "Product 25",
+      "prod_desc": "Description for Product 25",
+      "prod_category": 5,
+      "prod_cost": "120.00",
+      "prod_price": "170.00",
+      "prod_discount_percent": "0.1",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0025",
+      "prod_barcode": "BARCODE0025",
+      "supplier": 25,
+      "prod_com": 25,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 26,
+    "fields": {
+      "prod_name": "Product 26",
+      "prod_desc": "Description for Product 26",
+      "prod_category": 6,
+      "prod_cost": "60.00",
+      "prod_price": "110.00",
+      "prod_discount_percent": "0.15",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0026",
+      "prod_barcode": "BARCODE0026",
+      "supplier": 26,
+      "prod_com": 26,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 27,
+    "fields": {
+      "prod_name": "Product 27",
+      "prod_desc": "Description for Product 27",
+      "prod_category": 7,
+      "prod_cost": "50.00",
+      "prod_price": "100.00",
+      "prod_discount_percent": "0.2",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0027",
+      "prod_barcode": "BARCODE0027",
+      "supplier": 27,
+      "prod_com": 27,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 28,
+    "fields": {
+      "prod_name": "Product 28",
+      "prod_desc": "Description for Product 28",
+      "prod_category": 8,
+      "prod_cost": "90.00",
+      "prod_price": "140.00",
+      "prod_discount_percent": "0.18",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0028",
+      "prod_barcode": "BARCODE0028",
+      "supplier": 28,
+      "prod_com": 28,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 29,
+    "fields": {
+      "prod_name": "Product 29",
+      "prod_desc": "Description for Product 29",
+      "prod_category": 9,
+      "prod_cost": "100.00",
+      "prod_price": "150.00",
+      "prod_discount_percent": "0.09",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0029",
+      "prod_barcode": "BARCODE0029",
+      "supplier": 29,
+      "prod_com": 29,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 30,
+    "fields": {
+      "prod_name": "Product 30",
+      "prod_desc": "Description for Product 30",
+      "prod_category": 10,
+      "prod_cost": "80.00",
+      "prod_price": "130.00",
+      "prod_discount_percent": "0.08",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0030",
+      "prod_barcode": "BARCODE0030",
+      "supplier": 30,
+      "prod_com": 30,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 31,
+    "fields": {
+      "prod_name": "Product 31",
+      "prod_desc": "Description for Product 31",
+      "prod_category": 11,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.06",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0031",
+      "prod_barcode": "BARCODE0031",
+      "supplier": 31,
+      "prod_com": 31,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 32,
+    "fields": {
+      "prod_name": "Product 32",
+      "prod_desc": "Description for Product 32",
+      "prod_category": 12,
+      "prod_cost": "120.00",
+      "prod_price": "170.00",
+      "prod_discount_percent": "0.1",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0032",
+      "prod_barcode": "BARCODE0032",
+      "supplier": 32,
+      "prod_com": 32,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 33,
+    "fields": {
+      "prod_name": "Product 33",
+      "prod_desc": "Description for Product 33",
+      "prod_category": 13,
+      "prod_cost": "60.00",
+      "prod_price": "110.00",
+      "prod_discount_percent": "0.15",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0033",
+      "prod_barcode": "BARCODE0033",
+      "supplier": 33,
+      "prod_com": 33,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 34,
+    "fields": {
+      "prod_name": "Product 34",
+      "prod_desc": "Description for Product 34",
+      "prod_category": 14,
+      "prod_cost": "50.00",
+      "prod_price": "100.00",
+      "prod_discount_percent": "0.2",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0034",
+      "prod_barcode": "BARCODE0034",
+      "supplier": 34,
+      "prod_com": 34,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 35,
+    "fields": {
+      "prod_name": "Product 35",
+      "prod_desc": "Description for Product 35",
+      "prod_category": 15,
+      "prod_cost": "90.00",
+      "prod_price": "140.00",
+      "prod_discount_percent": "0.18",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0035",
+      "prod_barcode": "BARCODE0035",
+      "supplier": 35,
+      "prod_com": 35,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 36,
+    "fields": {
+      "prod_name": "Product 36",
+      "prod_desc": "Description for Product 36",
+      "prod_category": 16,
+      "prod_cost": "100.00",
+      "prod_price": "150.00",
+      "prod_discount_percent": "0.09",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0036",
+      "prod_barcode": "BARCODE0036",
+      "supplier": 36,
+      "prod_com": 36,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 37,
+    "fields": {
+      "prod_name": "Product 37",
+      "prod_desc": "Description for Product 37",
+      "prod_category": 17,
+      "prod_cost": "80.00",
+      "prod_price": "130.00",
+      "prod_discount_percent": "0.08",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0037",
+      "prod_barcode": "BARCODE0037",
+      "supplier": 37,
+      "prod_com": 37,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 38,
+    "fields": {
+      "prod_name": "Product 38",
+      "prod_desc": "Description for Product 38",
+      "prod_category": 18,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.06",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0038",
+      "prod_barcode": "BARCODE0038",
+      "supplier": 38,
+      "prod_com": 38,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 39,
+    "fields": {
+      "prod_name": "Product 39",
+      "prod_desc": "Description for Product 39",
+      "prod_category": 19,
+      "prod_cost": "120.00",
+      "prod_price": "170.00",
+      "prod_discount_percent": "0.1",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0039",
+      "prod_barcode": "BARCODE0039",
+      "supplier": 39,
+      "prod_com": 39,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 40,
+    "fields": {
+      "prod_name": "Product 40",
+      "prod_desc": "Description for Product 40",
+      "prod_category": 20,
+      "prod_cost": "60.00",
+      "prod_price": "110.00",
+      "prod_discount_percent": "0.15",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0040",
+      "prod_barcode": "BARCODE0040",
+      "supplier": 40,
+      "prod_com": 40,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 41,
+    "fields": {
+      "prod_name": "Product 41",
+      "prod_desc": "Description for Product 41",
+      "prod_category": 1,
+      "prod_cost": "50.00",
+      "prod_price": "100.00",
+      "prod_discount_percent": "0.2",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0041",
+      "prod_barcode": "BARCODE0041",
+      "supplier": 41,
+      "prod_com": 41,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 42,
+    "fields": {
+      "prod_name": "Product 42",
+      "prod_desc": "Description for Product 42",
+      "prod_category": 2,
+      "prod_cost": "90.00",
+      "prod_price": "140.00",
+      "prod_discount_percent": "0.18",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0042",
+      "prod_barcode": "BARCODE0042",
+      "supplier": 42,
+      "prod_com": 42,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 43,
+    "fields": {
+      "prod_name": "Product 43",
+      "prod_desc": "Description for Product 43",
+      "prod_category": 3,
+      "prod_cost": "100.00",
+      "prod_price": "150.00",
+      "prod_discount_percent": "0.09",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0043",
+      "prod_barcode": "BARCODE0043",
+      "supplier": 43,
+      "prod_com": 43,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 44,
+    "fields": {
+      "prod_name": "Product 44",
+      "prod_desc": "Description for Product 44",
+      "prod_category": 4,
+      "prod_cost": "80.00",
+      "prod_price": "130.00",
+      "prod_discount_percent": "0.08",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0044",
+      "prod_barcode": "BARCODE0044",
+      "supplier": 44,
+      "prod_com": 44,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 45,
+    "fields": {
+      "prod_name": "Product 45",
+      "prod_desc": "Description for Product 45",
+      "prod_category": 5,
+      "prod_cost": "70.00",
+      "prod_price": "120.00",
+      "prod_discount_percent": "0.06",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0045",
+      "prod_barcode": "BARCODE0045",
+      "supplier": 45,
+      "prod_com": 45,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 46,
+    "fields": {
+      "prod_name": "Product 46",
+      "prod_desc": "Description for Product 46",
+      "prod_category": 6,
+      "prod_cost": "120.00",
+      "prod_price": "170.00",
+      "prod_discount_percent": "0.1",
+      "prod_qty": 100,
+      "prod_img": null,
+      "prod_sku": "SKU0046",
+      "prod_barcode": "BARCODE0046",
+      "supplier": 46,
+      "prod_com": 46,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 47,
+    "fields": {
+      "prod_name": "Product 47",
+      "prod_desc": "Description for Product 47",
+      "prod_category": 7,
+      "prod_cost": "60.00",
+      "prod_price": "110.00",
+      "prod_discount_percent": "0.15",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0047",
+      "prod_barcode": "BARCODE0047",
+      "supplier": 47,
+      "prod_com": 47,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 48,
+    "fields": {
+      "prod_name": "Product 48",
+      "prod_desc": "Description for Product 48",
+      "prod_category": 8,
+      "prod_cost": "50.00",
+      "prod_price": "100.00",
+      "prod_discount_percent": "0.2",
+      "prod_qty": 70,
+      "prod_img": null,
+      "prod_sku": "SKU0048",
+      "prod_barcode": "BARCODE0048",
+      "supplier": 48,
+      "prod_com": 48,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 49,
+    "fields": {
+      "prod_name": "Product 49",
+      "prod_desc": "Description for Product 49",
+      "prod_category": 9,
+      "prod_cost": "90.00",
+      "prod_price": "140.00",
+      "prod_discount_percent": "0.18",
+      "prod_qty": 90,
+      "prod_img": null,
+      "prod_sku": "SKU0049",
+      "prod_barcode": "BARCODE0049",
+      "supplier": 49,
+      "prod_com": 49,
+      "is_active": true
+    }
+  },
+  {
+    "model": "inventory.Product",
+    "pk": 50,
+    "fields": {
+      "prod_name": "Product 50",
+      "prod_desc": "Description for Product 50",
+      "prod_category": 10,
+      "prod_cost": "100.00",
+      "prod_price": "150.00",
+      "prod_discount_percent": "0.09",
+      "prod_qty": 80,
+      "prod_img": null,
+      "prod_sku": "SKU0050",
+      "prod_barcode": "BARCODE0050",
+      "supplier": 50,
+      "prod_com": 50,
+      "is_active": true
+    }
+  }
+]
+

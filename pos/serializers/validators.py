@@ -66,11 +66,7 @@ class VoucherUseValidator:
             2. Presence of saleitem if voucher is used
             3. Voucher usage on discounted item
             4. Type of voucher used that is allowed
-            5. Voucher redemption limit
-    TODO:
-        3. Test generic voucher constraints
-    
-
+            5. Voucher redemption limit    
     '''
     requires_context = True
 
@@ -79,26 +75,23 @@ class VoucherUseValidator:
 
     def __call__(self, value: OrderedDict, serializer) :
         from pos.serializers.sale_serializers import BaseSaleItemSerializer, SaleSerializer #delayed import to avoid circular dependency error
-        #Validate voucher date contraint
-        if value.get('voucher_use', None) or value.get('gen_voucher_used', None):
-            self.validate_voucher_use_date(value)
 
         if isinstance(serializer, SaleSerializer):
             #check if voucher is used
-            if value.get('gen_voucher_used', None):
+            if value.get('gen_voucher_use', None):
                 if value.get('saleitem', None):
                     self.gen_voucher_use_constraint(value)
                 else:
                     raise ValidationError('saleitems must exist in order to use vouchers')
         elif isinstance(serializer, BaseSaleItemSerializer):
             #if both voucher is used in both sale and saleitem
-            if value.get('voucher_use', None) and serializer.context.get('gen_voucher_used', None):
+            if value.get('voucher_use', None) and serializer.context.get('gen_voucher_use', None):
                     raise ValidationError('Voucher cannot be used on saleitem if Generic Voucher is used')
             #if voucher is used in saleitem but not sale
-            elif value.get('voucher_use', None) and not serializer.context.get('gen_voucher_used', None):
+            elif value.get('voucher_use', None) and not serializer.context.get('gen_voucher_use', None):
                 self.voucher_use_contraint(value)
             #if voucher is used in sale but not saleitem    
-            elif not value.get('voucher_use', None) and serializer.context.get('gen_voucher_used', None):
+            elif not value.get('voucher_use', None) and serializer.context.get('gen_voucher_use', None):
                 self.discount_constraint_check(value)
 
     def discount_constraint_check(self, value: OrderedDict):
@@ -153,25 +146,30 @@ class VoucherUseValidator:
 
         #check if voucher use type on inventory item is correct
         self.validate_voucher_use_saleitem_type(value)
+
+        #Validate voucher date contraint
+        self.validate_voucher_use_date(value['voucher_use'])
     
     def gen_voucher_use_constraint(self, value: OrderedDict):
         #check if voucher type used is correct
-        for voucher in value['gen_voucher_used']:
+        for voucher in value['gen_voucher_use']:
             # if not isinstance(voucher, GenericVoucher):
             if not isinstance(voucher, GenericVoucher):
                 raise ValidationError('Voucher type is not valid')
 
             if not voucher.voucher_redeemable:
                 raise ValidationError('Voucher is invalid as it has passed its redemption limit')
+            
+            #Validate voucher date contraint
+            self.validate_voucher_use_date(voucher)
 
         salesitem_instances = value['saleitem']
         for saleitem in salesitem_instances:
             self.discount_constraint_check(saleitem)
             
-    def validate_voucher_use_date(self, value:OrderedDict):
-        voucher_use = value.get('voucher_use', None)
-        start_date = getattr(voucher_use, 'voucher_start_date')
-        end_date = getattr(voucher_use, 'voucher_end_date')
+    def validate_voucher_use_date(self, voucher: Union[GenericVoucher, CategoryVoucher, ItemVoucher]):
+        start_date = getattr(voucher, 'voucher_start_date', None)
+        end_date = getattr(voucher, 'voucher_end_date', None)
         current_date = datetime.now().date()
 
         if start_date and end_date:

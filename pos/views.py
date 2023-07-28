@@ -20,7 +20,7 @@ from drf_spectacular.utils import *
 class SaleView(RetrieveUpdateAPIView):
     serializer_class = BaseSaleItemSaleSerializer
     queryset = Sale.objects.all()
-    # permission_classes = [IsAuthenticated, DeleteSalesPerm]
+    permission_classes = [IsAuthenticated, DeleteSalesPerm]
     
     def get_serializer_class(self):
         method = self.request.method
@@ -138,7 +138,7 @@ class SaleView(RetrieveUpdateAPIView):
 class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
     serializer_class = BaseSaleItemSaleSerializer
     queryset = Sale.objects.all()
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         method = self.request.method
@@ -243,6 +243,7 @@ class SalesView(CreateAPIView, ListAPIView, DestroyAPIView):
                 try:
                     sale = get_object_or_404(self.get_queryset(), sales_id=sales_id)
                     sale.saleitem.all().delete()
+                    sale.gen_voucher_use.clear()
                     sale.delete()               
                 except Exception as e:
                     item_not_deleted.append({"sales_id": sales_id, "err_msg": str(e)})
@@ -402,7 +403,7 @@ class SaleItemView(RetrieveUpdateAPIView):
 class SaleItemsView(CreateAPIView, ListAPIView, DestroyAPIView):
     serializer_class = BaseSaleItemSerializer
     queryset = SaleItem.objects.all()
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
         method = self.request.method

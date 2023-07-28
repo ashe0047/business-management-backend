@@ -1,5 +1,6 @@
 from typing import Any, Dict, Iterable, Optional, Tuple
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from crm.models.models import Customer
@@ -13,13 +14,30 @@ class Sale(models.Model):
     sales_datetime = models.DateTimeField(auto_now_add=True,blank=False, null=False)
     gross_sales_amt = models.DecimalField(max_digits=1000, decimal_places=2, blank=True, null=True)
     net_sales_amt = models.DecimalField(max_digits=1000, decimal_places=2, blank=True, null=True)
-    gen_voucher_used = models.ManyToManyField(GenericVoucher, related_name='sale', through="VoucherUsage") #Generic voucher used
+    gen_voucher_use = models.ManyToManyField(GenericVoucher, related_name='sale', through="VoucherUsage") #Generic voucher used
     sales_payment_method = models.CharField(max_length=100, blank=False, null=False)
+    
+    
+    def auto_sales_amount(self):
+        #sum the gross and net sales amount for all saleitems
+        self.gross_sales_amt, self.net_sales_amt = tuple(sum(values)for values in zip(*[(item.gross_sales_item_total_price, item.net_sales_item_total_price) for item in self.saleitem.all()]))
+
+        total_discount_amt = 0
+        total_discount_percent = 0
+        #deduct the voucher amount from net sales amount accordingly if vouchers are used
+        if len(self.gen_voucher_use.all()) != 0:
+            for voucher in self.gen_voucher_use.all():
+                if voucher.voucher_info['discount_type'] == 'percentage':
+                    total_discount_percent += voucher.voucher_info['discount_percent']
+                else:
+                    total_discount_amt += voucher.voucher_info['discount_amt']
+            self.net_sales_amt = self.net_sales_amt - (total_discount_percent*self.net_sales_amt) - total_discount_amt
+
     
     def save(self, *args, **kwargs):
         #unpack and sum up the values for gross and net amount for all saleitem and assign to sales
         if self.sales_id: 
-            self.gross_sales_amt, self.net_sales_amt = tuple(sum(values)for values in zip(*[(item.gross_sales_item_total_price, item.net_sales_item_total_price) for item in self.saleitem.all()]))
+            self.auto_sales_amount()
         
         return super().save(*args, **kwargs)
 

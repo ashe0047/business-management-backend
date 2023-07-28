@@ -1,4 +1,5 @@
 from rest_framework.generics import *
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from crm.models.models import *
 from crm.serializers import *
@@ -42,4 +43,9 @@ class CustomersView(CreateAPIView, ListAPIView):
     queryset = Customer.objects.all()
     permission_classes = [IsAuthenticated]
 
-# class TreatmentView()
+class TreatmentViewset(ModelViewSet):
+    serializer_class = TreatmentSerializer
+    queryset = Treatment.objects.all()
+    # permission_classes = [IsAuthenticated]
+
+

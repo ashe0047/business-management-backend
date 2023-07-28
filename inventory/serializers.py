@@ -1,8 +1,15 @@
 from rest_framework import serializers
 from inventory.models import *
 
-class ProductSerializer(serializers.ModelSerializer):
+class InventoryCategorySerializer(serializers.ModelSerializer):
 
+    class Meta:
+        model = InventoryCategory
+        fields = '__all__'
+        read_only_fields = ['cat_id']
+
+class ProductSerializer(serializers.ModelSerializer):
+    prod_category = InventoryCategorySerializer(read_only=True)
     class Meta:
         model = Product
         fields = '__all__'
@@ -16,20 +23,16 @@ class ProductSupplierSerializer(serializers.ModelSerializer):
         read_only_fields = ['supplier_id']
 
 class ServiceSerializer(serializers.ModelSerializer):
-
+    service_category = InventoryCategorySerializer(read_only=True)
     class Meta:
         model = Service
         fields = '__all__'
         read_only_fields = ['service_id']
 
-class InventoryCategorySerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = InventoryCategory
-        fields = '__all__'
-        read_only_fields = ['cat_id']
 
 class ServicePackageSerializer(serializers.ModelSerializer):
+    pkg_category = InventoryCategorySerializer(read_only=True)
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

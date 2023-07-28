@@ -56,7 +56,7 @@ def voucher_discount_amount(voucher_info, inventory_price):
         
 #     def gen_voucher_use_constraint(sale: sale_class):
 #         #check if voucher type used is correct
-#         for voucher in sale.gen_voucher_used.all():
+#         for voucher in sale.gen_voucher_use.all():
 #             # if not isinstance(voucher, GenericVoucher):
 #             if not isinstance(voucher, GenericVoucher):
 #                 raise ValidationError('Voucher type is not valid')

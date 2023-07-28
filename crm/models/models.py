@@ -35,14 +35,14 @@ class Customer(models.Model):
 
 
 class Treatment(models.Model):
+    treatment_id = models.BigAutoField(primary_key=True)
     cust = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='treatment')
     emp = models.ForeignKey(Employee, on_delete=models.PROTECT, related_name='treatment')
     service = models.ForeignKey(Service, on_delete=models.PROTECT)
-    pkg_sub = models.ForeignKey('pos.PackageSubscription', on_delete=models.PROTECT)
+    pkg_sub = models.ForeignKey('pos.PackageSubscription', on_delete=models.PROTECT, related_name='treatment')
     treatment_date = models.DateTimeField()
     treatment_notes = models.TextField(blank=True)
-    treatment_img = models.ImageField()
+    treatment_img = models.ImageField(blank=True, null=True)
 
     class Meta:
         db_table = 'treatment'
-        unique_together = (('cust', 'emp',),)

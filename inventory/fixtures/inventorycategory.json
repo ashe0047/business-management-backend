@@ -1,0 +1,403 @@
+[
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 1,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 1"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 2,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 2"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 3,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 3"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 4,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 4"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 5,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 5"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 6,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 6"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 7,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 7"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 8,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 8"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 9,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 9"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 10,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 10"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 11,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 11"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 12,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 12"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 13,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 13"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 14,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 14"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 15,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 15"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 16,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 16"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 17,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 17"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 18,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 18"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 19,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 19"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 20,
+      "fields": {
+        "cat_type": "product",
+        "cat_name": "Category 20"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 21,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 21"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 22,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 22"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 23,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 23"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 24,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 24"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 25,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 25"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 26,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 26"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 27,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 27"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 28,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 28"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 29,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 29"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 30,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 30"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 31,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 31"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 32,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 32"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 33,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 33"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 34,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 34"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 35,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 35"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 36,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 36"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 37,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 37"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 38,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 38"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 39,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 39"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 40,
+      "fields": {
+        "cat_type": "service",
+        "cat_name": "Category 40"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 41,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 41"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 42,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 42"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 43,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 43"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 44,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 44"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 45,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 45"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 46,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 46"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 47,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 47"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 48,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 48"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 49,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 49"
+      }
+    },
+    {
+      "model": "inventory.InventoryCategory",
+      "pk": 50,
+      "fields": {
+        "cat_type": "servicepackage",
+        "cat_name": "Category 50"
+      }
+    }
+  ]
+  

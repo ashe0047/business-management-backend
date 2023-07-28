@@ -132,34 +132,6 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-        employee = self.get_object()
-        serializer = self.get_serializer(employee, data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        # Update related models if necessary
-        if 'bank_account_data' in request.data:
-            bank_account_data = request.data['bank_account_data']
-            bank_account_serializer = EmployeeBankAccountSerializer(
-                instance=employee.employeebankaccount_set,
-                data=bank_account_data,
-                partial=True
-            )
-            bank_account_serializer.is_valid(raise_exception=True)
-            bank_account_serializer.save()
-
-        if 'benefit_account_data' in request.data:
-            benefit_account_data = request.data['benefit_account_data']
-            benefit_account_serializer = EmployeeBenefitAccountSerializer(
-                instance=employee.employeebenefitaccount_set,
-                data=benefit_account_data,
-                partial=True
-            )
-            benefit_account_serializer.is_valid(raise_exception=True)
-            benefit_account_serializer.save()
-
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
     @extend_schema(
         parameters=[
             OpenApiParameter(
@@ -200,7 +172,7 @@ class EmployeeView(CreateAPIView, RetrieveUpdateAPIView, DestroyAPIView):
         else:
             return Response({'error': 'No employee record associated with this user account found'}, status=status.HTTP_404_NOT_FOUND)
 
-class EmployeeListView(ListAPIView):
+class EmployeesView(ListAPIView):
     serializer_class = EmployeeSerializer
     queryset = Employee.objects.all()
     permission_classes = [IsAuthenticated, ViewAllEmployeeRecordPermission]

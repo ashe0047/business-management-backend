@@ -1,0 +1,453 @@
+[
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 1,
+      "fields": {
+        "prod_com_type": "Commission Type 1",
+        "prod_com_rate": "0.05",
+        "prod_com_amt": "100.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 2,
+      "fields": {
+        "prod_com_type": "Commission Type 2",
+        "prod_com_rate": "0.07",
+        "prod_com_amt": "150.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 3,
+      "fields": {
+        "prod_com_type": "Commission Type 3",
+        "prod_com_rate": "0.10",
+        "prod_com_amt": "200.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 4,
+      "fields": {
+        "prod_com_type": "Commission Type 4",
+        "prod_com_rate": "0.08",
+        "prod_com_amt": "120.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 5,
+      "fields": {
+        "prod_com_type": "Commission Type 5",
+        "prod_com_rate": "0.12",
+        "prod_com_amt": "180.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 6,
+      "fields": {
+        "prod_com_type": "Commission Type 6",
+        "prod_com_rate": "0.15",
+        "prod_com_amt": "250.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 7,
+      "fields": {
+        "prod_com_type": "Commission Type 7",
+        "prod_com_rate": "0.06",
+        "prod_com_amt": "110.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 8,
+      "fields": {
+        "prod_com_type": "Commission Type 8",
+        "prod_com_rate": "0.09",
+        "prod_com_amt": "170.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 9,
+      "fields": {
+        "prod_com_type": "Commission Type 9",
+        "prod_com_rate": "0.11",
+        "prod_com_amt": "190.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 10,
+      "fields": {
+        "prod_com_type": "Commission Type 10",
+        "prod_com_rate": "0.14",
+        "prod_com_amt": "230.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 11,
+      "fields": {
+        "prod_com_type": "Commission Type 11",
+        "prod_com_rate": "0.04",
+        "prod_com_amt": "80.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 12,
+      "fields": {
+        "prod_com_type": "Commission Type 12",
+        "prod_com_rate": "0.03",
+        "prod_com_amt": "70.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 13,
+      "fields": {
+        "prod_com_type": "Commission Type 13",
+        "prod_com_rate": "0.02",
+        "prod_com_amt": "60.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 14,
+      "fields": {
+        "prod_com_type": "Commission Type 14",
+        "prod_com_rate": "0.01",
+        "prod_com_amt": "50.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 15,
+      "fields": {
+        "prod_com_type": "Commission Type 15",
+        "prod_com_rate": "0.06",
+        "prod_com_amt": "120.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 16,
+      "fields": {
+        "prod_com_type": "Commission Type 16",
+        "prod_com_rate": "0.09",
+        "prod_com_amt": "180.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 17,
+      "fields": {
+        "prod_com_type": "Commission Type 17",
+        "prod_com_rate": "0.07",
+        "prod_com_amt": "130.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 18,
+      "fields": {
+        "prod_com_type": "Commission Type 18",
+        "prod_com_rate": "0.08",
+        "prod_com_amt": "140.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 19,
+      "fields": {
+        "prod_com_type": "Commission Type 19",
+        "prod_com_rate": "0.12",
+        "prod_com_amt": "210.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 20,
+      "fields": {
+        "prod_com_type": "Commission Type 20",
+        "prod_com_rate": "0.15",
+        "prod_com_amt": "270.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 21,
+      "fields": {
+        "prod_com_type": "Commission Type 21",
+        "prod_com_rate": "0.11",
+        "prod_com_amt": "200.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 22,
+      "fields": {
+        "prod_com_type": "Commission Type 22",
+        "prod_com_rate": "0.10",
+        "prod_com_amt": "190.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 23,
+      "fields": {
+        "prod_com_type": "Commission Type 23",
+        "prod_com_rate": "0.14",
+        "prod_com_amt": "250.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 24,
+      "fields": {
+        "prod_com_type": "Commission Type 24",
+        "prod_com_rate": "0.03",
+        "prod_com_amt": "60.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 25,
+      "fields": {
+        "prod_com_type": "Commission Type 25",
+        "prod_com_rate": "0.02",
+        "prod_com_amt": "50.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 26,
+      "fields": {
+        "prod_com_type": "Commission Type 26",
+        "prod_com_rate": "0.01",
+        "prod_com_amt": "40.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 27,
+      "fields": {
+        "prod_com_type": "Commission Type 27",
+        "prod_com_rate": "0.05",
+        "prod_com_amt": "90.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 28,
+      "fields": {
+        "prod_com_type": "Commission Type 28",
+        "prod_com_rate": "0.04",
+        "prod_com_amt": "80.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 29,
+      "fields": {
+        "prod_com_type": "Commission Type 29",
+        "prod_com_rate": "0.07",
+        "prod_com_amt": "140.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 30,
+      "fields": {
+        "prod_com_type": "Commission Type 30",
+        "prod_com_rate": "0.06",
+        "prod_com_amt": "130.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 31,
+      "fields": {
+        "prod_com_type": "Commission Type 31",
+        "prod_com_rate": "0.09",
+        "prod_com_amt": "190.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 32,
+      "fields": {
+        "prod_com_type": "Commission Type 32",
+        "prod_com_rate": "0.08",
+        "prod_com_amt": "180.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 33,
+      "fields": {
+        "prod_com_type": "Commission Type 33",
+        "prod_com_rate": "0.11",
+        "prod_com_amt": "220.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 34,
+      "fields": {
+        "prod_com_type": "Commission Type 34",
+        "prod_com_rate": "0.10",
+        "prod_com_amt": "200.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 35,
+      "fields": {
+        "prod_com_type": "Commission Type 35",
+        "prod_com_rate": "0.14",
+        "prod_com_amt": "260.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 36,
+      "fields": {
+        "prod_com_type": "Commission Type 36",
+        "prod_com_rate": "0.13",
+        "prod_com_amt": "240.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 37,
+      "fields": {
+        "prod_com_type": "Commission Type 37",
+        "prod_com_rate": "0.01",
+        "prod_com_amt": "30.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 38,
+      "fields": {
+        "prod_com_type": "Commission Type 38",
+        "prod_com_rate": "0.02",
+        "prod_com_amt": "40.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 39,
+      "fields": {
+        "prod_com_type": "Commission Type 39",
+        "prod_com_rate": "0.04",
+        "prod_com_amt": "70.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 40,
+      "fields": {
+        "prod_com_type": "Commission Type 40",
+        "prod_com_rate": "0.03",
+        "prod_com_amt": "60.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 41,
+      "fields": {
+        "prod_com_type": "Commission Type 41",
+        "prod_com_rate": "0.06",
+        "prod_com_amt": "100.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 42,
+      "fields": {
+        "prod_com_type": "Commission Type 42",
+        "prod_com_rate": "0.05",
+        "prod_com_amt": "90.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 43,
+      "fields": {
+        "prod_com_type": "Commission Type 43",
+        "prod_com_rate": "0.08",
+        "prod_com_amt": "140.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 44,
+      "fields": {
+        "prod_com_type": "Commission Type 44",
+        "prod_com_rate": "0.07",
+        "prod_com_amt": "120.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 45,
+      "fields": {
+        "prod_com_type": "Commission Type 45",
+        "prod_com_rate": "0.10",
+        "prod_com_amt": "170.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 46,
+      "fields": {
+        "prod_com_type": "Commission Type 46",
+        "prod_com_rate": "0.09",
+        "prod_com_amt": "150.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 47,
+      "fields": {
+        "prod_com_type": "Commission Type 47",
+        "prod_com_rate": "0.12",
+        "prod_com_amt": "210.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 48,
+      "fields": {
+        "prod_com_type": "Commission Type 48",
+        "prod_com_rate": "0.11",
+        "prod_com_amt": "200.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 49,
+      "fields": {
+        "prod_com_type": "Commission Type 49",
+        "prod_com_rate": "0.15",
+        "prod_com_amt": "260.00"
+      }
+    },
+    {
+      "model": "core.ProductCommissionStructure",
+      "pk": 50,
+      "fields": {
+        "prod_com_type": "Commission Type 50",
+        "prod_com_rate": "0.14",
+        "prod_com_amt": "240.00"
+      }
+    }
+  ]
+  

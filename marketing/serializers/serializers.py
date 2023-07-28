@@ -15,7 +15,7 @@ class BaseGenericVoucherSerializer(serializers.ModelSerializer):
     class Meta:
         model = GenericVoucher
         fields = '__all__'
-        read_only_fields = ('voucher_code', 'voucher_created_date')
+        read_only_fields = ('voucher_code', 'voucher_created_date', 'voucher_redemption_count',)
         validators = [GenericVoucherValidator()]
 
 class BaseItemVoucherSerializer(serializers.ModelSerializer):
@@ -30,7 +30,7 @@ class BaseItemVoucherSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemVoucher
         fields = '__all__'
-        read_only_fields = ('voucher_code', 'voucher_created_date')
+        read_only_fields = ('voucher_code', 'voucher_created_date', 'voucher_redemption_count',)
         validators = [ItemVoucherValidator()]
 
 class BaseCategoryVoucherSerializer(serializers.ModelSerializer):
@@ -45,7 +45,7 @@ class BaseCategoryVoucherSerializer(serializers.ModelSerializer):
     class Meta:
         model = CategoryVoucher
         fields = '__all__'
-        read_only_fields = ('voucher_code', 'voucher_created_date')
+        read_only_fields = ('voucher_code', 'voucher_created_date', 'voucher_redemption_count',)
         validators = [CategoryVoucherValidator()]
 
 

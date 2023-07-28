@@ -8,7 +8,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         User = get_user_model()
         if not User.objects.filter(username='shapebeautyadmin').exists():
-            User.objects.create_superuser('shapebeautyadmin', 'Shape Beauty Admin', 'shapebeautysc@gmail.com', '9761988shape')
+            User.objects.create_superuser(username='shapebeautyadmin', email='shapebeautysc@gmail.com', name='Shape Beauty Admin', password='9761988shape')
             self.stdout.write(self.style.SUCCESS('Superuser created successfully.'))
         else:
             self.stdout.write(self.style.ERROR('Superuser already exists.'))

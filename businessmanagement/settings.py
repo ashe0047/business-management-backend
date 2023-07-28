@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "marketing",
     "store",
     "config",
+    "gdstorage",
     # "django_extensions",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -74,7 +75,10 @@ ROOT_URLCONF = "businessmanagement.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'app_ui'),
+            os.path.join(BASE_DIR, 'auth_core/templates')
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -140,8 +144,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'app_ui/static')
+    ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+#
+# Google Drive Storage Settings
+#
+
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '/static/img_files' # OPTIONAL
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -158,6 +172,54 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+SPECTACULAR_SETTINGS = {
+    'SCHEMA_PATH_PREFIX': '/api',
+    'TITLE': 'Business Management Backend API',
+    'DESCRIPTION': '#### Welcome to our API documentation for **CRM**, **HRM**, **Core**, **POS**, **Inventory**, **Marketing**, and **Store** apps. <br/> This comprehensive suite of applications offers a unified API to streamline your business operations, enhance customer engagement, and enable seamless integration with third-party systems. <br/> Explore our endpoints, data models, and examples to leverage the full potential of our suite and optimize your business processes.',
+    'VERSION': '1.0.0', 
+    'TAGS': [
+        {
+            'name': 'auth',
+            'description': 'Used for **Authentication** operations such as **registering** and **login** and accessing **User** records'
+        },
+        {
+            'name': 'core',
+            'description': 'Contain things that are used across other other apps such as Commission'
+        },
+        {
+            'name': 'crm',
+            'description': 'Access to Customer related data such as Customer and Treatment records'
+        },
+        {
+            'name': 'hrm',
+            'description': 'Access to Employee related data such as Employee and Bank records'
+        },
+        {
+            'name': 'inventory',
+            'description': 'Access to Inventory related data such as Product, Service and ServicePackage records'
+        },
+        {
+            'name': 'marketing',
+            'description': 'Access to Marketing related data such as Voucher records'
+        },
+        {
+            'name': 'pos',
+            'description': 'Access to POS related data such as Sale and SaleItem, PackageSubscription records'
+        },
+    ]
+}
+
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = os.getenv('EMAIL_HOST')
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = os.getenv('EMAIL_PORT')
+    EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == "True"
+    EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL') == "True"
 
 LOGGING = {
     'version': 1,

@@ -9,7 +9,7 @@ from marketing.models.models import GenericVoucher
 class SaleSerializer(serializers.ModelSerializer):
     cust = CustomerSerializer(required=False)
     sales_amt = SalesAmountField(source='*', read_only=True)
-    gen_voucher_used = serializers.PrimaryKeyRelatedField(queryset=GenericVoucher.objects.all(), required=False, many=True) #explicitly define as manytomany field is read_only by default
+    gen_voucher_use = serializers.PrimaryKeyRelatedField(queryset=GenericVoucher.objects.all(), required=False, many=True) #explicitly define as manytomany field is read_only by default
 
     def get_validators(self):
         custom_validators = super().get_validators()
@@ -18,7 +18,7 @@ class SaleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sale
-        fields = ('sales_id', 'cust', 'sales_datetime', 'sales_amt', 'sales_payment_method', 'gen_voucher_used')
+        fields = ('sales_id', 'cust', 'sales_datetime', 'sales_amt', 'sales_payment_method', 'gen_voucher_use')
         read_only_fields = ('sales_id',)
         validators = [VoucherUseValidator()]
 
@@ -46,13 +46,18 @@ class BaseSaleItemSaleSerializer(SaleSerializer):
     #     return SaleItemSerializer(required=True, many=True, *args, **kwargs)
     class Meta:
         model = Sale
-        fields = ('sales_id', 'cust', 'sales_datetime', 'sales_amt', 'sales_payment_method', 'saleitem', 'gen_voucher_used')
+        fields = ('sales_id', 'cust', 'sales_datetime', 'sales_amt', 'sales_payment_method', 'saleitem', 'gen_voucher_use')
         read_only_fields = ('sales_id',)
         validators = [VoucherUseValidator()]
 
 class SaleItemSaleWriteSerializer(BaseSaleItemSaleSerializer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.initial_data = kwargs.get('data', None)
+        if self.initial_data:
+            if self.initial_data.get('gen_voucher_use', None):
+                self.context.update({'gen_voucher_use': True})
+                
         self.fields['saleitem'] = SaleItemWriteSerializer(required=True, many=True, context=self.context_update_parent())
     
     # def validate(self, data):
@@ -67,6 +72,7 @@ class SaleItemSaleWriteSerializer(BaseSaleItemSaleSerializer):
         #Remove the fields with nested data
         cust = validated_data.pop('cust', {})
         sales_item = validated_data.pop('saleitem', {})
+        gen_voucher_use = validated_data.pop('gen_voucher_use', [])
 
         cust_nric = cust.pop('cust_nric', None)
         #if customer already exists in model, then return customer instance, else create an instance
@@ -75,6 +81,7 @@ class SaleItemSaleWriteSerializer(BaseSaleItemSaleSerializer):
 
         
         sales_instance = self.Meta.model.objects.create(**validated_data)
+        sales_instance.gen_voucher_use.set(gen_voucher_use)
         sales_item_with_sales = [item.update({'sales': sales_instance}) for item in sales_item]
         sales_item_instances = self.fields['saleitem'].create(sales_item)
         

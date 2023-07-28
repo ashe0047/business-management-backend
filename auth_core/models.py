@@ -21,8 +21,9 @@ class UserManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         group.user_set.add(user)
-
+        
         return user
+    
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -32,11 +33,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
+
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
     EMAIL_FIELD = 'email'
     REQUIRED_FIELDS = ['email', 'name', 'role']
+
 
 class GroupManager(BaseGroupManager):
     pass
