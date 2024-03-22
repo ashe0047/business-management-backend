@@ -1,0 +1,77 @@
+[
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 1,
+		"fields": { "value": 1, "unit": "pc", "sku_part": "1PC" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 2,
+		"fields": { "value": 20, "unit": "gm", "sku_part": "20GM" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 3,
+		"fields": { "value": 25, "unit": "gm", "sku_part": "25GM" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 4,
+		"fields": { "value": 30, "unit": "gm", "sku_part": "30GM" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 5,
+		"fields": { "value": 75, "unit": "gm", "sku_part": "75GM" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 6,
+		"fields": { "value": 3, "unit": "ml", "sku_part": "3ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 7,
+		"fields": { "value": 3.5, "unit": "ml", "sku_part": "3.5ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 8,
+		"fields": { "value": 15, "unit": "ml", "sku_part": "15ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 9,
+		"fields": { "value": 25, "unit": "ml", "sku_part": "25ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 10,
+		"fields": { "value": 30, "unit": "ml", "sku_part": "30ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 11,
+		"fields": { "value": 50, "unit": "ml", "sku_part": "50ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 12,
+		"fields": { "value": 60, "unit": "ml", "sku_part": "60ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 13,
+		"fields": { "value": 100, "unit": "ml", "sku_part": "100ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 14,
+		"fields": { "value": 110, "unit": "ml", "sku_part": "110ML" }
+	},
+	{
+		"model": "inventory.ProductUnitSize",
+		"pk": 15,
+		"fields": { "value": 150, "unit": "ml", "sku_part": "150ML" }
+	}
+]

@@ -10,59 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
-import io
 import os
 from urllib.parse import urlparse
 
-import environ
-import google.auth
-from google.cloud import secretmanager
+from dotenv import load_dotenv
+import json
+#load environtment variables from .env if not on Vercel
+if not os.getenv('USE_VERCEL', None):
+    load_dotenv(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# [START cloudrun_django_secret_config]
-# SECURITY WARNING: don't run with debug turned on in production!
-# Change this to "False" when you are ready for production
-env = environ.Env(DEBUG=(bool, True))
-env_file = os.path.join(BASE_DIR, ".env")
-
-# Attempt to load the Project ID into the environment, safely failing on error.
-try:
-    _, os.environ["GOOGLE_CLOUD_PROJECT"] = google.auth.default()
-except google.auth.exceptions.DefaultCredentialsError:
-    pass
-
-if os.path.isfile(env_file):
-    # Use a local secret file, if provided
-
-    env.read_env(env_file)
-# [START_EXCLUDE]
-elif os.getenv("TRAMPOLINE_CI", None):
-    # Create local settings if running with CI, for unit testing
-
-    placeholder = (
-        f"SECRET_KEY=a\n"
-        "GS_BUCKET_NAME=None\n"
-        f"DATABASE_URL=sqlite://{os.path.join(BASE_DIR, 'db.sqlite3')}"
-    )
-    env.read_env(io.StringIO(placeholder))
-# [END_EXCLUDE]
-elif os.environ.get("GOOGLE_CLOUD_PROJECT", None):
-    # Pull secrets from Secret Manager
-    project_id = os.environ.get("GOOGLE_CLOUD_PROJECT")
-
-    client = secretmanager.SecretManagerServiceClient()
-    settings_name = os.environ.get("SETTINGS_NAME", "django_settings")
-    name = f"projects/{project_id}/secrets/{settings_name}/versions/latest"
-    payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
-
-    env.read_env(io.StringIO(payload))
-else:
-    raise Exception("No local .env or GOOGLE_CLOUD_PROJECT detected. No secrets found.")
-# [END cloudrun_django_secret_config]
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -71,39 +30,34 @@ SECRET_KEY = env("SECRET_KEY")
 # SECRET_KEY = "django-insecure-=g=re$9z=q^r0ugf6fzu66xn1sv29#c&c_4$rx8xct_7jx%wc4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = os.getenv("DEBUG") == "True"
 
-# ALLOWED_HOSTS = []
-# [START cloudrun_django_csrf]
-# SECURITY WARNING: It's recommended that you use this when
-# running in production. The URL will be known once you first deploy
-# to Cloud Run. This code takes the URL and converts it to both these settings formats.
-CLOUDRUN_SERVICE_URL = env("CLOUDRUN_SERVICE_URL", default=None)
-if CLOUDRUN_SERVICE_URL:
-    ALLOWED_HOSTS = [urlparse(CLOUDRUN_SERVICE_URL).netloc]
-    CSRF_TRUSTED_ORIGINS = [CLOUDRUN_SERVICE_URL]
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-else:
-    ALLOWED_HOSTS = ["*"]
-# [END cloudrun_django_csrf]
-
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
 INSTALLED_APPS = [
+    "auth_core",
     "core",
     "crm",
     "hrm",
     "inventory",
     "pos",
+    "marketing",
+    "store",
+    "config",
+    "gdstorage",
+    # "django_extensions",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "storages"
+    "storages",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -121,7 +75,10 @@ ROOT_URLCONF = "businessmanagement.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'app_ui'),
+            os.path.join(BASE_DIR, 'auth_core/templates')
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -139,26 +96,17 @@ WSGI_APPLICATION = "businessmanagement.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-# [START cloudrun_django_database_config]
-# Use django-environ to parse the connection string
-DATABASES = {"default": env.db()}
 
-# If the flag as been set, configure to use proxy
-if os.getenv("USE_CLOUD_SQL_AUTH_PROXY", None):
-    DATABASES["default"]["HOST"] = "127.0.0.1"
-    DATABASES["default"]["PORT"] = 5432
-# print(env.db())
-# [END cloudrun_django_database_config]
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "business-management-db",
-#         "USER": "admin",
-#         "PASSWORD": "Dan001005.",
-#         "HOST": "localhost",
-#         "PORT": "5432"
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("SUPABASE_DB_NAME"),
+        "USER": os.getenv("SUPABASE_DB_USERNAME"),
+        "PASSWORD": os.getenv("SUPABASE_DB_PASSWORD"),
+        "HOST": os.getenv("SUPABASE_DB_HOSTNAME"),
+        "PORT": os.getenv("SUPABASE_DB_PORT")
+    }
+}
 
 
 # Password validation
@@ -195,17 +143,95 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# STATIC_URL = "static/"
-# [START cloudrun_django_static_config]
-# Define static storage via django-storages[google]
-GS_BUCKET_NAME = env("GS_BUCKET_NAME")
-STATIC_URL = "/static/"
-DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
-STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
-GS_DEFAULT_ACL = "publicRead"
-# [END cloudrun_django_static_config]
+STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'app_ui/static')
+    ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+#
+# Google Drive Storage Settings
+#
+
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '/static/img_files' # OPTIONAL
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "auth_core.User"
+AUTH_GROUP_MODEL = "auth_core.Group"
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'businessmanagement.autoschema.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+SPECTACULAR_SETTINGS = {
+    'SCHEMA_PATH_PREFIX': '/api',
+    'TITLE': 'Enterprise Resource Planning API',
+    'DESCRIPTION': '#### Welcome to our API documentation for **CRM**, **HRM**, **Core**, **POS**, **Inventory**, **Marketing**, and **Store** apps. <br/> This comprehensive suite of applications offers a unified API to streamline your business operations, enhance customer engagement, and enable seamless integration with third-party systems. <br/> Explore our endpoints, data models, and examples to leverage the full potential of our suite and optimize your enterprise needs & processes.',
+    'VERSION': '1.0.0', 
+    'TAGS': [
+        {
+            'name': 'auth',
+            'description': 'Used for **Authentication** operations such as **registering** and **login** and accessing **User** records'
+        },
+        {
+            'name': 'core',
+            'description': 'Contain things that are used across other other apps such as Commission'
+        },
+        {
+            'name': 'crm',
+            'description': 'Access to Customer related data such as Customer and Treatment records'
+        },
+        {
+            'name': 'hrm',
+            'description': 'Access to Employee related data such as Employee and Bank records'
+        },
+        {
+            'name': 'inventory',
+            'description': 'Access to Inventory related data such as Product, Service and ServicePackage records'
+        },
+        {
+            'name': 'marketing',
+            'description': 'Access to Marketing related data such as Voucher records'
+        },
+        {
+            'name': 'pos',
+            'description': 'Access to POS related data such as Sale and SaleItem, PackageSubscription records'
+        },
+    ]
+}
+
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = os.getenv('EMAIL_HOST')
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = os.getenv('EMAIL_PORT')
+    EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == "True"
+    EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL') == "True"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}

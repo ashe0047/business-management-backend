@@ -1,0 +1,11 @@
+[
+	{
+		"model": "inventory.ProductBrand",
+		"pk": 1,
+		"fields": {
+			"name": "Girasol",
+			"origin_country": "Malaysia",
+			"sku_part": "GS"
+		}
+	}
+]

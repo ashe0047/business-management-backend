@@ -1,0 +1,11 @@
+[
+	{
+		"model": "inventory.ProductPackageSize",
+		"pk": 1,
+		"fields": {
+			"qty": "10",
+			"unit": "box",
+			"sku_part": "10BX"
+		}
+	}
+]
