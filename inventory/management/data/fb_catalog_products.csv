@@ -1,0 +1,2625 @@
+﻿# Required | A unique content ID for the item. Use the item's SKU if you can. Each content ID must appear only once in your catalog. To run dynamic ads this ID must exactly match the content ID for the same item in your Meta Pixel code. Character limit: 100,# Required | A specific and relevant title for the item. See title specifications: https://www.facebook.com/business/help/2104231189874655 Character limit: 150,# Required | A short and relevant description of the item. Include specific or unique product features like material or color. Use plain text and don't enter text in all capital letters. See description specifications: https://www.facebook.com/business/help/2302017289821154 Character limit: 9999,# Required | The current availability of the item. | Supported values: in stock; out of stock | Supported values: in stock; available for order; preorder; out of stock; discontinued,# Required | The condition of the item. Enter one of the following: new; refurbished; used | Supported values: new; refurbished; used,# Required | The price of the item. Format the price as a number followed by the 3-letter currency code (ISO 4217 standards). Use a period (.') as the decimal point; don't use a comma.,# Required | The URL of the specific product page where people can buy the item.,# Required | The URL for the main image of your item. Images must be in a supported format (JPG/GIF/PNG) and at least 500 x 500 pixels.,# Required | The brand name of the item. You can also enter a unique manufacturer part number (MPN) or Global Trade Item Number (GTIN) instead. A GTIN can be one of the following: UPC; EAN; JAN; ISBN. Character limit: 100.,# Optional | The Google product category for the item. Learn more about product categories: https://www.facebook.com/business/help/526764014610932.,# Optional | The Facebook product category for the item. Learn more about product categories: https://www.facebook.com/business/help/526764014610932.,# Optional | The quantity of this item you have to sell on Facebook and Instagram with checkout. Must be 1 or higher or the item won't be buyable,# Optional | The discounted price of the item if it's on sale. Format the price as a number followed by the 3-letter currency code (ISO 4217 standards). Use a period () as the decimal point; don't use a comma. A sale price is required if you want to use an overlay for discounted prices.,# Optional | The time range for your sale period. Includes the date and time/time zone when your sale starts and ends. If this field is blank any items with a sale_price remain on sale until you remove the sale price. Use this format: YYYY-MM-DDT23:59+00:00/YYYY-MM-DDT23:59+00:00. Enter the start date as YYYY-MM-DD. Enter a 'T'. Enter the start time in 24-hour format (00:00 to 23:59) followed by the UTC time zone (-12:00 to +14:00). Enter '/' and then repeat the same format for your end date and time. The example row below uses PST time zone (-08:00).,# Optional | Use this field to create variants of the same item. Enter the same group ID for all variants within a group. Learn more about variants: https://www.facebook.com/business/help/2256580051262113 Character limit: 100.,# Optional | Shipping details for the item. Format as Country:Region:Service:Price. Include the 3-letter ISO 4217 currency code in the price. Enter the price as 0.0 to use the free shipping overlay in your ads. Use ';' to separate multiple shipping details for different regions or countries. Only people in the specified region or country will see shipping details for that region or country. You can leave out the region (keep the double '::') if your shipping details are the same for an entire country.,# Optional | The shipping weight of the item. Include the unit of measurement (lb/oz/g/kg).,# Optional | Amount of product that buyers will receive in weight or volume.,# Optional | List all of the ingredients contained in this item as found on the product label; separated by a comma.,"# Optional | The scent or fragrance of your item; including items labeled as ""unscented""","# Optional | Indicates if the item is meant to alleviate particular skin care issues. For general health concerns like obesity; or blood pressure please use the Health concerns attribute. Values may be similar to the Skin type attribute - ""dry cracked skin"" may be a cocnern but ""dry"" is a skin type.",# Optional | Describes the particular body part(s) for which the item is intended.,# Optional | Describes the particular body part(s) for which the item is intended.,# Optional | Indicates the general skin type that the product is intended for on the oily/dry spectrum.,# Optional | The consistency; texture or formulation of the item and the way it will be consumed or dispensed.,# Optional | Detailed information telling how the product should be operated; assembled; or consumed.,# Optional | Information that describes symptoms or reactions that indicate when to stop using the product.,# Optional | Indicates the strength of SPF (Sun Protection Factor) in an item. This describes how well the product can block out harmful rays from the run. Commonly found in suncreen and makeup products.,# Optional | Keywords that might be used to search for this term; including synonyms and related terms.
+id,title,description,availability,condition,price,link,image_link,brand,google_product_category,fb_product_category,quantity_to_sell_on_facebook,sale_price,sale_price_effective_date,item_group_id,shipping,shipping_weight,capacity,ingredients[0],scent[0],skin_care_concern[0],body_part[0],body_part[1],skin_type,product_form,instructions[0],stop_use_indications[0],spf_value,keywords[0]
+0,Soothing Milk,"This smooth feeling cleansing milk removes effectively dirt, impurities &
+makeup. It calms and hydrates, alleviating dryness and leaving the
+complexion feeling smooth. Gives your skin a comfortable cleanse and a
+clean and soft complexion.
+
+这平滑感觉的洁面乳有效地祛除污垢、杂质及卸妆。它镇静与保湿,
+缓解干燥,让肌肤感觉柔滑。给予您的肌肤舒适的洗洁力,以及洁净
+
+与柔软的肤色。",in stock,new,140 MYR,https://www.example.com,https://www.facebook.com/t_shirt_image_001.jpg,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,10 kg,12 oz,"Helianthus Annuss (Sunflower) Seed Oil
+Very high in essential fatty acids and also rich in both Vitamin A and Vitamin E. It helps
+to moisturize, regenerate and condition the skin.
+具有非常高的必需脂肪酸,还富含维生素 A 和维生素 E,能润泽、恢复并使皮肤
+健康。
+
+Chamomilla Recutita (Matricaria) Extract
+Chamomile is a plant which has been known of since antiquity and was used by the
+Egyptians as a febrifuge and to treat intestinal disorders.
+自古以来,甘菊被埃及人作为退热剂及治疗肠道等疾病。
+The plant has an antispasmodic action and act as a decongestant, anti-inflammatory and
+anti allergic elements.
+该植物具有防痉挛及减轻充血作用,也是抗炎和抗过敏的主要元素。
+
+Cucumis Sativus (Cucumber) Fruit Extract
+The cucumber has a not inconsiderable cleansing action and is suitable for even the most
+sensitive skin that do not tolerate soap.
+黄瓜具有惊人的洗洁能力,适合对肥皂会有不适感的非常敏感性皮肤。
+Cucumber has been used for centuries as a calmative to ease minor burns and itching, and
+a skin freshener and decongestant. It is also very soothing, moisturising, emollient and
+softening. Its slightly astringent action is also suitable for greasy skin.
+黄瓜一直以来被用为镇静剂,舒缓轻微的烫伤和瘙痒, 也用为肌肤清爽剂和减轻
+充血剂。其特强洁净功能适用于超敏感肌肤。黄瓜汁紧致肌肤,提升密度。具有镇
+静,滋润及柔软肤质功效。其自然收敛特性也适用于油性肌肤。
+
+Aloe Barbadensis Leaf Juice
+Aloe Vera improves hydration, is soothing and healing to all skin types. Chemical
+analysis has shown the presence of mucopolysacharides, a natural moisturizing factor.
+Aloe Vera is composed of water, the enzymes catalase and cellulose, minerals, calcium,
+aluminium, iron, zinc, magnesium, sodium, 20 amino acids and carbohydrates. It has
+renowned healing properties, anti-inflammatory and can soothe the skin and help heal
+cuts, grazes, burns and insect bites. Its active constituents actually speed healing by
+accelerating tissue repair and encouraging normal cell growth. These properties make it
+ideal for use in skin care and cosmetic preparations on sunburns, acne dermatitis, and
+otherwise sensitive and irritated skin.
+独特的特质,给于干性,敏感性及损伤肌肤保湿、镇定及愈合效果。芦荟中的氨基
+酸和复合多糖物质构成了天然保湿因素,它可以补充水份,恢复胶元蛋白的功能,
+防止面部皱纹,保持皮肤柔润、光滑并富有弹性。芦荟中的某些成份能在皮肤上形
+成一层无形的膜,具消炎、加速细胞的愈合和生长,可防止因日晒引起的红肿、灼
+热感,保护皮肤免遭灼伤。
+
+Malva Sylvestris (Mallow) Extract
+It is used as skin moisturizer and emollient. It has an antiphlogistic action and therefore
+excellent for treating inflammations. Their softening and soothing properties have
+enabled their use in after-sun products and creams for sensitive skins.
+作为肌肤保湿及滋润剂。具有消炎功效,因此对发炎皮肤有一定的疗效。柔润及镇
+定功能使锦葵提取物被用于晒后产品及适合敏感肌肤使用。
+
+Mentha Piperita (Peppermint) Oil
+Its anti- inflammatory cleansing properties make it the ideal ingredient in skincare and
+cosmetic preparations for oily,可振奋精神,促进血液循环。适合油性皮肤,可调节其油脂分泌,治疗暗疮,收缩
+毛孔及排除毒素。
+
+Pelargonium Graveolens Flower Oil
+Emotionally uplifting, harmonizing, balancing, soothing, calming. It relieves post natal
+depression and menopause problems. Used in treating acne, dermatitis and eczema.
+Suitable for all skin types especially mature, inflamed and oily skin.
+助身心平衡的油剂,可解除女性因妇科病而引起的情绪不安,调节荷尔蒙分泌。在
+皮肤方面,它适合任何皮肤使用,具清洁、收缩毛孔、滋补功能,令[呆滞]的皮肤
+组织恢复天然弹性。
+
+Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and
+anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).
+在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+外用,薰衣草适合用在清洗伤口及溃疡,对于口部感染有镇痛作用,以及对晒伤则
+有舒缓和清新作用。",Vanilla,Dry Skin,Eyes,Face,Oily,Oil,"Apply a thin layer to moist face and neck. Lightly massage in circular motion with
+fingertips. Rinse off with water.
+涂薄薄一层于湿的脸部和颈部。用指尖以打圈的方式轻轻按摩。然后,用清水洗
+净。","Stop using if you experience swelling, rash, or fever",-,Solid
+1,Intensive Cleasning Gel ,"This silky-soft facial wash gently and effectively foams away impurities and
+dirt, leaving your skin smooth and clean. Its soothing formulation with
+plants extract and essential oil helps calm visible redness, irritation skin
+while preserving skin's moisture balance, leaves skin calm and refreshing
+with supple complexion. The gentle formula leaves the skin perceptibly
+clean, soft and supple, giving you a comfortable and healthy looking
+
+complexion.
+
+这丝绸般柔和的洁面凝胶温和及有效洗祛杂质和污垢,让您的肌肤光
+滑与洁净。其舒缓配方含植物提取和精油有助于镇静显着的红肿、发
+炎肌肤,同时保持肌肤水分的平衡,令肌肤镇静、清爽与拥有柔韧的
+肤色。温和的配方使肌肤明显地干净、柔滑与柔韧。给予您舒适与健
+
+康的肤色。",in stock,new,130 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Chamomilla Recutita (Matricaria) Extract
+Chamomile is a plant which has been known of since antiquity and was used by the
+Egyptians as a febrifuge and to treat intestinal disorders.
+自古以来,甘菊被埃及人作为退热剂及治疗肠道等疾病。
+The plant has an antispasmodic action and act as a decongestant, anti-inflammatory and
+anti allergic elements.
+该植物具有防痉挛及减轻充血作用,也是抗炎和抗过敏的主要元素。
+
+Centaurea Cyanus Flower Extract
+It is an astringent folk remedy that closes cutaneous pores, firms up and cleans the skin,
+therefore can effectively reduce sebaceous secretions. It possesses decongestant and anti-
+inflammatory properties.
+是皮肤的收敛剂,用于收缩皮肤毛孔,紧实及清洁皮肤,因此能有效减少皮脂的分
+泌量。具有降低充血及抗炎特性。
+
+Malva Sylvestris (Mallow) Extract
+It is used as skin moisturizer and emollient. It has an antiphlogistic action and therefore
+excellent for treating inflammations. Their softening and soothing properties have
+enabled their use in after-sun products and creams for sensitive skins.
+作为肌肤保湿及滋润剂。具有消炎功效,因此对发炎皮肤有一定的疗效。柔润及镇
+定功能使锦葵提取物被用于晒后产品及适合敏感肌肤使用。
+
+Cucumis Sativus (Cucumber) Fruit Extract
+The cucumber has a not inconsiderable cleansing action and is suitable for even the most
+sensitive skin that do not tolerate soap.
+黄瓜具有惊人的洗洁能力,适合对肥皂会有不适感的非常敏感性皮肤。
+Cucumber has been used for centuries as a calmative to ease minor burns and itching, and
+a skin freshener and decongestant. It is also very soothing, moisturising, emollient and
+softening. Its slightly astringent action is also suitable for greasy skin.
+黄瓜一直以来被用为镇静剂,舒缓轻微的烫伤和瘙痒, 也用为肌肤清爽剂和减轻
+充血剂。其特强洁净功能适用于超敏感肌肤。黄瓜汁紧致肌肤,提升密度。具有镇
+静,滋润及柔软肤质功效。其自然收敛特性也适用于油性肌肤。
+
+Portulaca Oleracea Extract
+The plant of Portulaca contains variety of nutrients such as vitamins, minerals, fatty acids
+and others, plays a role as calming agent on the skin from irritation, allergy and itching, it
+is also anti-inflammatory.
+马齿苋植物中含有多种营养物质,包含了维他命、矿物质、脂肪酸、麸酸、天冬氨
+酸及谷胱甘,让这款产品发挥绝佳减缓皮肤问题的功能,如止痒和减少过敏现象,
+同时具有抗过敏及抗发炎的功效。
+The plant has the following qualities: 此植物萃取具有以下效用:
+ Hydrates the skin. 滋润皮肤。
+ Alleviates the inflammation and is recommended for the management of inflamed
+skin.
+减轻炎症和被建议用于治疗发炎皮肤。
+ Increases antioxidants in the skin cells and thus reduces free radical damage to the
+skin.
+增加皮肤细胞的抗氧化剂,从而减少自由基对皮肤的损害。
+ It is safe for sensitive skin types.
+适用于敏感性皮肤。
+
+Pelargonium Graveolens Flower Oil
+Emotionally uplifting, harmonizing, balancing, soothing, calming. It relieves post natal
+depression and menopause problems. Used in treating acne, dermatitis and eczema.
+Suitable for all skin types especially mature, inflamed and oily skin.
+助身心平衡的油剂,可解除女性因妇科病而引起的情绪不安,调节荷尔蒙分泌。在
+皮肤方面,它适合任何皮肤使用,具清洁、收缩毛孔、滋补功能,令[呆滞]的皮肤
+组织恢复天然弹性。
+
+Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+
+Mentha Piperita (Peppermint) Oil
+Its anti- inflammatory cleansing properties make it the ideal ingredient in skincare and
+cosmetic preparations for oily, acne-prone skin, though it is wonderfully toning and
+cleansing for all skin types.
+可振奋精神,促进血液循环。适合油性皮肤,可调节其油脂分泌,治疗暗疮,收缩
+毛孔及排除毒素。
+
+Citric Acid
+It has been used extensively to adjust the pH level. It is said to have antioxidant
+properties, protecting skin from damaging free radical activity. Citric acid is also used for
+its astringent and skin lightening capabilities where it helps fade age spots.
+被广泛用于调整 pH 值。有抗氧化作用,能保护皮肤免受自由基的破坏。一有收敛
+及美白能力,有助于淡化斑点。",,,,,,,"Squeeze an appropriate amount of cleansing gel into your palm; add water to foam up
+rich lather. Apply to face and gently massage to thoroughly clean away excess sebum and
+dirt. Lastly, rinse off with water. Use morning and night.
+挤适量的洁面凝胶于掌心,加水以搓成泡沫。涂于脸部及轻轻按摩以彻底洗祛多余
+的皮脂和污垢。最后,用清水洗净。早晚使用。",,,
+2,Intensive Cleasning Gel (Senstive Skin Type),,in stock,new,140 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+3,Intensive Soothing Toner,"This comforting toner is formulated to restore natural pH balance and
+enhance the overall clarity of your skin. A botanical blend that includes
+mallow, aloe, chamomile, & cucumber tones, nourishes & moisturizes,
+while oleracea extract soothe naturally. Regular use may improve skin's
+
+suppleness and texture.
+
+这令人舒服的爽肤水是为了恢复您肌肤自然的酸碱值平衡及增强肌肤
+的清晰度而研制。混合植物萃取,其中包括锦葵,芦荟,洋甘菊及黄
+瓜以均匀,滋养和润泽,而马齿苋萃取自然地舒缓您的肌肤。经常使
+
+用可改善肌肤的柔韧度和质地。",in stock,new,108 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Hamamelis Virginiana (Witch Hazel) Extract
+Its styptic properties make it as a remedy for damaged skin. This plant is also found in
+make-up removers for its decongesting properties. Witch Hazel is also recommended for
+slack epidermis with distended pores, mixed complexions, and sometimes for greasy
+skins.
+天然的肌肤收敛作用,能帮助调理肌肤油脂,协助毛孔紧致 。亦有柔软功能,增
+强皮肤的防御能力及促进血液循环。
+
+Chamomilla Recutita (Matricaria) Extract
+Chamomile is a plant which has been known of since antiquity and was used by the
+Egyptians as a febrifuge and to treat intestinal disorders.
+自古以来,甘菊被埃及人作为退热剂及治疗肠道等疾病。
+The plant has an antispasmodic action and act as a decongestant, anti-inflammatory and
+anti allergic elements.
+该植物具有防痉挛及减轻充血作用,也是抗炎和抗过敏的主要元素。
+
+Aloe Barbadensis Leaf Juice
+Aloe Vera improves hydration, is soothing and healing to all skin types. Chemical
+analysis has shown the presence of mucopolysacharides, a natural moisturizing factor.
+Aloe Vera is composed of water, the enzymes catalase and cellulose, minerals, calcium,
+aluminium, iron, zinc, magnesium, sodium, 20 amino acids and carbohydrates. It has
+renowned healing properties, anti-inflammatory and can soothe the skin and help heal
+cuts, grazes, burns and insect bites. Its active constituents actually speed healing by
+accelerating tissue repair and encouraging normal cell growth. These properties make it ideal for use in skin care and cosmetic preparations on sunburns, acne dermatitis, and
+otherwise sensitive and irritated skin.
+独特的特质,给于干性,敏感性及损伤肌肤保湿、镇定及愈合效果。芦荟中的氨基
+酸和复合多糖物质构成了天然保湿因素,它可以补充水份,恢复胶元蛋白的功能,
+防止面部皱纹,保持皮肤柔润、光滑并富有弹性。芦荟中的某些成份能在皮肤上形
+成一层无形的膜,具消炎、加速细胞的愈合和生长,可防止因日晒引起的红肿、灼
+热感,保护皮肤免遭灼伤。
+
+Centaurea Cyanus Flower Extract
+It is an astringent folk remedy that closes cutaneous pores, firms up and cleans the skin,
+
+therefore can effectively reduce sebaceous secretions. It possesses decongestant and anti-
+inflammatory properties.
+
+是皮肤的收敛剂,用于收缩皮肤毛孔,紧实及清洁皮肤,因此能有效减少皮脂的分
+泌量。具有降低充血及抗炎特性。
+
+Malva Sylvestris (Mallow) Extract
+It is used as skin moisturizer and emollient. It has an antiphlogistic action and therefore
+excellent for treating inflammations. Their softening and soothing properties have
+enabled their use in after-sun products and creams for sensitive skins.
+作为肌肤保湿及滋润剂。具有消炎功效,因此对发炎皮肤有一定的疗效。柔润及镇
+定功能使锦葵提取物被用于晒后产品及适合敏感肌肤使用。
+
+Cucumis Sativus (Cucumber) Fruit Extract
+The cucumber has a not inconsiderable cleansing action and is suitable for even the most
+sensitive skin that do not tolerate soap.黄瓜具有惊人的洗洁能力,适合对肥皂会有不适感的非常敏感性皮肤。
+Cucumber has been used for centuries as a calmative to ease minor burns and itching, and
+a skin freshener and decongestant. It is also very soothing, moisturising, emollient and
+softening. Its slightly astringent action is also suitable for greasy skin.
+黄瓜一直以来被用为镇静剂,舒缓轻微的烫伤和瘙痒, 也用为肌肤清爽剂和减轻
+充血剂。其特强洁净功能适用于超敏感肌肤。黄瓜汁紧致肌肤,提升密度。具有镇
+静,滋润及柔软肤质功效。其自然收敛特性也适用于油性肌肤。
+
+Tilia Cordata Extract
+It is used internally for its antispasmodic, sudorific, stimulating, diuretic and sedative
+benefits. Use externally for its lenitive (soothing), protecting and softening properties.
+内服有治痉挛,排汗,激发,利尿和镇静用处。外用有止痛,防护及柔软肌肤之特
+性。
+
+Hypericum Perforatum Extract
+It has been used in the popular medicine for many years as a cure for wounds, urinary
+infections and disorders affecting the nervous system.
+Other therapeutic effects are: digestive (ulcer relief), regulation of the menstrual cycle,
+diuretic, tension-lowering, antipyretic, anti-diarrhea, anti-hemorrhoids.
+是治疗伤口,尿道感染和任何影响中枢神经系统的疾病的解药。
+其他治疗效果是:改善消化系统(溃疡救济) ,调理月经周期,利尿,舒缓紧绷
+肌肉,解热,抗腹泻,抗痔。
+
+Portulaca Oleracea Extract
+The plant of Portulaca contains variety of nutrients such as vitamins, minerals, fatty acids
+and others, plays a role as calming agent on the skin from irritation, allergy and itching, it
+is also anti-inflammatory.
+马齿苋植物中含有多种营养物质,包含了维他命、矿物质、脂肪酸、麸酸、天冬氨
+酸及谷胱甘,让这款产品发挥绝佳减缓皮肤问题的功能,如止痒和减少过敏现象,
+同时具有抗过敏及抗发炎的功效。
+The plant has the following qualities: 此植物萃取具有以下效用:
+ Hydrates the skin. 滋润皮肤。
+ Alleviates the inflammation and is recommended for the management of inflamed
+skin.
+减轻炎症和被建议用于治疗发炎皮肤。
+ Increases antioxidants in the skin cells and thus reduces free radical damage to the
+skin.
+增加皮肤细胞的抗氧化剂,从而减少自由基对皮肤的损害。
+ It is safe for sensitive skin types.
+
+Amyris Balsamifera Bark Oil
+Strengthens belief, relaxing, helps in meditation, relieves tension and anxiety.
+加强自信、放松、有助于冥想、缓解紧张和焦虑。
+It acts as hormone adjuster, help in Inflamed, cracked dry chapped skin, mature ageing
+skin, acne, blemishes, healing to scars.
+在护肤方面,平衡荷尔蒙的分泌,能滋润缺水及干裂皮肤,增强皮肤的弹性,消除
+粉刺、痤疮, 愈合伤疤,适合敏感及干燥皮肤。具有收敛、抗炎、抑菌及安抚特
+性,对于油性及脂漏问题有帮助。
+
+Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and
+anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).
+在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+外用,薰衣草适合用在清洗伤口及溃疡,对于口部感染有镇痛作用,以及对晒伤则
+有舒缓和清新作用。",,,,,,,"After cleansing, saturate a cotton or shake into hand, then gently wipe over face and neck
+to calm irritation. Use twice a day, morning and night.
+洁面后,取适量爽肤水沾湿棉花或指腹,轻轻地擦拭脸和颈部以舒缓肌肤不适感。
+早晚使用。",,,
+4,Chamomite Oil,"This herbal body oil is formulating with the moisturizing, calming and
+soothing properties. It is easily penetrating into the skin, provides superior
+moisturization and emolliency to skin, leaving it smooth and hydrated. It
+also alleviates muscle pain, back pain and improve skin irritation. Your skin
+
+will become calming, revitalizing and healthy looking.
+这草药体油是用保湿,镇静和舒缓的成份而研制。它容易渗入肌肤,
+提供卓越的保湿与滋润于肌肤,使它柔滑及水润。它还可缓解
+肌肉疼痛,背部疼痛,并改善受刺激的肌肤。您的肌肤将
+
+变得镇静,振兴及健康。",in stock,new,220 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Capsicum Frutescens Fruit Extract
+Pungent effect. Capsicum also can help increase blood circulation to remove released
+toxins.
+给予辣的,刺鼻的,(味等)刺激性。辣椒油也具有促进血液循环作用,以帮助排除
+体内所释放的毒素。
+
+Anthemis Nobilis Flower Oil (Chamomile)
+Calming anxious and stress; relaxing; helps to reduce insomnia, premenstrual syndrome;
+arthritis; eczema; ringworm disease, increase skin elasticity; reduce swelling; anti
+inflammatory.
+舒缓焦虑和压力;放松;有助于减少失眠,经期综合症;关节炎;湿疹;癣病;增
+加肌肤弹性;减少肿胀,抗炎。
+
+Helianthus Annuus (Sunflower) Seed Oil
+Very high in essential fatty acids and also rich in both Vitamin A and Vitamin E. It helps
+to moisturize, regenerate and condition the skin.
+具有非常高的必需脂肪酸,还富含维生素 A 和维生素 E,能润泽、恢复并使皮肤
+健康。",,,,,,,"After cleanse skin, apply all over the body, lightly massaging it in until
+completely absorbed.
+洁肤后,涂于全身,轻轻按摩直至其完全被吸收。",,,
+5,Bust Firming & Enchancer Oil,"It is designed to improve the contours, tone and firmness of the bust area and
+show the figure they desire. It nourishing skin and making skin soft, smooth
+& leaves it looking plumper, firmer and feel gently lifted. It also provides a
+long-lasting moisturizing effect, soothing and calming effect.
+Confers a pleasant and fresh feeling to the skin.
+
+它是为改善胸部的轮廓、肤色与紧实性及显示她们梦寐以求的身材而
+设计。它滋润肌肤,使肌肤柔滑与光滑,让胸部看起来更丰盈和紧
+实,而且还有轻轻被提拉的感觉。它也提供长久的保湿功效,舒缓及
+
+镇静的功效。赋予肌肤舒适和清新的感觉。",in stock,new,352 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Pelargonium Graveolens Flower Oil (Geranium)
+Emotionally uplifting, harmonizing, balancing, soothing, calming. It relieves post natal
+depression and menopause problems. Used in treating acne, dermatitis and eczema.
+Suitable for all skin types especially mature, inflamed and oily skin.
+助身心平衡的油剂,可解除女性因妇科病而引起的情绪不安,调节荷尔蒙分泌。在
+皮肤方面,它适合任何皮肤使用,具清洁、收缩毛孔、滋补功能,令[呆滞]的皮肤
+组织恢复天然弹性。
+
+Foeniculum Vulgare (Fennel) Oil
+It is antiseptic, good for dull, mature and wrinkles skin.
+有抗菌功效,适合暗沉、成熟和皱纹肌肤。
+
+Citrus Aurantium Dulcis (Orange) Oil
+It is used in skin care for its rejuvenation properties on dull skin and wrinkles as well as
+on oily skin. Orange essential oil is antiseptic and can be used for disinfection. It is
+refreshing and can be inhaled for nervous tension and stress.
+治疗失眠,腹泻与便秘,改善喉部不适、哮喘、支气管炎及抗病毒感染。适用于干
+性、衰老性皮肤。有效 改善皮肤干燥,减少皱纹,促进新陈代谢及美白肌肤。鼓
+舞精神、消除紧张压力,恢复活力。
+
+Cananga Odorata Flower Oil (Ylang Ylang)
+It normalizes sebum production of all skin types as well as a hormone balancer to
+encourage firmer and plumper breast.
+平衡油脂,能平衡荷尔蒙,丰盈乳房 ,减轻忧郁不安,适合所有类型的皮肤。
+
+Salvia Sclarea (Clary) Oil
+Clary sage is calming to the nervous system, particularly in cases of depression, stress,
+insomnia and deep seated tension. It furthermore is a good tonic for the womb and female
+functions in general, such as painful periods, scanty menstruation and relaxation during
+labor, thus encouraging a less painful birth.
+鼠尾草是平静的神经系统,尤其是在抑郁症,案件压力,失眠和深层次的紧张局
+势。另外,它是对女性子宫和一般功能,如月经来时疼痛,月经稀少和分娩时放松
+因此鼓励一种痛苦少出生,良好的滋补品。
+
+Citrus Medica Limonum (Lemon) Peel Oil
+It has the wonderful characteristic scent of freshly peeled lemon rind. When used in
+cellulite treatments, it acts as a depurative and lymphatic stimulant, draining tissues of
+excess fluids and toxins. When added to skin care and cosmetic treatments, use is made
+of its anti-bacterial, astringent and cell-regenerative properties.
+它具有新鲜柠檬果皮的奇特气味。当用于脂肪治疗时,它作为净化剂和淋巴兴奋
+剂,排除组织中的过剩体液和毒素。当其被加入皮肤护理及美容治疗时,能用于抗
+菌、收敛和促进细胞再生。
+
+Helianthus Annuus (Sunflower) Seed Oil
+Very high in essential fatty acids and also rich in both Vitamin A and Vitamin E. It helps
+to moisturize, regenerate and condition the skin.
+具有非常高的必需脂肪酸,还富含维生素 A 和维生素 E,能润泽、恢复并使皮肤
+健康。",,,,,,,"Apply to bust area in an upward motion and gently massage until it is fully absorbed.
+Use twice daily for maximum benefit.
+轻轻地以往上的方式按摩胸部,直至其完全被吸收。每日使用两次,以达到最佳丰
+胸效果。",,,
+6,Body Sculptor Oil,"Formulated to helps refine and reshape body silhouette. It smoothes skin and
+aid in the release of accumulated fluids. It quickly absorbed, while essential
+oil of lemon refines your body's skin texture against cellulite and unevenness.
+It also provides astringent, emollient, soothing and calming effect. Leaves
+
+skin immediately firmer & sharper.
+
+为帮助重造和重塑身体的轮廓而研制。它平滑肌肤及帮助释放累积的
+液体。它迅速被吸收,而柠檬精油重修您肌肤的质地以对抗脂肪组织
+和不均匀的肤色。它也提供收敛,润肤,舒缓和镇静的效果。让您的
+
+肌肤立即紧实及纤细。",in stock,new,308 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Cymbopogon Flexuosus Oil (Lemongrass)
+Helps relieve depression, nervous exhaustion, tension, stress, muscular pains, insect bites
+and insect repelling. It open pores, suitable oily, acne and poor tone skin.
+柠檬草俗称香茅,它能提神,增强全身运作, 属较刺激的油剂。在护肤方面,它
+有净化功能,尤适合油性皮肤, 且具收紧作用。
+
+Citrus Paradisi (Grapefruit) Peel Oil
+Anti cellulite, circulatory stimulant and detoxify.
+抗蜂窝组织,促进血液循环及帮助排毒。
+It is uplifting and refreshing. It regulates sebum, for congested and oily skin.
+提振精神、清新作用。调节皮脂分泌,调理油腻不洁皮肤。
+
+Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and
+anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+外用,薰衣草适合用在清洗伤口及溃疡,对于口部感染有镇痛作用,以及对晒伤则
+有舒缓和清新作用。
+
+Citrus Medica Limonum (Lemon) Peel Oil
+It has the wonderful characteristic scent of freshly peeled lemon rind. When used in
+cellulite treatments, it acts as a depurative and lymphatic stimulant, draining tissues of
+excess fluids and toxins. When added to skin care and cosmetic treatments, use is made
+of its anti-bacterial, astringent and cell-regenerative properties.
+它具有新鲜柠檬果皮的奇特气味。当用于脂肪治疗时,它作为净化剂和淋巴兴奋
+剂,排除组织中的过剩体液和毒素。当其被加入皮肤护理及美容治疗时,能用于抗
+菌、收敛和促进细胞再生。
+
+Juniperus Communis Fruit Oil (Juniper Berry)
+Draining tissues of excess fluids, improve poor circulation. Used for skin tonic, cleanser,
+acne, eczema, oily skin.
+能刺激血液循环及淋巴系统,亦能排泄体内多余水分。油性充血皮肤的帮手, 净化
+的特性可改善粉刺、毛孔阻塞、皮肤炎、流行的湿疹、干癣。
+
+Foeniculum Vulgare (Fennel) Oil
+Antiseptic, good for dull, mature and wrinkles skin, improve eye circle, relieve itching,
+healing.
+杀菌、适合成熟和皱纹皮肤、改善黑眼圈,止痒,愈合作用。
+
+Pelargonium Graveolens Flower Oil (Geranium)
+Emotionally uplifting, harmonizing, balancing, soothing, calming. It relieves post natal
+depression and menopause problems. Used in treating acne, dermatitis and eczema.
+Suitable for all skin types especially mature, inflamed and oily skin.
+助身心平衡的油剂,可解除女性因妇科病而引起的情绪不安,调节荷尔蒙分泌。在
+皮肤方面,它适合任何皮肤使用,具清洁、收缩毛孔、滋补功能,令[呆滞]的皮肤
+组织恢复天然弹性。
+
+Helianthus Annuus (Sunflower) Seed Oil
+Very high in essential fatty acids and also rich in both Vitamin A and Vitamin E. It helps
+to moisturize, regenerate and condition the skin.具有非常高的必需脂肪酸,还富含维生素 A 和维生素 E,能润泽、恢复并使皮肤
+健康。",,,,,,,"After cleanse skin, apply all over the body, lightly massaging it in until
+completely absorbed especially for fatty area.
+洁肤后,涂于全身,轻轻按摩直至其完全被吸收,尤其是肥胖部位。",,,
+7,Anti Cellulite Oil,"It is designed to help reduce fatty tissue and ridding tissues of excess fluids
+and toxins. It improves skin tone and appearance and visibly improves the
+skin's texture and smoothness. Leave you have your desired figure and keeps
+
+skin soft, smooth and moisturized.
+
+它是为帮助减少脂肪组织和摆脱多余的液体及毒素而设计。它改善肤
+色和外观, 明显改善肌肤质地和柔滑度。让您拥有您渴望的身材,并
+
+保持肌肤的柔韧,柔滑及滋润。",in stock,new,308 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Citrus Medica Limonum (Lemon) Peel Oil
+It has the wonderful characteristic scent of freshly peeled lemon rind. When used in
+cellulite treatments, it acts as a depurative and lymphatic stimulant, draining tissues of
+excess fluids and toxins. When added to skin care and cosmetic treatments, use is made
+of its anti-bacterial, astringent and cell-regenerative properties.
+它具有新鲜柠檬果皮的奇特气味。当用于脂肪治疗时,它作为净化剂和淋巴兴奋
+剂,排除组织中的过剩体液和毒素。当其被加入皮肤护理及美容治疗时,能用于抗
+菌、收敛和促进细胞再生。
+
+Juniperus Communis Fruit Oil (Juniper Berry)
+Draining tissues of excess fluids, improve poor circulation. Used for skin tonic, cleanser,
+acne, eczema, oily skin.
+能刺激血液循环及淋巴系统,亦能排泄体内多余水分。油性充血皮肤的帮手, 净化
+的特性可改善粉刺、毛孔阻塞、皮肤炎、流行的湿疹、干癣。
+
+Cupressus Sempervirens Leaf Oil (Cypress)
+Excellent at ridding skin and tissues excess fluids and toxins. It stimulates circulation and
+is suitable for dry skin.
+可改善皮肤水肿问题。促进血液循环,适合干性肌肤。
+Fresh, sweet balsamic-scented oil reminiscent of pine needles. It is an astringent, diuretic,
+vasoconstrictor, and skin tonic, and is therefore excellent at ridding skin and tissues of
+excess fluids and toxins. It stimulates circulation, and helps treat varicose veins, cellulite
+and water retention. Overall, it is warming and toning to the skin and body.
+其新鲜、甜醋香味油让人联想到松针。它是一种收敛剂、利尿剂、血管收缩剂、皮
+肤滋补剂,因此在摆脱皮肤及组织的多余液体及毒素方面有出色的表现。它刺激血
+液循环,并帮助治疗静脉曲张、脂肪团和保持水分。总而言之,它能温暖和滋润您
+的皮肤及身体。
+
+Rosmarinus Officinalis (Rosemary) Leaf Oil
+It has antiseptic properties and a strong aroma that is balancing, invigorating and
+revitalizing. Therefore, it is effective for mental fatigue, circulation problems, pain relief
+for the muscular system, decongests the respiratory tract and is a skin and hair booster. It
+also has healing, astringent and antiseptic qualities and is a scalp and skin stimulant: it
+activates peripheral blood circulation and stimulates cutaneous metabolism.
+具有抗菌作用及强烈的香气有平衡、醒神及提振功效。因此,对心理疲劳、循环不
+良、舒缓肌肉疼痛、顺畅呼吸道有显著的功效,亦促进皮肤和头发的再生。它也具
+有治疗,收敛及抗菌作用,对头皮和皮肤有刺激作用:它促进血液的循环,刺激皮
+肤的新陈代谢。
+
+Helianthus Annuus (Sunflower) Seed Oil
+Very high in essential fatty acids and also rich in both Vitamin A and Vitamin E. It helps
+to moisturize, regenerate and condition the skin.
+具有非常高的必需脂肪酸,还富含维生素 A 和维生素 E,能润泽、恢复并使皮肤
+健康。",,,, ,,,"After cleanse skin, apply all over the body, lightly massaging it in until
+completely absorbed especially for fatty area.
+洁肤后,涂于全身,轻轻按摩直至其完全被吸收,尤其是肥胖部位。",,,
+8,Relaxing Oil,"This body oil clears your thinking, reduces worry & balances emotions. It
+restores essential moisture balance to soften your skin and protect skin
+against sensitivity symptoms such as itches, dermatitis, eczema, etc. Your
+skin feels smooth and soft, while your mind is calm and relaxed.
+这油清除您的思绪,减少忧虑及平衡情绪。它恢复必要的水分平衡度
+以柔滑您的肌肤及保护肌肤对抗敏感性肌肤的症状,如瘙痒,皮炎,
+湿疹等。您的肌肤会感觉柔滑与柔韧,而您的精神会是平静及放松
+
+的。",in stock,new,308 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and
+anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).
+在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+外用,薰衣草适合用在清洗伤口及溃疡,对于口部感染有镇痛作用,以及对晒伤则
+有舒缓和清新作用。
+
+Citrus Aurantium Dulcis (Orange) Oil
+It is used in skin care for its rejuvenation properties on dull skin and wrinkles as well as
+on oily skin. Orange essential oil is antiseptic and can be used for disinfection. It is
+refreshing and can be inhaled for nervous tension and stress.
+
+治疗失眠,腹泻与便秘,改善喉部不适、哮喘、支气管炎及抗病毒感染。适用于干
+性、衰老性皮肤。有效 改善皮肤干燥,减少皱纹,促进新陈代谢及美白肌肤。鼓
+舞精神、消除紧张压力,恢复活力。
+
+Pogostemon Cablin Oil (Patchouli)
+When inhaled, it is anti-depressive, aphrodisiac and mildly calming. In skin care,
+
+Patchouli shows its strong side as a potent anti-inflammatory, anti-bacterial and anti-
+fungal agent. It supports the regeneration of new cells and tissues. It is excellent for dry,
+
+aging, wrinkled skin and for the treatment of acne, psoriasis, burn and wounds.
+消炎,杀菌,它能刺激油脂分泌,帮助自然油分的补充,适合干性、皱纹皮肤,且
+对消除新旧疤痕及改善脱皮有一定帮助。治疗粉刺,烧伤和伤口。
+
+Eucalyptus Globulus Leaf Oil
+It speeds up the healing of wounds and ulcers, calms skin eruption and clears congested
+pores. It is also antiseptic and anti-inflammatory to all skin types.
+它能加快伤口和溃疡的愈合,舒缓皮疹和清除阻塞的毛孔。其也是防腐剂和抗炎
+剂,适合所有皮肤类型。
+
+Juniperus Virginiana Oil (Cedarwood)
+It benefits the skin by its sedating ability which relieves itching. Its astringent action is
+great for acne, oily skin, as well as for hair and dandruff. It has a calming and soothing
+effect on the mind and is of great help in conditions associated with anxiety and nervous
+tension. It is also of value in cases of arthritis and rheumatism.
+其镇静作用的能力有利于皮肤,减轻皮肤的发痒。它的收敛性作用有利于粉刺,油
+性皮肤,以及头发与头皮屑。它对于情绪有镇静与舒缓的作用,并在焦虑和紧张相
+关的状况下有着很大的帮助。它也在关节炎和风湿病的案例里有着重要的价值。
+
+Pelargonium Graveolens Flower Oil (Geranium)
+Emotionally uplifting, harmonizing, balancing, soothing, calming. It relieves post natal
+depression and menopause problems. Used in treating acne, dermatitis and eczema.
+Suitable for all skin types especially mature, inflamed and oily skin.
+助身心平衡的油剂,可解除女性因妇科病而引起的情绪不安,调节荷尔蒙分泌。在
+皮肤方面,它适合任何皮肤使用,具清洁、收缩毛孔、滋补功能,令[呆滞]的皮肤
+组织恢复天然弹性。
+
+Helianthus Annuus (Sunflower) Seed Oil
+Very high in essential fatty acids and also rich in both Vitamin A and Vitamin E. It helps
+to moisturize, regenerate and condition the skin.
+具有非常高的必需脂肪酸,还富含维生素 A 和维生素 E,能润泽、恢复并使皮肤
+健康。",,,,,,,"After cleanse skin, apply all over the body, lightly massaging it in until
+completely absorbed.
+洁肤后,涂于全身,轻轻按摩直至其完全被吸收。",,,
+9,Revival Body Oil,"A light, refreshing body oil is formulated to ridding tissues of excess fluids,
+toxins and water retention from body. It wills improves penetration of the
+essential oil into the skin and promote circulation as well. It also soothes and
+calms skin, giving you a soft and silky smooth complexion.
+轻盈,清爽的体油是为消除多余的液体,毒素和体内保留的水而研
+制。它可改善精油的渗透性于肌肤及促进血液循环。它也舒缓和镇静
+
+肌肤,给予您如丝般光滑的肤色。",in stock,new,308 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Juniperus Virginiana Oil (Cedarwood)
+It benefits the skin by its sedating ability which relieves itching. Its astringent action is
+great for acne, oily skin, as well as for hair and dandruff. It has a calming and soothing
+effect on the mind and is of great help in conditions associated with anxiety and nervous
+tension. It is also of value in cases of arthritis and rheumatism.
+其镇静作用的能力有利于皮肤,减轻皮肤的发痒。它的收敛性作用有利于粉刺,油
+性皮肤,以及头发与头皮屑。它对于情绪有镇静与舒缓的作用,并在焦虑和紧张相
+关的状况下有着很大的帮助。它也在关节炎和风湿病的案例里有着重要的价值。
+
+Citrus Aurantium Dulcis (Orange) Oil
+It is used in skin care for its rejuvenation properties on dull skin and wrinkles as well as
+on oily skin. Orange essential oil is antiseptic and can be used for disinfection. It is
+refreshing and can be inhaled for nervous tension and stress.
+治疗失眠,腹泻与便秘,改善喉部不适、哮喘、支气管炎及抗病毒感染。适用于干
+性、衰老性皮肤。有效 改善皮肤干燥,减少皱纹,促进新陈代谢及美白肌肤。鼓
+舞精神、消除紧张压力,恢复活力。
+
+Citrus Medica Limonum (Lemon) Peel Oil
+It has the wonderful characteristic scent of freshly peeled lemon rind. When used in
+cellulite treatments, it acts as a depurative and lymphatic stimulant, draining tissues of
+excess fluids and toxins. When added to skin care and cosmetic treatments, use is made
+of its anti-bacterial, astringent and cell-regenerative properties.
+它具有新鲜柠檬果皮的奇特气味。当用于脂肪治疗时,它作为净化剂和淋巴兴奋
+剂,排除组织中的过剩体液和毒素。当其被加入皮肤护理及美容治疗时,能用于抗
+菌、收敛和促进细胞再生。
+
+Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and
+anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).
+在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+外用,薰衣草适合用在清洗伤口及溃疡,对于口部感染有镇痛作用,以及对晒伤则
+有舒缓和清新作用。
+
+Rosmarinus Officinalis (Rosemary) Leaf Oil
+It has antiseptic properties and a strong aroma that is balancing, invigorating and
+revitalizing. Therefore, it is effective for mental fatigue, circulation problems, pain relief
+for the muscular system, decongests the respiratory tract and is a skin and hair booster. It
+also has healing, astringent and antiseptic qualities and is a scalp and skin stimulant: it
+activates peripheral blood circulation and stimulates cutaneous metabolism.
+具有抗菌作用及强烈的香气有平衡、醒神及提振功效。因此,对心理疲劳、循环不
+良、舒缓肌肉疼痛、顺畅呼吸道有显著的功效,亦促进皮肤和头发的再生。它也具
+有治疗,收敛及抗菌作用,对头皮和皮肤有刺激作用:它促进血液的循环,刺激皮
+肤的新陈代谢。
+
+Pogostemon Cablin Oil (Patchouli)
+When inhaled, it is anti-depressive, aphrodisiac and mildly calming. In skin care,
+
+Patchouli shows its strong side as a potent anti-inflammatory, anti-bacterial and anti-
+fungal agent. It supports the regeneration of new cells and tissues. It is excellent for dry,
+
+aging, wrinkled skin and for the treatment of acne, psoriasis, burn and wounds.
+消炎,杀菌,它能刺激油脂分泌,帮助自然油分的补充,适合干性、皱纹皮肤,且
+对消除新旧疤痕及改善脱皮有一定帮助。治疗粉刺,烧伤和伤口。",,,,,,,"Apply by rubbing in after bathing and before any kind of body oil in order to help with its
+absorption and effectiveness.
+洗澡后及再涂任何一 种体油之前涂擦,以帮助其吸收和有效性。",,,
+10,24k Stemplus Ampoules,,in stock,new,297 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+11,Nourishing Essence ,,in stock,new,298 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+12,Advance Eye Essence ,"This light texture eye gel works gradually to restore skin youthful
+complexion, smoothing out wrinkles and lines, removing eye puffiness and
+
+increasing elasticity and firmness of the skin.
+
+这款清爽质地的眼睛凝胶,能快速有效地改善眼部脆弱的肌肤、抚平
+眼部的皱纹及细纹、祛除眼袋以及增加眼睛周围皮肤的弹性。",in stock,new,218 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Combination of Palmitoyl Tripeptide-1 & Palmitoyl Tetrapeptide-7
+Containing matrikines which are messengers of cutaneous restructuration and repair.
+They activate the neosynthesis of extracellular matrix macromecules providing a visible
+anti-wrinkle efficacy.
+含有 matrikines 作为皮肤的重新组织和修理。它们激活细胞基质大分子的
+neosynthesis,因此具有显著的抗皱功效。
+Apart from that, these messenger peptides capable of regulating cell activates by
+interacting with their specific receptors. They activate certain genes involved in the
+process of extracellular matrix renewal and cell proliferation.
+此外,这些胜肽扮演着细胞的传达者,帮助调节细胞活动并与其结合体发挥相互作
+用。它们激活了在细胞外基质重建与细胞增殖过程里的某些特定基因。
+
+Hyaluronic Acid
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+Key benefits: 主要作用:
+ It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+ It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+ Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有
+弹力。
+
+Combination of Hesperidin Methyl Chalcone, Dipeptide-2 and Palmitoyl
+Tetrapeptide-7
+These three active molecules represent a global approach to treating puffy eyes by acting
+on the physiological deficiencies.
+这三个积极分子透过其修复生理缺陷的功效,有效摆平眼袋、浮肿问题。
+Hesperidin methyl chalcone: 橙皮苷甲基酮
+Decreases the capillary permeability 减低毛细血管通透性
+Dipeptide Valyl-Tryptophane: 二肽 Valyl -色氨酸
+Increases lymphatic circulation 增加淋巴循环
+Lipopeptide Pal-GQPR: 脂八 GQPR:
+Improves firmness and elasticity, decreases inflammatory phenomena
+提高硬度和弹性,降低炎症的现象
+
+Allantoin
+It promotes cell-regeneration in skin which has been subjected to the harsh treatment of
+external influences, and in addition takes care of intact facial and body skin, keeping it in
+
+a healthy condition. Allantoin is healing, soothing and anti-irritating. It is valuable cell-
+prolifering healing agent which stimulates healthy tissue formation.
+
+曾获称为抗刺激剂,有助减轻香皂、表面活化剂,油类及酸、碱材料等所带来的
+不适效应。据称可清理坏死组织,加速新的健康组织的成长,加强肌肤的自癒功
+能,维持肌肤的健康。
+
+Hydrogenated Lecithin
+Lecithin is one of the most important components of a cell and plays an important role in
+its metabolism, especially in its constitution and membrane penetrability. For many years
+its use as a bio-surfactant in cosmetics has been studied. However, its application to
+cosmetics has been limited because of its oxidation and instability against heat.
+卵磷脂是细胞中最重要的组成部分之一,同时其也在细胞代谢方面发挥重要作用,
+尤其是在细胞结构和膜渗透性。多年来,对它用作为化妆品中的生物表面活性剂已
+进行了研究。但是由于它面对热时会氧化且不稳定性,因此使得其在化妆品中的应
+用受到了限制。
+Hydrogenated Lecithin retains all the good qualities of natural lecithin, yet its stability is
+greatly improved. Moreover, unlike common surfactants, Hydrogenated Lecithin forms
+stable liposomes when it is dispersed in water, which can be involved both water-soluble
+and lipo-soluble substances.
+氢化卵磷脂保留了所有天然卵磷脂的良好品质,而且其稳定性也大为提高。此外,
+不同于常见的表面活性剂,当氢化卵磷脂被分散在水中时会形成稳定的脂质体,它
+能够被水溶性和脂溶性物质包容。
+-Natural derived emulsifier (from soy). 自然衍生乳化剂(从大豆)。
+-Liposome former. 脂质体。
+-Promotes percutaneous absorption of actives. 促进皮肤吸收的活性。
+-Moisturizing effect. 保湿功效。
+-Enhances skin barrier function. 强化肌肤屏障功能。
+-Reduces skin irritation. 降低皮肤刺激性。
+-Dispersant for pigments. 颜料分散剂。
+
+Pentylene Glycol
+Pentylene Glycol is an organic compound humectant used in cosmetics and beauty
+products. It can have moisture-binding and antimicrobial properties (Source).
+戊二醇是一种有机化合物保湿剂用于化妆品和美容产品,它有保湿及抗菌功能(来
+源) 。
+-Excellent skin moisturizer 卓越的保湿剂
+-Reduces emulsion particle size: helps achieve better stability and improves
+formulation aesthetics
+降低乳状液的微粒径:帮助达到更稳定及提高研制美学
+-Works synergistically with preservatives 与防腐剂互相作用(促进)的
+-Enhances the bioavailability of cosmetic actives
+提高了化妆品的活性生物的可效性
+-Improves water-resistance of sunscreen formulations 提高耐水性的防晒配方
+-Many hair care benefits 许多护发好处
+-Excellent safety profile 卓越的安全性",,,,,,,"Apply a thin layer around eye area, gently massage until it is fully absorbed. Use twice
+daily.
+涂薄薄一层于眼睛周围,轻轻按摩直至完全被吸收。每日使用两次。",,,
+13,Peptide Collagen Hydro Gel Mask,"This intensive mask contains rich skin nourishing ingredients, effectively
+replenish skin moisture, and make skin moisturized. Its unique formula
+technology with Beta-glucan & Hyaluronic Acid improve skin dryness, help skin
+hydrating and moisturizing, leaving skin full, tender, shiny and elastic.
+这款强效面膜含丰富的肌肤滋养成份, 有效补充肌肤水分, 使肌肤水润饱
+满,。独特的配方技术,B-葡聚糖、玻尿酸(透明质酸钠)的运用, 改善肌肤干
+燥, 有助于肌肤补水保湿修护, 使肌肤饱满、 细嫩、 光泽及有弹性。",in stock,new,33 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Hyaluronic Acid
+It is a structural component throughout the body and often touted for its abilities to stop or
+reverse aging. Its outstanding moisture retaining capacity helps skin to absorb hydration up
+to approximately 1000 times of its weight. It increases the elasticity and lubricity of the skin,
+promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿酸
+有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮肤角
+质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+Key benefits 主要作用:
+
+- It moisturizes the skin from the inside to smooth out the depth of wrinkles and lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+- It helps to erase the signs of aging or who are beginning to see the first signs of aging. 有助于消除初步的老化迹象。
+- Immediate lifting effect helps increase firmness of the skin, to keep skin supple and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有弹力。
+
+Allantoin
+It promotes cell-regeneration in skin which has been subjected to the harsh treatment of
+external influences, and in addition takes care of intact facial and body skin, keeping it in a
+
+healthy condition. Allantoin is healing, soothing and anti-irritating. It is valuable cell-
+prolifering healing agent which stimulates healthy tissue formation.
+
+它促进皮肤的细胞再生,尤其是一直受到外部刺激的皮肤,此外还保护脸部和身体的
+皮肤,使其保持健康状态。 尿囊素具有愈合,舒缓和抗刺激作用。 它是优越的细胞增
+生修复剂,可刺激健康组织的形成。
+
+Portulaca Oleracea Extract
+The plant of Portulaca contains variety of nutrients such as vitamins, minerals, fatty acids
+and others, plays a role as calming agent on the skin from irritation, allergy and itching, it is
+also anti-inflammatory.
+马齿苋植物中含有多种营养物质,包含了维他命、矿物质、脂肪酸、麸酸、天冬氨酸
+及谷胱甘,让这款产品发挥绝佳减缓皮肤问题的功能,如止痒和减少过敏现象, 同时
+具有抗过敏及抗发炎的功效。
+
+Hamamelis Virginiana (Witch Hazel) Extract
+
+Its styptic properties make it as a remedy for damaged skin. This plant is also found in make-
+up removers for its decongesting properties. Witch Hazel is also recommended for slack
+
+epidermis with distended pores, mixed complexions, and sometimes for greasy skins.
+天然的肌肤收敛作用,能帮助调理肌肤油脂,协助毛孔紧致 。亦有柔软功能,增强皮
+肤的防御能力及促进血液循环。
+
+Panthenol
+It is a non-irritating form of Pro-vitamin B5, acts as skin humectant, emollient and moisturizer. It has a good skin penetration where it penetrates into lower skin layers, and quickly absorbed by the skin cell to improve hydration. 无刺激性的维它命原 B-5,作为皮肤的保湿剂及滋润剂。具有良好的渗透力能直达皮肤
+最底层,并很快地被皮肤细胞吸收以改善水分循环。
+On the other hand, it has been used to treat sunburn, reduce itching and inflammation of the
+skin (it counteracts surface bacteria), as well as accelerate and improve healing of epidermal
+wound (it improves normal keratinization and stimulates epithelization – rebuilding of our
+skin). 除此之外,也被用来治疗晒伤皮肤,舒缓瘙痒及发炎状况(对抗表面细菌),促进及
+改善表皮细胞的修复及伤口的愈合(促进皮肤的正常角质化和表皮的重建)。
+
+Its long lasting moisturizing effect enables the dry skin to remain supple and elastic and help
+diminish the wrinkles and lines by infusing moisture into the deepest layers of our skin.
+其长效保湿作用让干燥皮肤处于柔软,有弹力的状态,并透过深层水分的供给来抚平
+皱纹与细纹。
+
+Acetyl Hexapeptide-8
+It is a peptide specially designed to fight against expressions wrinkles and counteracts
+against deep lines or wrinkles caused by the repeated movements, especially in the
+forehead and around the eyes.
+胜肽,专为对抗、打击反复动作造成的表情纹及皱纹而设,尤其是在前额及眼睛周围
+部位。
+It is a safer, cheaper, and milder alternative to Botulinum Toxin, topically targeting the same
+wrinkles-formation mechanism in a very different. As a result, effectively and progressively
+improves aging skin and its texture, and static and dynamic wrinkles.
+它提供比肉毒杆菌更安全、便宜及温和的抗皱效果,采用不同的方式专注于相同的皱
+纹形成机制。因此,它能有效并渐进式的改善肌肤老化情况及其纹理,静态及动态皱
+纹。
+
+Beta-glucan
+Beta-glucan is produced by applying liquid cultivation & Bio-conversion technology to the
+mycelium of a mushroom species ‘Schizophyllum Commune’. Its major component is a
+highly water-soluble polymer, provides moisturizing effect and improves skin dryness.
+ß-葡聚糖,是从 ‘Schizophyllum commune’ 蘑菇类的 mycelium 培植液和经由生化
+转化科技而得,具有保湿效果, 改善干燥肌肤。Beta-Glucan 促进细胞的增生, 对伤
+口的愈合、 烧伤和晒伤有显著的效果。它亦提供抗敏和增加免疫系统的防疫能力。
+Efficacy 功能:
+
+- Moisturizing effect. 保湿效果。
+- Skin dryness improvement. 改善干燥肌肤。
+- Healing of psoriasis and burn. 愈合牛皮癣(psoriasis)和烧伤。
+- Sun burn protection and cure. 保护和治疗晒伤。
+- Promotion of skin penetration. 促进伤口的愈合。
+- Promotion of would heal. 促进皮肤的渗透力。
+- Anti-irritation. 抗敏感。
+
+Collagen
+The collagen used in this product is abstracted from fish scales and fish skins, using
+advanced biotechnological directed enzymolysis technology. It supplies 18 kinds beneficial
+amino acids, reinforcing skin collagen’s activity. It maintains the moisture of horny layer and
+fiber structure’s integrity so as to promote skin tissue’s metabolism.
+这产品使用从鱼鳞和鱼皮萃取而提炼的胶原,利用先进的生物酶解技术指导。它提供
+有益的18种氨基酸,增强皮肤胶原蛋白的活动。它保持水分的角质层和纤维结构的完
+整性,以促进皮肤组织的新陈代谢。
+
+It has the following characteristics: 它具有以下特点:
+
+1. Trophism 滋养
+This collagen supplies 18 kinds of beneficial amino acids, reinforcing skin collagen’s activity. It also helps in maintaining the moisture of horny layer and fiber structure’s integrity, to
+promote the metabolism of skin. It achieves the efficiencies as moistening skin and wrinkle chasing.
+这款胶原提供18种有益的氨基酸,加强肌肤的胶原蛋白活跃性。也有助于维持角质层
+的水分以及纤维结构的完整性,促进皮肤的新陈代谢。因此,具有高效保湿力和祛皱
+功效。
+2. Molding moisture 水分供应
+Containing a lot of hydrophilic groups, can intensely absorb water in the air and form a
+hydration shell to mold moisture.
+含有大量亲水性基团,能从空气中吸取水分并形成一层保湿膜,给予皮肤源源不绝的
+水分。
+3. Whitening 美白
+It may prevent tyrosinase which result in melanin, eliminate free radicals in body, anti
+oxygenation, promote cell’s metabolism and postpone cell’s aging. Thereby, it makes human skin soft, elastic, and obviously whiten.
+能抑制产生麦拉宁的酪氨酸酶,消除自由基,反氧合作用,促进细胞的新陈代谢以及
+延缓细胞老化。
+4. Removing wrinkles 祛除皱纹
+Due to ability of molding moisture, it provides essential elements for collagen’s synthesis,
+vastly postponing skin senility and reducing wrinkles.
+其保湿功效提供了胶原蛋白合成所需要素,大大延缓皮肤的衰老,减少皱纹的形成。
+5. Removing shadows undereyes and puffiness 除黑眼圈和眼袋
+Tightens skin under and around the eyes, and achieve removing effect.
+紧实眼部周围肌肉以达到祛除黑眼圈及眼袋效果。
+
+Trehalose
+Trehalose is a naturally occurring saccharide present in wide variety of plant and animal life,
+enabling survival in the harshest climatic conditions.
+海藻糖是一种天然存在于多种植物及动物,让它们能够生存在极恶劣的环境中,如它
+能保护某些抗旱植物在枯燥期不受损害。
+Trehalose protects skin fibroblasts from dehydration because it replaces water in tissues
+helping to retain the natural structure of skin. Thus it can be used as an effective moisturizer
+affording protection from potentially damaging climatic conditions.
+海藻糖亦具有保护人体纤维细胞对抗缺水现象,同时更替细胞内流失的水分以保留皮
+肤的自然结构。因此,常作为有效的保湿剂,帮助处于恶劣环境压力中的皮肤对抗水
+分流失,以保持水嫩肌肤。",,,,,,,"After cleansing, open the packaging bag and take out the mask, carefully unfold it, apply it
+to the face for 15-20 minutes after adjustment.
+洁面后, 打开包装袋取出面膜, 小心展开,调整好后敷于面部15-20分钟即可。
+Suitable for skin oily, dry, combination and sensitive skin.
+适合用于油性,干性,混合性和敏感性肌肤。","If the essence is inadvertently into the eyes, please wash it with water immediately. If
+the skin sensitive, please do a partial skin sensitivity test before use. Prevent children from
+wrong catching food and eating, so as not to cause unnecessary harm.
+温馨提示: 使用时精华液如不慎入眼,请立即用清水清洗; 皮肤敏感者, 使用前请先做局
+部皮肤敏感性测试。避免儿童抓拿误食, 以免造成不必要的伤害。",,
+14,Ultra Repairing Bio Cellulose Mask,"This light textured and quick-absorbing bio-cellulose fibers mask with its unique formula
+provides intense & long-lasting moisture to improve skin firmness and elasticity and also
+smoothing the wrinkles & fine lines, provide repairing effect, while also has soothing &
+calming effects. After usage, will let you have a soft, youthful and healthy skin. Addition,
+it also imparts suppleness and smoothness of skin without unpleasant greasy feel, leaves
+skin smooth, hydrated, and comfortable. The bio-cellulose fibers make these masks ideal
+for both donating and absorbing liquids and moisture. This means that they are perfect for
+assisting with all skin types, ensuring your skin gets the nourishment it needs in order to
+flourish.
+这款质地轻盈、吸收迅速的生物纤维素纤维面膜以其独特的配方提供强效持久的水
+分,改善皮肤紧致度与弹性,抚平皱纹和细纹,提供修复效果,同时还具有舒缓与
+镇静作用。 使用后,让您拥有柔滑、年轻、健康的肌肤。 此外,它还赋予皮肤柔
+韧和光滑的感觉,没有不悦的油腻感,使皮肤光滑、水润与舒适。生物纤维素纤维
+面膜成为捐赠及吸收液体与水分的理想选择。 这意味着它们非常适合帮助所有类
+型的皮肤,确保您的皮肤获得所需的营养以促进活力。",in stock,new,55 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Hyaluronic Acid
+Hyaluronic Acid is often touted for its ability to “reserve” or stop aging. In news report,
+you might have heard of all of these miraculous contributions of Hyaluronic Acid to
+human skin. In real fact, Hyaluronic Acid is a valuable ingredient in cosmetic; it is
+marked to have an extremely high capacity to retain moisture. This is higher than any
+substances known, and remains unchallenged even in low humidity. This is particularly
+important since the skin tends to dry up in an atmosphere of low humidity. Due to that of
+it is a large molecule, it does not penetrate deeply into the skin, instead, Hyaluronic Acid
+forms a highly moisture retaining film on the skin, which is permeable to light and air. It
+is invisible, not sticky and in no way obstructs the skin ability to breathe, and leaves skin
+smooth and supple.
+玻尿酸因其有""倒流岁月""和停止老化的功效,常被当成护肤品中不可缺少的一角。
+新闻也常报导有关玻尿酸对人体皮肤的神奇""造化""。玻尿酸是有价值的化妆品成
+分,有保持高度滋润能力。它的保湿度远远超越其他物质,它既有独特提升干性皮
+肤的保湿能力。它既有较大的分子,故不能深入渗透肌肤,而形成一层对光和空气
+有渗透性的薄膜,使皮肤有紧实效果。它是无形且不含粘性,让肌肤毫无阻碍的呼
+吸,使肌肤更加光滑柔顺。玻尿酸是皮肤蛋白质的一种,是最佳保湿持有者,能够
+锁住本身重量一千倍的水分。玻尿酸可保持水分,同时能维持皮肤的润滑性与柔软性。具有极强的吸水性,被喻为保湿天后,可在肌肤表面形成强力水磁场,提供肌肤全天24小时足够的保湿能力。
+
+Hyaluronic Acid is a component of connective tissues of the body, or it can be said that it
+naturally presents in our skin, but as we age, the amount of Hyaluronic Acid in the skin
+starts to drop. Consequently, skin losses its elasticity and lackluster, even the formation
+of wrinkles will start to aggravate. So as to counteract the effects of aging, it has become
+more and more popular.
+玻尿酸是一种覆盖在某些结缔组织上的物质,帮助锁主水分。但随着年龄的增长,
+在人体皮肤内的玻尿酸会逐渐流失。皮肤会因此失去弹性和光泽,甚至因缺乏水分
+而产生皱纹。正因如此,在对抗皮肤老化这方面,玻尿酸有绝对的""返老""能力。
+It in actual fact works in hydrating and moisturizing the skin from the inside and with this
+helps to smooth out wrinkles. Apart from moisturizing and hydrating plus smoothing out
+wrinkles, the increase of hydration in the skin is of essential importance, as this helps
+getting nutrition to the cells, as well as providing the vehicle for proper waste removal
+from skin cells, it is so helps to increase the amount of water held in the extracellular
+matrix of the skin.
+实际上,玻尿酸能深入滋润皮肤、提供皮肤所需的水分,扶平脸上细纹。除了极佳
+的保湿及抗皱效果外,提升肌肤的湿润度尤其重要。一旦皮肤得到充裕的水分与滋
+润后,肌肤细胞便能得到滋养,并帮助肌肤细胞能适当的排除废物。不仅如此,玻
+尿酸也能提升皮肤细胞外的基质,给予充足的水分。
+Overall, Hyaluronic Acid is an attractive ingredient that used for cosmetic application
+because of its excellent property of moisturization to give lubricity to the human skin,
+utilizing water absorption and water holding properties. It softens and returns elasticity to
+skin exposed to sun radiation and, it is a very effective protection and regenerator in
+processes of ageing, traumatisms and metabolic disorders. It is non toxic, non irritating
+and non sensitizing as well, so it can be used on all skin types.
+在美容界,玻尿酸可算是最具吸引力的美容圣品。因为玻尿酸具有绝佳的保湿功
+能,让肌肤呈现细致的光泽,加强肌肤的锁水能力。玻尿酸更具有""保湿天后""的美
+誉。它保持遭阳光辐射侵害肌肤的柔软度与弹性,非常有效的对抗老化、延缓老化
+过程,保护表皮促进新陈代谢,让肌肤更健康亮丽。玻尿酸无毒、不造成刺激和敏
+感。适合所有肌肤使用。
+
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+它是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+
+Key benefits 主要作用:
+- It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+- It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+- Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有弹力。
+
+Allantoin
+It promotes cell-regeneration in skin which has been subjected to the harsh treatment of
+external influences, and in addition takes care of intact facial and body skin, keeping it in
+
+a healthy condition. Allantoin is healing, soothing and anti-irritating. It is valuable cell-
+prolifering healing agent which stimulates healthy tissue formation.
+
+它促进皮肤的细胞再生,尤其是一直受到外部刺激的皮肤,此外还保护脸部和身体
+的皮肤,使其保持健康状态。 尿囊素具有愈合,舒缓和抗刺激作用。 它是优越的
+细胞增生修复剂,可刺激健康组织的形成。
+Benefits 益处:
+- Moisturizes: Allantoin acts as an emollient that keeps your skin moisturized and
+prevents dryness and irritation.
+保湿:尿囊素可作为润肤剂,让您的皮肤保持湿润,防止干燥和刺激。
+- Soothes skin: Allantoin has the additional functionality of being a calming
+agent. It soothes and protects the skin by forming complexes with irritant and
+sensitizing agents.
+舒缓肌肤:尿囊素具有作为镇静剂的额外功能。 它通过与刺激物和致敏剂
+形成复合物来舒缓和保护皮肤。
+- Improves skin-healing: It has been noted to help soothe injured skin and
+promote wound healing and is often used to treat skin irritation and rashes.
+改善皮肤愈合:它有助于舒缓受伤的皮肤并促进伤口愈合,通常用于治疗
+皮肤刺激和皮疹。
+- Exfoliates: Allantoin is also keratolytic, which means it exfoliates dead skin cells.
+It helps desquamation, the shedding of the outermost membrane or layer of tissue
+from the inside out.
+祛角质:尿囊素也是角质溶解剂,这意味着它可以去除死皮细胞。 它有助
+于脱屑,即从内向外脱落最外层的膜或组织层。
+- Hydrates: Its keratolytic property can increase the water contents of cells,
+therefore, fighting against the damage of transepidermal water loss (TEWL) in the
+dermis, which keeps the skin looking plump and youthful. 水合物:它的角质溶解特性可以增加细胞的水分含量,从而对抗真皮中的
+经表皮失水(TEWL)的损害,使皮肤看起来丰满和年轻。
+
+-Improves skin dullness: Allantoin promotes cell proliferation and
+supports overall ""remodeling"". If the skin is stressed by the usual and customary
+list of offenders, then the skin is going to try to repair itself as opposed to having
+more cells turn over. What we want to do with the epidermis is to have it
+constantly exfoliating itself and having more cells be produced because that’s
+how you get a faster transit time of the epidermal cells. As people get older, then
+that transit time from the base layer of the epidermis to the top layer takes longer
+and also the skin is stressed, and those are some of the causes of dull, dry skin, too.
+This is going to help with that cell proliferation.
+改善皮肤暗沉:尿囊素促进细胞增殖并支持整体“重塑”。 如果皮肤受到惯
+常的罪犯名单的压力,那么皮肤会尝试自我修复,而不是让更多的细胞翻
+身。 我们想要对表皮做的就是让它不断地自我剥落并产生更多的细胞,因
+为这就是你如何获得更快的表皮细胞通过时间的方式。 随着人们年龄的增
+长,从表皮底层到顶层的运输时间需要更长的时间,皮肤也会受到压力,这
+些也是导致皮肤暗沉、干燥的一些原因。 这将有助于细胞增殖。
+- Smoothes skin: It removing surface dead skin cells (stratum corneum), it also
+helps keep the skin smooth and soft.
+抚平肌肤:祛除表面死皮细胞(角质层),还有助于保持肌肤光滑柔滑。
+- Rejuvenates the cells: Although it's gentle, it can still be an effective anti-aging
+ingredient. Allantoin is highly beneficial in facilitating collagen synthesis. As it
+stimulates the fibroblasts (cells responsible for producing collagen), it also boosts
+extracellular matrix synthesis, which is why it is strong rejuvenator.
+使细胞恢复活力:虽然它很温和,但它仍然是一种有效的抗衰老成分。 尿囊素对促进胶原蛋白合成非常有益。 由于它刺激成纤维细胞(负责产生胶原蛋白的细胞),它还促进细胞外基质的合成,这就是它是强效再生剂的原因。
+
+Betaine
+What Are the Benefits of Betaine for the Skin? 甜菜碱对皮肤有什么好处?
+Despite being a little-known ingredient in skincare, betaine has a variety of benefits that
+it can provide to the skin. These include hydration, anti-aging, and soothing to the skin.
+Betaine is naturally non-irritating and safe for most skin types.
+尽管甜菜碱是护肤品中鲜为人知的成分,但它可以为皮肤提供多种益处。 这些包
+括保湿、抗衰老和舒缓皮肤。 甜菜碱对大多数皮肤类型天然无刺激性和安全性。
+Benefits 益处:
+Hydrating 补水
+Betaine helps to improve the hydration levels in the skin, giving your skin that dewy,
+plumped look. Betaine does this by mediating the osmosis process. Osmosis is the
+process of water balancing within the body. If one area is dehydrated, then osmosis
+allows the flow of water into that area to create a balance. As an osmolyte, the
+structure of betaine enables it to attract moisture and help to maintain cell water balance.
+This function of betaine is particularly crucial for skin cells that are dehydrated or
+exposed to UV radiation. Furthermore, the ability of betaine to increase skin hydration
+has been shown to have an anti-wrinkle effect. 
+
+甜菜碱有助于改善皮肤的水合作用水平,让您的皮肤看起来水润饱满。 甜菜碱通
+过调节渗透过程来做到这一点。 渗透是体内水分平衡的过程。 如果某个区域脱
+水,则渗透作用允许水流入该区域以形成平衡。 作为渗透剂,甜菜碱的结构使其
+能够吸引水分并帮助维持细胞水分平衡。 甜菜碱的这一功能对于脱水或暴露于紫
+外线辐射的皮肤细胞尤为重要。 此外,甜菜碱增加皮肤水合作用的能力已被证明
+具有抗皱作用。
+Skin hydration is a vital part of general skin health as when the skin is dehydrated; it is
+more susceptible to damage, infection, and dullness.
+当皮肤脱水时,皮肤水合作用是一般皮肤健康的重要组成部分; 它更容易受到损
+伤、感染和暗沉。
+Research has found that betaine can also improve tight junction integrity. Tight
+junctions are protein complexes that prevent leakage of solutes and water between the
+cells. Tight junctions have been suggested to contribute to the prevention of penetration
+of harmful substances, such as allergens, pollutants, etc. into the skin. Additionally,
+tight junctions aid in preventing water loss through the skin. Therefore, by improving
+tight junction integrity, betaine increases the hydration status of the skin and also
+protects the skin from harmful environmental substances.
+研究发现甜菜碱还可以改善紧密连接的完整性。 紧密连接是防止细胞间溶质和水
+泄漏的蛋白质复合物。 已建议紧密连接有助于防止有害物质(例如过敏原、污染
+物等)渗入皮肤。 此外,紧密的连接有助于防止水分通过皮肤流失。 因此,通过
+改善紧密连接的完整性,甜菜碱可增加皮肤的水合作用状态,同时保护皮肤免受
+有害环境物质的侵害。
+
+Anti-aging 抗衰老
+A few studies have looked into the potential benefits of betaine as an anti-aging
+ingredient. This suggested benefit is thought to come from its ability to protect the skin
+from free radical damage. Imbalance in free radicals’ levels occur during a process
+called oxidative stress and can cause damage to the cells. Oxidative stress occurs in
+response to environmental stress, such as UV damage, and is considered to be part of
+the aging process.
+一些研究调查了甜菜碱作为抗衰老成分的潜在益处。 这种建议的好处被认为来自
+其保护皮肤免受自由基损伤的能力。 自由基水平的不平衡发生在称为氧化应激的
+过程中,并可能对细胞造成损害。 氧化应激是对环境压力的反应,例如紫外线损
+伤,被认为是老化过程的一部分。
+Anti-irritation 抗刺激
+Betaine is also used as it is a non-irritating ingredient and may help soothe inflamed
+sensitized skin. Betaine is less irritating than water and helps to maintain the skin’s
+natural barrier, protecting the skin from water loss, allergens, and bacteria. A healthy
+skin barrier is important for preventing irritation and sensitivity.
+甜菜碱也被使用,因为它是一种无刺激性成分,可能有助于舒缓发炎的敏感皮
+肤。 甜菜碱的刺激性比水小,有助于维持皮肤的天然屏障,保护皮肤免受水分流
+失、过敏原和细菌的侵害。 健康的皮肤屏障对于防止刺激和敏感很重要。
+Texture 质地
+Betaine also functions as a texture enhancer in cosmetics and skincare products.",,,,,,,"1.Each mask composed of three layers of which the middle layer is the bio-fiber mask.
+每个面膜由三层组成,中间层为生物纤维口罩。
+2.Remove the (white) outer layer and place the essence layer (semi-transparent part) on
+to your face.
+祛除(白色)外层,将精华层(半透明部分)放在上面到你的脸上。
+3.Remove the (white) netted layer and leave only the essence-layer on your face for 20-
+30 minutes. No need to rinse off after peeling the mask.
+祛除(白色)网状层,只在脸上留下精华层 20-30 分钟。撕下面膜后无需冲洗。",,,
+15,Ultimate Hydro Soothing Gel Mask,,in stock,new,218 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+16,Ren II,"It is formulated to soothe & hydrate irritated sensitive and dry skin. Its
+immediate soothing and calming effect increases skin resistance against
+irritating agents, keep your skin comfortable and protected from harmful
+factors. Besides, it’s hydrating and moisturizing substances helps increases
+skin moisture and elasticity. It also decreases skin roughness, leaving skin
+smooth and soft. Regular usage helps enhance skin clarity and health.
+It is the best companion for fragile, sensitive and dry skin.
+专为舒缓受刺激的敏感肌肤及湿润干燥肌肤而研制。其立即舒缓与镇
+静功效有效对抗刺激分子,减低皮肤的不适感,并保护皮肤免受有害
+因素破坏。不仅如此,其保湿成份能增加肌肤的湿度与弹性。它亦能
+改善敏感皮肤粗糙的质地,让皮肤变得柔嫩、细致。经常使用有助于
+提高肌肤的透明度与健康。它是脆弱、敏感及干燥肌肤的好伙伴。",in stock,new,528 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Squalane
+It is non-toxic, non-irritating and non-allergic element which totally compatible with the
+human skin epidermis. It acts as a mild, liquid vehicle able to impart suppleness and
+smoothness to the skin without unpleasant greasy feel. Besides, it assists in preventing
+moisture loss from skin surface, restores suppleness and smoothness of skin dried by
+frequent use of detergent or by sun-burn.
+无毒性、刺激性及步造成皮肤过敏现象,能完全与皮肤融合。作为肌肤的润滑剂,
+让肌肤感觉有弹力、柔滑,却不造成不适的油腻感。此外,有助于预防皮肤水分的
+流失,恢复因长期使用洗涤剂或太阳晒伤肌肤的弹力与柔滑度。
+
+Simmondsia Chinensis (Jojoba) Seed Oil
+Provide nourishing, odorless, non-greasy, moisturisation and emolliency. It is rapidly
+absorbed into the skin providing a partially occlusive lipid layer that allows tranepidermal
+respiration and moisture optimization,give non-oily feel to skin. Studies show that
+Jojoba is non-comedogenic and therefore, provides an ideal base for anti-acne and
+therapeutic products. Its natural ability to solubilize sebum allows Jojoba oil to spread
+readily and absorb easily into the skin, thereby improving skin suppleness. Suitable for
+dry skin to improve skin elasticity and suppleness. Jojoba is also a favorite oil to use as
+carrier oil for aromatherapy,give silky feel to skin.
+具滋养柔软肌肤的功效,无特殊的气味,是渗透性最强的油脂,易被皮肤吸收, 故不会令人感到油腻。荷荷芭油不会引起黑头粉刺,可分解油脂,适用于油性暗疮性
+皮肤。在芳香按摩时,荷荷芭油会连接皮下脂肪,并且畅通毛细孔不会留下任何废弃物质。在皮肤保养方面,可使干性皱纹肌恢复活力光泽,用后令皮肤有丝质的感觉。
+
+Hyaluronic Acid
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+Key benefits: 主要作用:
+ It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+ It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+ Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有
+弹力。
+
+Collagen
+The collagen used in this product is abstracted from fish scales and fish skins, using
+advanced biotechnological directed enzymolysis technology. It supplies 18 kinds
+beneficial amino acids, reinforcing skin collagen’s activity. It maintains the moisture of
+horny layer and fiber structure’s integrity so as to promote skin tissue’s metabolism.
+这产品使用从鱼鳞和鱼皮萃取而提炼的胶原,利用先进的生物酶解技术指导。它提
+供有益的 18 种氨基酸,增强皮肤胶原蛋白的活动。它保持水分的角质层和纤维结
+构的完整性,以促进皮肤组织的新陈代谢。
+It has the following characteristics: 它具有以下特点:
+1. Trophism 滋养
+This collagen supplies 18 kinds of beneficial amino acids, reinforcing skin collagen’s
+activity. It also helps in maintaining the moisture of horny layer and fiber structure’s
+integrity, to promote the metabolism of skin. It achieves the efficiencies as moistening
+skin and wrinklechasing.
+这款胶原提供 18 种有益的氨基酸,加强肌肤的胶原蛋白活跃性。也有助于维持角
+质层的水分以及纤维结构的完整性,促进皮肤的新陈代谢。因此,具有高效保湿力
+和祛皱功效。
+2. Molding moisture 水分供应
+Containing a lot of hydrophilic groups, can intensely absorb water in the air and form a
+hydration shell to mold moisture.
+含有大量亲水性基团,能从空气中吸取水分并形成一层保湿膜,给予皮肤源源不绝
+的水分。
+3. Whitening 美白
+It may prevent tyrosinase which result in melanin, eliminate free radicals in body, anti
+oxygenation, promote cell’s metabolism and postpone cell’s aging. Thereby, it makes
+human skin soft, elastic, and obviously whiten.
+能抑制产生麦拉宁的酪氨酸酶,消除自由基,反氧合作用,促进细胞的新陈代谢以
+及延缓细胞老化。
+4. Removing wrinkles 祛除皱纹
+Due to ability of molding moisture, it provides essential elements for collagen’s synthesis,
+vastly postponing skin senility and reducing wrinkles.
+其保湿功效提供了胶原蛋白合成所需要素,大大延缓皮肤的衰老,减少皱纹的形
+成。
+5. Removing shadows undereyes and puffiness 除黑眼圈和眼袋
+Tightens skin under and around the eyes, and achieve removing effect.
+紧实眼部周围肌肉以达到祛除黑眼圈及眼袋效果。
+
+Hydrogenated Lecithin
+Hydrogenated Lecithin retains all the good qualities of natural lecithin, its stability is
+greatly improved. Hydrogenated Lecithin forms stable liposomes when it is dispersed in
+water, which can be involved both water-soluble and lipo-soluble substances.
+氢化卵磷脂保留了所有天然卵磷脂的良好品质,而且其稳定性也大为提高。当氢化
+卵磷脂被分散在水中时会形成稳定的脂质体,它能够被水溶性和脂溶性物质包容。
+-Natural derived emulsifier (from soy). 自然衍生乳化剂(从大豆)。
+-Liposome former. 脂质体。
+-Promotes percutaneous absorption of actives. 促进皮肤吸收的活性。
+-Moisturizing effect. 保湿功效。
+-Enhances skin barrier function. 强化肌肤屏障功能。
+-Reduces skin irritation. 降低皮肤刺激性。
+
+Dipotassium Glycyrrhizate
+It is a natural active obtained from the extraction of licorice root, which acts as skin
+lightener, anti-inflammation and anti-allergy agent.
+它是一种萃取自甘草的天然活性成份,能作为皮肤美白剂、抗炎及抗过敏剂。
+Dipotassium Glycyrrhizate is effective in treating acute and chronic dermatitis, and its
+milder action gives almost no side effect to the skin. Besides, it also has the following
+actions:
+Dipotassium Glycyrrhizate 能有效地治疗急性及慢性皮炎,其性质温和,对皮肤几
+乎没有副作用。此外,它还具有以下作用:
+Inhibitory effect on hyaluronidase activity 抑制玻尿酸酶活性
+Inhibition on hyaluronidase activity plays an important role not only in
+maintaining the hyaluronic acid level in the body but also anti-inflammatory and
+anti allergic activities.
+在抑制玻尿酸酶活性方面发挥了重要作用,不仅维持身体中的玻尿酸水平,
+而且还具有抗炎及抗过敏活性。
+Inhibitory effect on tyrosinase activity 抑制酪氨酸酶活性
+Inhibition on the formation of melanin effectively helps skin to maintain its
+brighter complexion.
+抑制黑色素的形成,能有效帮助皮肤保持其亮白的肤色。
+Preventative effect on UV-B induced erythema
+有效预防由 UV - B 辐射引起的红斑
+
+Tocopheryl Acetate
+A kind of vitamin E, well refined anti-oxidant for human skin, fights against destructive
+effects of free radicals on skin cells, as well as a primary defender against oxidation and
+defender against lipid peroxidation and maintains the integrity of connective tissues.
+Besides, it also possesses sunscreening abilities, therefore, protects skin from harmful UV
+rays. At the same time, it locks in moisture, improves skin dehydration and progressively
+reduces the appearance of fine lines.
+维他命 E 的一种,人体主要之抗氧化剂,帮助对抗自由基造成的细胞损害,亦能
+有效对抗脂质氧化,有助于维持结缔组织。此外,具有过滤紫外线功能,保护皮肤
+遭阳光损伤。同时提升肌肤的锁水功能,让肌肤得到深层的湿润,改善老化干燥、
+缺水的状况,减少细纹的产生。
+
+Palmitoyl Tripeptide-5
+Palmitoyl Tripeptide-5 in this product is used for its proven anti-wrinkle effect due to the
+skin firming and moisturizing properties. It stimulates the synthesis of collagen, actively
+removes any type of wrinkle, and relifts your eye contour.
+采用合成小分子胜肽,因其紧肤滋润特性让抗皱效果十分明显。它刺激胶原蛋白的
+合成,有效祛除各种类型的皱纹,重新拉提紧实眼部轮廓。
+
+Helianthus Annuss (Sunflower) Seed Oil
+Very high in essential fatty acids and also rich in both Vitamin A and Vitamin E. It helps
+to moisturize, regenerate and condition the skin.
+具有非常高的必需脂肪酸,还富含维生素 A 和维生素 E,能润泽、恢复并使皮肤
+健康。
+
+Pelargonium Graveolens (Geranium) Oil
+Emotionally uplifting, harmonizing, balancing, soothing, calming. It relieves post natal
+depression and menopause problems. Used in treating acne, dermatitis and eczema.
+Suitable for all skin types especially mature, inflamed and oily skin.
+助身心平衡的油剂,可解除女性因妇科病而引起的情绪不安,调节荷尔蒙分泌。在
+皮肤方面,它适合任何皮肤使用,具清洁、收缩毛孔、滋补功能,令[呆滞]的皮肤
+组织恢复天然弹性。
+
+Juniperus Virginiana Oil (Cedarwood Oil)
+It benefits the skin by its sedating ability which relieves itching. Its astringent action is
+great for acne, oily skin, as well as for hair and dandruff. It has a calming and soothing
+effect on the mind and is of great help in conditions associated with anxiety and nervous
+tension. It is also of value in cases of arthritis and rheumatism.
+其镇静作用的能力有利于皮肤,减轻皮肤的发痒。它的收敛性作用有利于粉刺,油
+性皮肤,以及头发与头皮屑。它对于情绪有镇静与舒缓的作用,并在焦虑和紧张相
+关的状况下有着很大的帮助。它也在关节炎和风湿病的案例里有着重要的价值。
+
+Eucalyptus Globulus Oil
+It speeds up the healing of wounds and ulcers, calms skin eruption and clears congested
+pores. It is also antiseptic and anti-inflammatory to all skin types.
+它能加快伤口和溃疡的愈合,舒缓皮疹和清除阻塞的毛孔。其也是防腐剂和抗炎
+剂,适合所有皮肤类型。
+
+Hypericum Perforatum Extract
+It has been used in the popular medicine for many years as a cure for wounds, urinary
+infections and disorders affecting the nervous system.
+Other therapeutic effects are: digestive (ulcer relief), regulation of the menstrual cycle,
+diuretic, tension-lowering, antipyretic, anti-diarrhea, anti-hemorrhoids.
+是治疗伤口,尿道感染和任何影响中枢神经系统的疾病的解药。
+其他治疗效果是:改善消化系统(溃疡救济) ,调理月经周期,利尿,舒缓紧绷
+肌肉,解热,抗腹泻,抗痔。
+
+Chamomilla Recutita (Matricaria) Extract
+Chamomile is a plant which has been known of since antiquity and was used by the
+Egyptians as a febrifuge and to treat intestinal disorders.
+自古以来,甘菊被埃及人作为退热剂及治疗肠道等疾病。
+The plant has an antispasmodic action and act as a decongestant, anti-inflammatory and
+anti allergic elements.
+该植物具有防痉挛及减轻充血作用,也是抗炎和抗过敏的主要元素",,,,,,,"Apply an appropriate amount over face or affected area. Then, gently massage or pat on
+until it is fully absorbed.
+取适量涂于脸部或问题部位。然后,轻轻按摩或拍打直至完全被吸收为止。",,,
+17,Ren II,,in stock,new,308 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+18,Extra Aloe Vera,"A light texture gel is designed to improve the moisture-retaining ability of
+the skin and calms the redness skin, leaves your skin hydrated, calming and
+smooth. It also provides cooling effect to leave your skin feeling cool &
+fresh. It is easily absorb into skin and doesn’t give skin a greasy feel, so it’s
+
+perfect for anyone.
+
+质地轻盈的凝胶是为改善肌肤的保湿能力和镇静发红的肌肤,令肌肤
+保持湿润,镇静和顺滑。它还提供了冰凉的功效,让您的肌肤感觉凉
+爽与清新。它容易渗入肌肤,不给于肌肤油腻的感觉,所以它是所有
+
+人完善的必备品。",in stock,new,185 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Allantoin
+It cell-prolifering healing agent in this product. Skin ultimately turns into fair, soft and
+promotes cell-regeneration and stimulates healthy tissues formation. In short, it functions
+as a valuable radiant.
+曾获称为抗刺激剂,有助减轻香皂、表面活化剂,油类及酸、碱材料等所带来的
+不适效应。据称可清理坏死组织,加速新的健康组织的成长,加强肌肤的自癒功
+能,维持肌肤的健康。
+
+Menthyl Lactate
+Cooling agent. Menthyl Lactate comforts your skin by providing a pleasant cooling and
+fresh effect. It is widely used as an active cooling ingredient to soothe and calm skin.
+冷却剂。薄荷乳酸舒适您的皮肤提供了一个愉快的冷却和新鲜的效果。它被广泛用
+作积极冷却成份舒缓和镇静的皮肤。
+
+Aloe Barbadensis Leaf Juice
+Aloe Vera improves hydration, is soothing and healing to all skin types. Chemical
+analysis has shown the presence of mucopolysacharides, a natural moisturizing factor.
+Aloe Vera is composed of water, the enzymes catalase and cellulose, minerals, calcium,
+aluminium, iron, zinc, magnesium, sodium, 20 amino acids and carbohydrates. It has
+renowned healing properties, anti-inflammatory and can soothe the skin and help heal
+cuts, grazes, burns and insect bites. Its active constituents actually speed healing by
+accelerating tissue repair and encouraging normal cell growth. These properties make it
+ideal for use in skin care and cosmetic preparations on sunburns, acne dermatitis, and
+otherwise sensitive and irritated skin.独特的特质,给于干性,敏感性及损伤肌肤保湿、镇定及愈合效果。芦荟中的氨基酸和复合多糖物质构成了天然保湿因素,它可以补充水份,恢复胶元蛋白的功能,
+防止面部皱纹,保持皮肤柔润、光滑并富有弹性。芦荟中的某些成份能在皮肤上形
+成一层无形的膜,具消炎、加速细胞的愈合和生长,可防止因日晒引起的红肿、灼
+热感,保护皮肤免遭灼伤。",,,,,,,"Apply an adequate amount over face and neck, then gently massage to help skin absorbs.
+Use twice daily. It also can be used as mask. Apply evenly onto face & neck, after 30
+minutes wash off with water.
+取适量涂于面部及颈部,然后轻轻地按摩,帮助肌肤吸收。每天使用两次。它也可
+被用来作为面膜。均匀涂抹于面部及颈部,30 分钟之后,用清水洗净。",,,
+19,Advance Moisturizer ,"A luxurious creamy texture cream provides skin with ample nourishment
+and hydration; helps improve the texture of skin, leaving it feels incredibly
+soft and supple throughout the day. It contains soothing and calming
+agents that progressively to alleviate skin redness and irritation. It also
+smoothes fine lines & wrinkles, so day after day, your skin will become
+
+smooth, healthier and younger.
+
+这款质地丰盈柔滑的乳霜提供了充分的营养和水分于皮肤; 帮助改善肤
+质,让您的肌肤全天候都感觉令人难以置信的柔嫩。它含有的舒缓和
+镇静作用,能逐步缓解皮肤发红和发炎的情况。它也能抚平细纹和皱
+纹,假以时日,您的皮肤将会变得更加光滑、健康与年轻。",in stock,new,418 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Melaleuca Alternifolia (Tea Tree) Leaf Oil
+Tea tree has a long history of traditional use. It has recently enjoyed immense recognition
+for its potent anti-fungal, antiseptic, anti-viral and anti-bacteria actions, thus widely used
+for infected skin. It makes an excellent treatment for a wide spectrum of skin ailments,
+such as acne. Its powerful germ fighting capabilities do not make it irritating and toxic to
+sensitive skin.
+茶树具有悠久的传统使用历史。自古以来,茶树被认定是杀菌、消毒作用最佳的植
+物,因此多用于受感染的皮肤,并能治疗多种皮肤疾病,例如暗疮。其强大的抗菌
+功能对敏感性肌肤无刺激性及毒性。
+
+Algae Extract
+It is said to help reduce the appearance of cellulite of the body. It is rich in iodine which
+stimulates the thyroid gland, where it raises metabolic rates and energy levels. Besides, it
+is also rich in compound of alginic acid which provides moisturizing effect to the skin.
+据说具有减少蜂窝组织功效。富含碘,对甲状腺有刺激作用,有助于提升新陈代谢
+及能量水平,因此能够加速脂肪的分解与排除。此外,也含有海藻酸,提供保湿作
+用。
+
+Tocopheryl Acetate
+A kind of vitamin E, well refined anti-oxidant for human skin, fights against destructive
+effects of free radicals on skin cells, as well as a primary defender against oxidation and
+defender against lipid peroxidation and maintains the integrity of connective tissues.
+Besides, it also possesses sunscreening abilities, therefore, protects skin from harmful UV
+rays. At the same time, it locks in moisture, improves skin dehydration and progressively
+reduces the appearance of fine lines. 维他命 E 的一种,人体主要之抗氧化剂,帮助对抗自由基造成的细胞损害,亦能有效对抗脂质氧化,有助于维持结缔组织。此外,具有过滤紫外线功能,保护皮肤
+遭阳光损伤。同时提升肌肤的锁水功能,让肌肤得到深层的湿润,改善老化干燥、
+缺水的状况,减少细纹的产生。
+
+Lavandula Angustifolia (Lavender) Oil
+Lavender essential oil is a popular and versatile essential oil. Lavender oil is highly
+regarded for its relaxing effect on the nervous system, with an overall balancing effect on
+the mind and emotion. It is used as a healing substance for wounds and burns. It is
+antiseptic, antibacterial and anti-fungal. It also helps to reduce discoloration. It is also
+good for digestive system, the respiratory tract and skin problems.
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+
+Thymus Vulgaris (Thyme) Extract
+Thyme has been known and appreciated since ancient times for its antiseptic, antitusive,
+antispasmodic and anthelmintic properties.
+自古以来,百里香的抗菌、镇咳、止痉挛和驱虫功效都备受青睐。
+In general, terms of Thyme activates all functions of deintoxification, facilitating
+transpiration and diuresis, and therefore it is recommended occasionally for eliminating
+toxins from the body.
+一般而言,百里香本身有助于激活排毒、排汗和利尿等的功能,因此,偶尔会用来
+帮助排除毒素。
+
+Zingiber Officinale (Ginger) Extract
+Herbalists have long used ginger as a regulator of vascular cholesterol and blood
+circulation. Current tests show that ginger will lower cholesterol levels and inhibit
+platelet aggregation. 中医一直用生姜作为调节血管内的胆固醇以及血液的循环。有测试显示,生姜有降
+低胆固醇水平和抑制血小板聚集的功效。
+Ginger’s activity is mainly based on its action on the arachidonic acid pathway, resulting
+in several actions such as anti-inflammatory, analgesic, antipyretic and anti-platelet. It
+acts also as an antioxidant, antibacterial and on immune system. Ginger extracts help to
+improve the blood circulation and increase the metabolism.
+生姜主要功效基于其对花生四烯酸的效应,也因此有抗炎,镇痛,解热和抗血小板
+功效。也有抗氧化、抗菌作用,对免疫系统方面也具有帮助。
+
+Rosmarinus Officinalis (Rosemary) Leaf Oil
+It has antiseptic properties and a strong aroma that is balancing, invigorating and
+revitalizing. Therefore, it is effective for mental fatigue, circulation problems, pain relief
+for the muscular system, decongests the respiratory tract and is a skin and hair booster.
+具有抗菌作用及强烈的香气有平衡、醒神及提振功效。因此,对心理疲劳、循环不
+良、舒缓肌肉疼痛、顺畅呼吸道有显著的功效,亦促进皮肤和头发的再生。
+It has healing, astringent and antiseptic qualities and is a scalp and skin stimulant: it
+activates peripheral blood circulation and stimulates cutaneous metabolism.
+具有治疗,收敛及抗菌作用,对头皮和皮肤有刺激作用:它促进血液的循环,刺激
+皮肤的新陈代谢。
+
+Combination of Retinyl Palmitate, Helianthus Annuus (Sunflower) Seed Oil
+An important element to the growth of cells. Gently pampers newly born skin, treats acne
+and anti-aging, lifts and firms skin density, smoothes over the depth of wrinkles. Skin
+looks younger than your actual age.
+维他命A是皮肤细胞生长的重要因素。对新生皮肤的形成有良好的效果,因此增进
+皮肤的外表,使细纹及皱纹变得更平滑。
+
+Aloe Barbadensis Leaf Juice
+Aloe Vera improves hydration, is soothing and healing to all skin types. Chemical
+analysis has shown the presence of mucopolysacharides, a natural moisturizing factor.
+Aloe Vera is composed of water, the enzymes catalase and cellulose, minerals, calcium,
+aluminium, iron, zinc, magnesium, sodium, 20 amino acids and carbohydrates. It has
+renowned healing properties, anti-inflammatory and can soothe the skin and help heal
+cuts, grazes, burns and insect bites. Its active constituents actually speed healing by
+accelerating tissue repair and encouraging normal cell growth. These properties make it
+ideal for use in skin care and cosmetic preparations on sunburns, acne dermatitis, and
+otherwise sensitive and irritated skin.
+独特的特质,给于干性,敏感性及损伤肌肤保湿、镇定及愈合效果。芦荟中的氨基
+酸和复合多糖物质构成了天然保湿因素,它可以补充水份,恢复胶元蛋白的功能,
+防止面部皱纹,保持皮肤柔润、光滑并富有弹性。芦荟中的某些成份能在皮肤上形成一层无形的膜,具消炎、加速细胞的愈合和生长,可防止因日晒引起的红肿、灼热感,保护皮肤免遭灼伤。
+
+Dipotassium Glycyrrhizate
+It is a natural active obtained from the extraction of licorice root, which acts as skin
+lightener, anti-inflammation and anti-allergy agent.
+它是一种萃取自甘草的天然活性成份,能作为皮肤美白剂、抗炎及抗过敏剂。
+Dipotassium Glycyrrhizate is effective in treating acute and chronic dermatitis, and its
+milder action gives almost no side effect to the skin. Besides, it also has the following
+actions:
+Dipotassium Glycyrrhizate 能有效地治疗急性及慢性皮炎,其性质温和,对皮肤几
+乎没有副作用。此外,它还具有以下作用:
+Inhibitory effect on hyaluronidase activity 抑制玻尿酸酶活性
+Inhibition on hyaluronidase activity plays an important role not only in
+maintaining the hyaluronic acid level in the body but also anti-inflammatory and
+anti allergic activities.
+在抑制玻尿酸酶活性方面发挥了重要作用,不仅维持身体中的玻尿酸水平,
+而且还具有抗炎及抗过敏活性。
+Inhibitory effect on tyrosinase activity 抑制酪氨酸酶活性
+Inhibition on the formation of melanin effectively helps skin to maintain its
+brighter complexion.
+抑制黑色素的形成,能有效帮助皮肤保持其亮白的肤色。
+Preventative effect on UV-B induced erythema
+有效预防由 UV - B 辐射引起的红斑
+
+Salvia Hispanica Seed Oil
+
+Salvia Hispanica Seed Oil helps to calm itching skin because of its high anti-
+inflammatory effect.
+
+由于其高抗炎作用,Salvia Hispanica Seed Oil 有助于镇静发痒的皮肤。
+
+Salvia Hispanica Seed Oil help inducing the synthesis of anti-inflammatory and anti-
+vasoconstrictive substances. It will make:
+
+Salvia Hispanica Seed Oil 有助于诱发抗炎和抗血管收缩物质的合成, 这将促成:
+ calm itching sensations 镇静瘙痒感
+ soothes redness and irritation 舒缓发红和刺激
+ provides exceptional hydration 提供卓越的保湿作用
+ restores the skin barrier 恢复皮肤屏障
+Salvia Hispanica Seed Oil COSMETIC USES 在化妆品领域的用途:
+ Preventive anti-age activity due to its anti-free radical property
+由于其抗自由基特性使它具有预防性抗衰老作用
+ Skin calming and anti-redness effect. Balance skin to reduce inflammation in
+eczematous, itching and uncomfortable situations
+镇静皮肤和抗发红功效。平衡皮肤以减少炎症、湿疹、止痒和不舒服的状
+ Restore moisture, improving cutaneous barrier
+恢复水分,改善皮肤屏障
+ Nutritive for dry and tight skin
+给予干燥和紧绷的皮肤营养
+ Prevents sun damage
+防止日晒伤害
+ Very pleasant in massage (body care)
+用于按摩时非常舒服(身体护理)
+ Improvement in skin softness and elasticity
+改善皮肤的柔滑度和弹性",,,,,,,"Apply an appropriate amount over face and all body part, then gently massage into skin
+in an upward circular motion until it is fully absorbed.
+取适量涂抹于脸部与全身,然后以向上打圈的方式轻轻按摩皮肤直至其完全被吸
+收。",,,
+20,Hydro H2O,"A super moisturizing cream with visible water drops to supplies moisture to your skin. Hyaluronic Acid hydrates your skin, your skin will appear visibly smoother and you can feel your skin is deeply moisturizes.
+神奇保湿出水霜,明明是霜狀,可是在脸上推开后却变成小水滴以补充
+肌肤的水分。Hyaluronic Acid 保湿您的肌肤,您的肌肤将呈现水嫩平滑,而且您也能感觉您的肌肤被深层湿润。",in stock,new,218 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"**Hyaluronic Acid**
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+**Key benefits 主要作用:**
+-  It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+- It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+- Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有弹力。
+
+Allantoin
+It promotes cell-regeneration in skin which has been subjected to the harsh treatment of
+external influences, and in addition takes care of intact facial and body skin, keeping it in
+
+a healthy condition. Allantoin is healing, soothing and anti-irritating. It is valuable cell-
+prolifering healing agent which stimulates healthy tissue formation.
+
+曾获称为抗刺激剂,有助减轻香皂、表面活化剂,油类及酸、碱材料等所带来的不适效应。据称可清理坏死组织,加速新的健康组织的成长,加强肌肤的自癒功能,维持肌肤的健康。
+
+**Chamomilla Recutita (Matricaria) Extract**
+Chamomile is a plant which has been known of since antiquity and was used by the
+Egyptians as a febrifuge and to treat intestinal disorders.
+自古以来,甘菊被埃及人作为退热剂及治疗肠道等疾病。
+The plant has an antispasmodic action and act as a decongestant, anti-inflammatory and
+anti allergic elements.
+该植物具有防痉挛及减轻充血作用,也是抗炎和抗过敏的主要元素。
+
+**Genistein**
+It consists mainly of iso-flavones from soybean extract - iso-flavones have received
+attention as a substitute for female hormones without side-effects. It provides estrogen
+like effect on enzymes and collagen by improving the metabolic activity of collagen in
+the skin, provide firming effect. It shows whitening affects that inhibitory effects of
+melanin production, prevention effect and improvement of skin in the early stage against
+pigmentation. It also shows the effect of control sebaceous secretion, can be used as an
+acne cure.
+
+大豆类黃酮素被视为天然植物雌激素,可以与皮肤中的雌激素受体结合,达到美
+容、滋润养肤的作用,对改善因为女性内分泌引起的黑斑、暗疮、老化暗沉都有助
+益。此外,大豆类黃酮素还可以通过其抗氧化作用清除自由基,从而加强皮肤抵抗
+紫外线的能力,预防黑色素,老年斑及肝斑的形成,达到美白肌肤的效果。大豆类
+黃酮素亦助皮肤保持光滑、细腻富有弹性。
+
+**Panthenol**
+Pro-Vitamin B5 improves and increases the moisture-retaining ability of the skin,
+provides long lasting moisturisation, helps dehydrated skin to remain supple and elastic.
+Also has wound healing effect, improves normal keratinization of the skin and stimulates
+epithelisation.
+泛醇,也称为维他命原B5,改善及提升肌肤保湿作用,提供持久保湿感。使干燥
+肌肤保持柔嫩及有弹性。也有疗伤疤功效,改善皮肤的角质化。
+
+Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and
+anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).
+在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+外用,薰衣草适合用在清洗伤口及溃疡,对于口部感染有镇痛作用,以及对晒伤则
+有舒缓和清新作用。
+
+**Melaleuca Alternifolia (Tea Tree) Leaf Oil**
+Tea tree has a long history of traditional use. It has recently enjoyed immense recognition
+for its potent anti-fungal, antiseptic, anti-viral and anti-bacteria actions, thus widely used
+for infected skin. It makes an excellent treatment for a wide spectrum of skin ailments,
+such as acne. Its powerful germ fighting capabilities do not make it irritating and toxic to
+sensitive skin.
+
+茶树具有悠久的传统使用历史。自古以来,茶树被认定是杀菌、消毒作用最佳的植
+物,因此多用于受感染的皮肤,并能治疗多种皮肤疾病,例如暗疮。其强大的抗菌
+功能对敏感性肌肤无刺激性及毒性。
+
+**Combination of Caesalpinia Spinosa Oligosaccharides, Caesalpinia Spinosa Gum**
+Its immediate moisturizing effects make it suitable for the basic moisturizing
+formulations. Its cumulative and long-lasting moisturizing effects make it suitable for
+specific products to treat dry, damaged or aged skin.
+其直接的保湿效果使其成为基本的保湿配方适合。其累积和持久的保湿作用使其适
+合用于特定的产品,以治疗干燥、受损或老化的皮肤。
+
+**Combination of Quaternium-73, Butylene Glycol**
+It cans antimicrobial effectiveness, which makes it very useful in anti-acne, antiseptic,
+inhibitory effect on melanin formation also anti-oxidative effect.
+它拥有抗菌效力,能够有效的反痤疮,防腐功能,抑制黑色素的形成,也有着抗氧
+的作用。",,,,,,,"Smooth an appropriate amount and gently massage into skin with circular motion until it
+is fully absorbed.
+适量地涂抹及以圆圈似的方式轻轻按摩直至其完全被吸收。",,,
+21,Replenish Hydrating Moisturizer,"A rich, restorative moisturizer regulates the skin's moisture level and
+provides long-lasting hydration. Easily absorbed by the skin, this advanced
+hydrating moisturizer cream forms a protective mantel on the skin to reduce
+trans-epidermal water loss and allows the skin to maintain an optimal
+moisture level, while restoring firmness, smoothness, & elasticity, to give
+
+the skin a balanced, radiant, healthy-looking glow.
+
+一种丰裕,修复的保湿剂调节肌肤的水分,并提供长效保湿。容易被
+肌肤所吸收,这优越的保湿滋润霜在肌肤上形成保护膜以减少表皮的
+水分流失,让肌肤保持最佳的湿度水平,同时恢复肌肤的紧致、柔滑
+
+和弹性,给予您平衡、容光焕发及健康的肌肤。",in stock,new,218 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"It promotes cell-regeneration and stimulates healthy tissues formation. In short, it
+functions as a valuable cell-prolifering healing agent in this product. Skin ultimately turns
+into fair, soft and radiant.
+曾获称为抗刺激剂,有助减轻香皂、表面活化剂,油类及酸、碱材料等所带来的
+不适效应。据称可清理坏死组织,加速新的健康组织的成长,加强肌肤的自癒功
+能,维持肌肤的健康。
+
+Advanced Moisture Complex (AMC)
+High Performance Moisturization 高性能的保湿
+Advanced Moisture Complex (AMC) is a balanced blend of performance ingredients
+(moisturizers, humectants, film formers, conditioners, and water-binding agents) each of
+which address the different causes of dry skin. Each component of AMC is a
+performance ingredient in its own right, yet none of the components alone provide
+sustained, long-term moisturization.
+高级的水分复合物( AMC )是一个平衡的混合性能成分(保湿剂、湿润剂、薄膜
+创造者、调节者和水结合剂)于处理每种不同皮肤干燥的原因。AMC 的每一种成
+份是有自身的性能,但没有一种成份能单独提供持续及长期的保湿。
+Composition of Advanced Moisture Complex 高级保湿成份的复合物
+Glycerin, the humectant component of AMC, prevents moisture loss by holding onto
+some of the water associated with the skin that would normally be lost to the atmosphere
+(TEWL). Glycerin can also “attract” water back into the skin from the environment.
+甘油是 AMC 组织的保湿剂,以支持一些通常会失去空气( TEWL )与水有关的
+皮肤防止水分流失 。甘油也可以从外“引”水回入皮肤里。
+
+Sodium PCA penetrates skin and, like glycerin, retains moisture and slows its eventual
+loss through evaporation. Sodium PCA and urea are two components that comprise the
+Natural Moisturizing Factor (NMF).
+Sodium PCA 渗透皮肤,如甘油,保持水分及最终延缓其通过蒸发的损失。Sodium
+PCA 和尿素是由天然保湿因子( NMF )构成的两种成份 。
+Urea is included in AMC as a facilitator as well as a moisturizer. In small amounts, urea
+has good water-binding properties. It draws moisture in to the cells of the stratum
+corneum, assisting the deeper penetration of Natural Moisturizing Factor (NMF)
+molecules: the nutrients the body uses to keep hair and skin healthy and moisturized.
+AMC 中包含的尿素作为调解及保湿者。在少量里,尿素具有良好的水结合性能。
+它提供水分于角质层的细胞,协助渗入天然保湿因子( NMF )的分子:身体用的
+养分以保持健康与湿润的头发及肌肤。
+Trehalose is a naturally occurring, non-reducing disaccharide composed of two glucose
+molecules. In organisms and tissues, it enables survival in conditions of extreme
+dehydration. On a molecular level, Trehalose stabilizes complex membranes and proteins
+as water evaporates or is removed. In skin care, Trehalose helps prevent damage from
+dehydration by maintaining the liquid crystalline lamellar structure of the epidermal lipid
+permeability barrier.
+海藻糖是一种自然产生的,不会减少二糖组成的两个葡萄糖分子。在生物和组织
+里,它能够生存于极端脱水的状况里。在分子的级别上,海藻糖稳定复合膜和蛋白
+质蒸发或祛除的水。在肌肤保养品里,海藻糖有助于防止脱水的损害以维持液晶层
+状结构脂质的表皮渗透屏障。
+
+Polyquaternium-51 2-Methacryloyloxyethyl Phosphorylcholine and Butyl-methacrylate
+was developed for the contact lens industry to maintain moisture and counteract dry eye.
+Structurally, Polyquaternium-51 is a phospholipid copolymer that improves the moisture
+retention capability of the epidermis. It holds approximately fifty times more water than
+hyaluronic acid. The phosphorylcholine moiety of Polyquaternium-51 helps stabilize the
+phospholipid lamella, and functions as a barrier to prevent further water loss as well as
+forming a protective film on the surface of the skin.
+Polyquaternium-51 2-Methacryloyloxyethyl Phosphorylcholine 和 Butyl-methacrylate 建
+立了隐形眼镜行业保持水分和对付干眼症。结构上,Polyquaternium-51 是一种磷脂
+共聚物,提高表皮保留水分的能力。它拥有大约 50 倍比玻尿酸多的水。
+Polyquaternium-51 的磷酸基有助于稳定磷脂层和用为一个防止水分进一步流失的屏
+障,以及形成肌肤表面上的保护膜。
+
+Chamomilla Recutita (Matricaria) Extract
+Chamomile is a plant which has been known of since antiquity and was used by the
+Egyptians as a febrifuge and to treat intestinal disorders.
+自古以来,甘菊被埃及人作为退热剂及治疗肠道等疾病。
+The plant has an antispasmodic action and act as a decongestant, anti-inflammatory and
+anti allergic elements.
+该植物具有防痉挛及减轻充血作用,也是抗炎和抗过敏的主要元素。
+
+Hyaluronic Acid
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+Key benefits 主要作用:
+ It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+ It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+ Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有弹力。
+
+Aloe Barbadensis Leaf Juice
+Aloe Vera improves hydration, is soothing and healing to all skin types. Chemical
+analysis has shown the presence of mucopolysacharides, a natural moisturizing factor.
+Aloe Vera is composed of water, the enzymes catalase and cellulose, minerals, calcium,
+aluminium, iron, zinc, magnesium, sodium, 20 amino acids and carbohydrates. It has
+renowned healing properties, anti-inflammatory and can soothe the skin and help heal
+cuts, grazes, burns and insect bites. Its active constituents actually speed healing by
+accelerating tissue repair and encouraging normal cell growth. These properties make it
+ideal for use in skin care and cosmetic preparations on sunburns, acne dermatitis, and
+otherwise sensitive and irritated skin.
+独特的特质,给于干性,敏感性及损伤肌肤保湿、镇定及愈合效果。芦荟中的氨基
+酸和复合多糖物质构成了天然保湿因素,它可以补充水份,恢复胶元蛋白的功能,
+防止面部皱纹,保持皮肤柔润、光滑并富有弹性。芦荟中的某些成份能在皮肤上形成一层无形的膜,具消炎、加速细胞的愈合和生长,可防止因日晒引起的红肿、灼
+热感,保护皮肤免遭灼伤。",,,,,,,"Apply to the face. Depending on the skin’s needs, apply on its own after daily skincare.
+Massage into skin using gentle, upward strokes.
+涂抹于面部。根据肌肤的需要,在日常护肤产品后涂抹。然后以轻柔,向上划的方
+式按摩肌肤。",,,
+22,Lift Up Essence ,"An innovative and high-performance essence is specially formatted to get rid
+of puffiness, crow’s feet, dark circles and resist the pull of gravity. It
+combats all causes and signs of slackening on the eyelids, eye corner and
+face contour for a complete ""lifting"" and “firming” of the eye contours and
+face contour. The eye and face contour is smoothed, lifted and visibly
+younger looking. Therefore, its lightweight texture absorbs easily into the
+
+skin, leaving your skin feeling velvety smooth.
+
+一种创新与高性能的精华胶是特别为驱走眼袋、鱼尾纹、黑眼圈和抗
+地心引力而研制。它对抗所有造成眼皮、眼角和脸部轮廓松弛的原因
+与迹象为完善的眼部和脸部轮廓“提拉”及“紧实”。眼部和脸部轮廓是平
+滑、提拉和明显地看起来更年轻。此外,其轻盈的质地,容易被肌肤
+
+吸收,使肌肤犹如天鹅绒般地光滑。",in stock,new,428 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Perfluorodecalin
+It acts as skin revitalize, refreshing the cells by bringing oxygen and simultaneously
+removing cumulated pollution. It decreases the numbers of wrinkles, as well as the depth
+of the wrinkles. It also moisturized skin and improves the appearance.
+它作为振兴皮肤,刷新细胞中的氧气,同时消除累积已久的残污。它减少皱纹的数
+量,以及对皱纹的深度。它也滋润皮肤并帮助改善外观。
+
+Polyperfluoromethylisopropyl Ether
+Perform as 作用:
+• Skin protectants 皮肤保护剂
+• Film formers膜成型
+• Skin feel improvers皮肤感觉改良剂
+• Moisture barriers保湿屏障
+• Emollients润肤剂
+• Water and oil repellents水和油剂
+• Lubricants润滑剂
+• Anti-adhesives反胶
+• Wetting agents润湿剂
+
+Dimethyl Sulfone
+It is claimed to be anti-inflammatory and penetrate deep within the skin's surface to
+moisturize, soften and rejuvenate dry, aging, or damaged skin.
+它能抗炎和深入渗透皮肤达到滋润,并帮助软化、修复干燥、老化以及受损的皮
+肤。
+
+Complex of Retinyl Palmitate and Helianthus Annuus (Sunflower) Seed Oil
+An important element to the growth of cells. Gently pampers newly born skin, treats acne
+and anti-aging, lifts and firms skin density, smoothes over the depth of wrinkles. Skin
+looks younger than your actual age.
+维他命 A 是皮肤细胞生长的重要因素。对新生皮肤的形成有良好的效果,因此增
+进皮肤的外表,使细纹及皱纹变得更平滑。
+
+Panthenol
+Pro-vitamin B5 that improves and increases the moisture-retaining ability of the skin
+(long lasting moisturizer), dry skin remains supple and elastic for longer time; has a
+wound healing effect, improves normal keratinization of the skin, stimulates
+epithelization.
+泛醇,也称为维他命原B5,改善及提升肌肤保湿作用,提供持久保湿感。使干燥
+肌肤保持柔嫩及有弹性。也有疗伤疤功效,改善皮肤的角质化。
+
+3-o-Ethyl Ascorbic Acid
+It is an entered derivative of ascorbic acid, most excellent derivative of ascorbic acid so
+far. It is very stable in the chemical structure, a real stable and discolored derivative of
+ascorbic acid, but also it can enter into skin and be metabolized by body as ascorbic acid.
+So its effect is better than pure ascorbic acid. It is a unique lipophilic and hydrophilic
+material, easily be used in cosmetic formulation. It is most important that it can easily
+enter into dermis and bring into play biological effect, while pure ascorbic acid almost
+does not enter dermis. It is an excellent choice for cosmetic chemists.
+它是抗坏血酸 ethered 衍生物,最优秀的抗坏血酸衍生物至今。这是非常稳定的化
+学结构,真正的稳定和变色衍生公积金抗坏血酸,而且它可以进入皮肤,并作为抗
+坏血酸身体代谢。因此,其效果优于单纯抗坏血酸。这是一个独特的亲脂和亲水性
+物质,很容易在化妆品配方使用。最重要的是,它可以很容易地进入真皮和发挥生
+物学效应,而纯维生素 C 除颤几乎没有进入真皮。这是一个化妆品化学家的最佳
+选择。
+The character of Ethyl Ascorbic Acid:
+乙基抗坏血酸的特性:
+ Excellent whitening effect: inhibit the activity of Tyrosine
+卓越的美白作用: 抑制酪氨酸酶的活性
+ High anti-oxidation 高抗氧化
+ Stable derivative of ascorbic acid 稳定的维生素 C 衍生物
+ Lipophilic and hydrophilic structure 亲油性和亲水性结构
+ Anti-inflammation, inhibit the growth of bacteria 抗炎,抑制细菌的生长
+ Improve the complexion, endow the elasticity of skin
+改善肤色,赋予皮肤的弹性
+ Repair the skin cell, accelerate the synthesis of collagen
+修复皮肤细胞,促进胶原的合成
+~ Whitening effect 美白作用:
+Generally speaking, ascorbic acid can inhibit the synthesis of melanin. But the
+effect of direct using ascorbic acid to skin is very bad. Clinical tests of human
+and animal prove: cosmetic product containing 2% can improve the complexion
+and whiten the skin. The mechanism is:
+一般来说,维生素 C 可以抑制黑色素的合成。但是,直接利用抗坏
+血酸于皮肤的后果是很恶劣的。人和 动物的临床试验证明:化妆品
+含 2%可以改善肤色及美白皮肤。机制是:
+-Action one: deoxidize the oxided jet black melanin into tint melanin
+作用 1:还原的氧化物喷射黑色素进入色彩色素
+-Action two: Inhibit the activity of Tyrosine, prevent the synthesis of
+melanin
+作用二:抑制酪氨酸酶的活性,阻止黑色素的合成
+~ The synthesis of collagen
+Ethyl Ascorbic Acid can repair the activity of collagen (repair the structure
+and synthesis), improve the formation of skin cell and collagen according to
+the ratio of metabolic consumption. Its activity is similar to ascorbic acid
+phosphate derivative.
+乙基抗坏血酸可以修复胶原蛋白的活性(修复的结构和合成),按代
+谢消耗的比例改善皮肤细胞和胶原的形成。其活动类似抗坏血酸磷酸
+酯衍生。
+~ Antioxidation 抗氧化
+Cosmetic products contain plentiful oil, so they are easily oxidized by UV
+radiation, high temperature and humid atmosphere. When overdue or
+improperly stored, these products can be irritant to skin. Therefore,
+cosmetic manufacturers usually add BHT, BHA and Tocopherol, etc. But
+these antioxidations are oil soluble and not easily metabolized by body.
+Ethyl Ascorbic Acid is a high effective lipophilic and hydrophilic
+antioxidant, it can decrease the occurrence of oil oxidation, and prevent
+cosmetic deteriorate.
+化妆品含有丰富的油,因此它们很容易被紫外线,高温和潮湿的空气
+氧化。当过期或不正确存储,这些产品可刺激皮肤。因此,化妆品
+制造商通常添加甲苯,BHA 和维生素等,但这些抗氧化是油溶性和
+不容易被人体产生代谢变化。乙基抗坏血酸是一种高效的亲油性和亲
+水性抗氧化剂,可减少油氧化的发生及防止化妆品毁坏。
+~ Anti-inflammation 抗炎
+Ethyl Ascorbic Acid has strong anti-inflammation effect.
+乙基抗坏血酸具有较强的抗炎作用。
+
+Tocopheryl Acetate
+A kind of vitamin E, well refined anti-oxidant for human skin, fights against destructive
+effects of free radicals on skin cells, as well as a primary defender against oxidation and
+defender against lipid peroxidation and maintains the integrity of connective tissues.
+Besides, it also possesses sunscreening abilities, therefore, protects skin from harmful UV
+rays. At the same time, it locks in moisture, improves skin dehydration and progressively
+reduces the appearance of fine lines.
+维他命 E 的一种,人体主要之抗氧化剂,帮助对抗自由基造成的细胞损害,亦能
+有效对抗脂质氧化,有助于维持结缔组织。此外,具有过滤紫外线功能,保护皮肤
+遭阳光损伤。同时提升肌肤的锁水功能,让肌肤得到深层的湿润,改善老化干燥、
+缺水的状况,减少细纹的产生。
+
+Hyaluronic Acid
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+Key benefits 主要作用:
+ It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+ It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+ Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有弹力。
+
+Allantoin
+It promotes cell-regeneration in skin which has been subjected to the harsh treatment of
+external influences, and in addition takes care of intact facial and body skin, keeping it in
+
+a healthy condition. Allantoin is healing, soothing and anti-irritating. It is valuable cell-
+prolifering healing agent which stimulates healthy tissue formation.
+
+曾获称为抗刺激剂,有助减轻香皂、表面活化剂,油类及酸、碱材料等所带来的
+不适效应。据称可清理坏死组织,加速新的健康组织的成长,加强肌肤的自癒功
+能,维持肌肤的健康。
+
+Hydrogenated Lecithin
+Lecithin is one of the most important components of a cell and plays an important role in
+its metabolism, especially in its constitution and membrane penetrability. For many years
+its use as a bio-surfactant in cosmetics has been studied. However, its application to
+cosmetics has been limited because of its oxidation and instability against heat.
+卵磷脂是细胞中最重要的组成部分之一,同时其也在细胞代谢方面发挥重要作用,
+尤其是在细胞结构和膜渗透性。多年来,对它用作为化妆品中的生物表面活性剂已
+进行了研究。但是由于它面对热时会氧化且不稳定性,因此使得其在化妆品中的应
+用受到了限制。
+Hydrogenated Lecithin retains all the good qualities of natural lecithin, yet its stability is
+greatly improved. Moreover, unlike common surfactants, Hydrogenated Lecithin forms
+stable liposomes when it is dispersed in water, which can be involved both water-soluble
+and lipo-soluble substances.
+氢化卵磷脂保留了所有天然卵磷脂的良好品质,而且其稳定性也大为提高。此外,
+不同于常见的表面活性剂,当氢化卵磷脂被分散在水中时会形成稳定的脂质体,它
+能够被水溶性和脂溶性物质包容。
+-Natural derived emulsifier (from soy). 自然衍生乳化剂(从大豆)。
+-Liposome former. 脂质体。
+-Promotes percutaneous absorption of actives. 促进皮肤吸收的活性。
+-Moisturizing effect. 保湿功效。
+-Enhances skin barrier function. 强化肌肤屏障功能。
+-Reduces skin irritation. 降低皮肤刺激性。
+-Dispersant for pigments. 颜料分散剂。",,,,,,,"After cleansing and toning, massage gently with fingertips in upward motion from the
+inner to the outer part of the face and eye area. Use twice daily.
+洗洁与爽肤后,用指腹轻轻地由内至外并往上地按摩于脸部和眼睛周围。每日使用
+两次。",,,
+23,Apple Stem Hydro Moist Elixer Lotion,"This intensive silky lotion is designed for middle-aged people between 35-50 years old. This lotion provides a light and smooth texture, and has no discomfort after application. It will minimized the appearance of fine lines and wrinkles, increases the firmness and elasticity of the skin, keep skin supple and more elastic. Additionally, it also restores the skin's delicate equilibrium while delivering essential hydration and provides brightening & calming effects. Your skin will be restoring more firm, smooth and younger with constant use.
+
+这款强效的丝滑乳液专为 35 岁至 50 岁之间的中年人群而设计。 这种乳液质地轻盈柔滑,使用不会感到不适。 它将减少细纹和皱纹的出现,增加皮肤的紧致度和弹性,保持皮肤柔滑和更有弹性。 此外,它还可以恢复皮肤的细腻平衡,同时提供必要的水合作用,并提供美白和镇静的功效。 持续使用, 您的皮肤将恢复更加紧致,柔嫩和年轻的状态。",in stock,new,308 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"**SODIUM ACRYLATES CROSSPOLYMER-2**
+Sodium salt of acrylic copolymer. It is the absorbent powder which holds water more than 20
+times of its dry weight and forms viscous emulsions and gels. The formulation with Sodium
+Acrylates Crosspolymer-2 release water when applied on skin and provide a unique sensation of watery touch with elastomer-like finish. It exhibits soft-focus properties that provide an instantly visible blurring effect. This unique sensation is particularly interesting in improving the aesthetics of water-in-oil formulas that might have a heavy texture due to high load of chemical sunscreens and oils. It is suggested for use in skin care product but also as a powder for make-up products.
+丙烯酸共聚物的钠盐。 吸水性粉末可保持水的干重超过 20 倍,形成粘稠的乳液和凝胶。
+含有 Sodium Acrylates Crosspolymer-2 的配方可以在皮肤上使用时释放水分,并提供独特
+的水润感,具有弹性体般的光洁度。 它具有柔焦特性,可提供即时可见的模糊效果。 这
+种独特的感觉特别有趣的是改善由于化学防晒剂和油的高负荷而可能具有重质地的油包水
+配方的美感。 建议用于护肤产品,也可用作化妆品的粉末。
+
+**Hyaluronic Acid**
+It is a structural component throughout the body and often touted for its abilities to stop or
+reverse aging. Its outstanding moisture retaining capacity helps skin to absorb hydration up to approximately 1000 times of its weight. It increases the elasticity and lubricity of the skin,
+promoting immediate lifting results.
+
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿酸有""倒
+流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮肤角质层保持
+膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+**Key benefits 主要作用:**
+- It moisturizes the skin from the inside to smooth out the depth of wrinkles and lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+- It helps to erase the signs of aging or who are beginning to see the first signs of aging.
+有助于消除初步的老化迹象。
+- Immediate lifting effect helps increase firmness of the skin, to keep skin supple and more
+elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有弹力。
+
+**Niacinamide**
+As a precursor of NAD (nicotinamide adenosine dinucleotide), an important molecule involved in energy metabolism, an effective skin lightener that works by inhibiting melanosome transfer from melanocytes to keratinocytes.
+作为 NAD(烟酰胺腺嘌呤二核苷酸)的前体,一种参与能量代谢的重要分子,一种通过
+抑制黑素细胞从黑素细胞转移至角质形成细胞而起作用的有效皮肤增白剂。
+
+**Galactomyces Ferment Filtrate**
+
+It is an excellent product for instant hydration. Besides the hydration, it also provides anti-
+oxidant, anti-inflammatory and brightening benefits to our skin. It will also add “glowy” appearance to your skin. Your skin will be plumped up, hydrated and it will help your skin to
+better absorb the following products that you are going to apply.
+它是一款能即时保湿的卓越活性成份。除了保湿之外,还提供抗氧化、抗炎和美白皮肤的
+作用。它还给您肌肤添加了活力。您的肌肤将变得饱满水润,另外它也会帮助皮肤更好地
+吸收您随即将使用的产品。
+
+**Malus Domestica Fruit Cell Culture Extract (Apple Stem Cells)**
+It has age-delaying and anti-wrinkle effects. Thus, it is a revolutionary anti-aging active
+ingredient based on a high-tech plant cell culture technology.
+它具有延缓年龄和抗皱的效果。由此,以一个高科技植物细胞培养技术为基础,使它成为
+一种具革命性的抗衰老活性成分。
+• Protects longevity of skin stem cells 保护皮肤干细胞的寿命
+• Delays senescence of essential cells 延缓主要细胞衰老
+• Combats chronological aging 对抗时间性的衰老
+• Preserves the youthful look and the vitality of your skin
+维持您的年轻外观和皮肤活力
+
+**Dipotassium Glycyrrhizate**
+It is a natural active obtained from the extraction of licorice root, which acts as skin lightener,
+anti-inflammation and anti-allergy agent.
+它是一种萃取自甘草的天然活性成份,能作为皮肤美白剂、抗炎及抗过敏剂。
+Dipotassium Glycyrrhizate is effective in treating acute and chronic dermatitis, and its milder
+action gives almost no side effect to the skin. Besides, it also has the following actions:
+Dipotassium Glycyrrhizate.
+
+能有效地治疗急性及慢性皮炎,其性质温和,对皮肤几乎没有
+副作用。
+
+此外,它还具有以下作用:
+- Inhibitory effect on hyaluronidase activity 抑制玻尿酸酶活性
+- Inhibition on hyaluronidase activity plays an important role not only in maintaining the
+hyaluronic acid level in the body but also anti-inflammatory and anti allergic activities.
+在抑制玻尿酸酶活性方面发挥了重要作用,不仅维持身体中的玻尿酸水平,而且还
+具有抗炎及抗过敏活性。
+- Inhibitory effect on tyrosinase activity 抑制酪氨酸酶活性
+- Inhibition on the formation of melanin effectively helps skin to maintain its brighter
+complexion.
+抑制黑色素的形成,能有效帮助皮肤保持其亮白的肤色。
+- Preventative effect on UV-B induced erythema
+有效预防由 UV - B 辐射引起的红斑
+
+**Betaine**
+-Strengthens skin barrier 加强皮肤屏障
+-Mitigates irritation of surfactants 减轻表面活性剂的刺激
+-Reduces stickiness 减少粘性
+-Provides smoother, softer skin feel 提供皮肤更柔滑的感觉
+-Maintains skin moisture balance 保持皮肤的水分平衡
+
+**Aloe Barbadensis Leaf Juice**
+Aloe Vera improves hydration, is soothing and healing to all skin types. Chemical analysis has
+shown the presence of mucopolysacharides, a natural moisturizing factor. Aloe Vera is
+composed of water, the enzymes catalase and cellulose, minerals, calcium, aluminium, iron, zinc, magnesium, sodium, 20 amino acids and carbohydrates. It has renowned healing properties, anti- inflammatory and can soothe the skin and help heal cuts, grazes, burns and insect bites. Its active constituents actually speed healing by accelerating tissue repair and encouraging normal cell growth. These properties make it ideal for use in skin care and cosmetic preparations on sunburns, acne dermatitis, and otherwise sensitive and irritated skin.
+独特的特质,给于干性,敏感性及损伤肌肤保湿、镇定及愈合效果。芦荟中的氨基酸和复
+合多糖物质构成了天然保湿因素,它可以补充水份,恢复胶元蛋白的功能,防止面部皱
+纹,保持皮肤柔润、光滑并富有弹性。芦荟中的某些成份能在皮肤上形成一层无形的膜,
+具消炎、加速细胞的愈合和生长,可防止因日晒引起的红肿、灼热感,保护皮肤免遭灼
+伤。
+
+**Allantoin**
+It promotes cell-regeneration in skin which has been subjected to the harsh treatment of external influences, and in addition takes care of intact facial and body skin, keeping it in a healthy condition. Allantoin is healing, soothing and anti-irritating. It is valuable cell-prolifering healing agent which stimulates healthy tissue formation.
+它促进皮肤的细胞再生,尤其是一直受到外部刺激的皮肤,此外还保护脸部和身体的皮
+肤,使其保持健康状态。 尿囊素具有愈合,舒缓和抗刺激作用。 它是优越的细胞增生修
+复剂,可刺激健康组织的形成。
+
+**Citrus Paradisi (Grapefruit) Peel Oil**
+Anti cellulite, circulatory stimulant and detoxify.
+抗蜂窝组织,促进血液循环及帮助排毒。
+It is uplifting and refreshing. It regulates sebum, for congested and oily skin.
+提振精神、清新作用。调节皮脂分泌,调理油腻不洁皮肤。
+
+**Epilobium Angustifolium Extract**
+It provides safe, natural plant-derived functionality. It possesses anti-irritation, antibacterial and anti-acne properties. It is also free radical scavenger.
+具有有效抗炎特性。提供安全、全天然形成功效。有抗敏、抗菌、抗粉刺及对抗自由基功
+能。",,,,,,,"Apply an adequate amount over face especially line and wrinkles. Then, gently massage with
+fingertips in upward motion from the inner to the outer part of the face to help skin absorbs.
+取适量涂于脸部,尤其是细纹和皱纹部位。 然后,用指尖从面部的内部至外部轻轻向上
+按摩,以帮助皮肤吸收。",,,
+24,Soothing Gel ,"This intensive soothing gel contains soothing and calming properties to
+moisturize, sooth & calms the skin. It will leave you a soft, calm and healthy
+
+complexion with regularly usage.
+
+这强效的舒缓凝胶含有舒缓和镇静性能以滋润,舒缓及镇静皮肤。经
+
+常使用,它会让您拥有柔滑,镇静及健康的肤色。",in stock,new,121 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Camellia Sinensis Leaf Extract
+Green tea is made from the dried leaves of Camellia sinensis, a perennial evergreen shrub.
+Green tea has a long history of use, dating back to China approximately 5,000 years ago.
+绿茶是由干茶树叶所得,是一年常青的灌木。绿茶具有悠久的历史,最早可追溯到
+中国 5000 年前。
+Because of the presence of Caffeine and theophylline, Tea is an encophalic and
+cardiorespiratory stimulant. It enhances intellectual and muscular activity, accelerates
+breathing and strengthens and settles the heartbeat. The presence of polyphenolic
+derivates gives Tea a softer but more prolonged action than caffeine.
+茶含有咖啡因和茶碱,能刺激脑部及心肺功能。它增强智力及肌肉的活动,促进呼
+吸顺畅以及加强和改善心跳不规律。与咖啡因相比,茶内含有的多酚类衍生物更能
+让茶自身的功效发挥得更长久。
+In cosmetic, Green Tea is incorporated into cellulite products due to the presence of
+polyphenolic compounds which act in the first place as astringents, protecting the skin
+and reducing inflammation in the affected area. Besides, it is also an antioxidant which
+protects skin from harmful free radical in the body.
+在护肤品这方面,绿茶因含有多酚常被用于对抗蜂窝组织的减肥产品中,主要作为
+收敛剂,保护皮肤,及减少伤口受感染。此外,也是抗氧化剂,保护皮肤对抗体内
+的自由基。
+Some studies found that Green tea helps delay skin cells aging, firms skin and balances
+tone due to the presence of its antioxidant and anti-inflammatory activities, and green tea
+polyphenols are likely to slow down the development of some signs of aging.
+一些研究发现,绿茶的抗炎化和抗炎作用有助于延缓皮肤细胞的老化,紧实及调理
+皮肤,绿茶的多酚也有放慢老化迹象的潜质。
+
+Aloe Barbadensis Leaf Juice
+Aloe Vera improves hydration, is soothing and healing to all skin types. Chemical
+analysis has shown the presence of mucopolysacharides, a natural moisturizing factor.
+Aloe Vera is composed of water, the enzymes catalase and cellulose, minerals, calcium,
+aluminium, iron, zinc, magnesium, sodium, 20 amino acids and carbohydrates. It has
+renowned healing properties, anti-inflammatory and can soothe the skin and help heal
+cuts, grazes, burns and insect bites. Its active constituents actually speed healing by
+accelerating tissue repair and encouraging normal cell growth. These properties make it
+ideal for use in skin care and cosmetic preparations on sunburns, acne dermatitis, and
+otherwise sensitive and irritated skin.
+独特的特质,给于干性,敏感性及损伤肌肤保湿、镇定及愈合效果。芦荟中的氨基
+酸和复合多糖物质构成了天然保湿因素,它可以补充水份,恢复胶元蛋白的功能,
+防止面部皱纹,保持皮肤柔润、光滑并富有弹性。芦荟中的某些成份能在皮肤上形
+成一层无形的膜,具消炎、加速细胞的愈合和生长,可防止因日晒引起的红肿、灼
+热感,保护皮肤免遭灼伤。
+
+Cucumis Sativus (Cucumber) Fruit Extract
+The cucumber has a not inconsiderable cleansing action and is suitable for even the most
+sensitive skin that does not tolerate soap.
+黄瓜具有惊人的洗洁能力,适合对肥皂会有不适感的非常敏感性皮肤。
+It is used for its softening emollient, refreshing, moisturizing, calming and purifying
+properties. It is also a good revitalizer and firms up slack skin thanks to its astringent
+qualities.
+被用于其柔软、清新、滋润、安抚及净化功效。收敛性质亦有活肤和紧肤作用。
+
+Malva Sylvestris (Mallow) Extract
+Used as moisturizers and emollients. Their softening and soothing properties have
+enabled their use in after-sun products and creams for sensitive skins.
+润湿剂,柔润及镇定功能使锦葵提取物被用于晒后产品及适合敏感肌肤使用。
+
+Dipotassium Glycyrrhizate
+It is a natural active obtained from the extraction of licorice root, which acts as skin
+lightener, anti-inflammation and anti-allergy agent.
+它是一种萃取自甘草的天然活性成份,能作为皮肤美白剂、抗炎及抗过敏剂。
+Dipotassium Glycyrrhizate is effective in treating acute and chronic dermatitis, and its
+milder action gives almost no side effect to the skin. Besides, it also has the following
+actions:
+Dipotassium Glycyrrhizate 能有效地治疗急性及慢性皮炎,其性质温和,对皮肤几
+乎没有副作用。此外,它还具有以下作用:
+1. Inhibitory effect on hyaluronidase activity 抑制玻尿酸酶活性
+Inhibition on hyaluronidase activity plays an important role not only in
+maintaining the hyaluronic acid level in the body but also anti-inflammatory and
+anti allergic activities.
+在抑制玻尿酸酶活性方面发挥了重要作用,不仅维持身体中的玻尿酸水平,
+而且还具有抗炎及抗过敏活性。
+2. Inhibitory effect on tyrosinase activity 抑制酪氨酸酶活性
+Inhibition on the formation of melanin effectively helps skin to maintain its
+brighter complexion.
+抑制黑色素的形成,能有效帮助皮肤保持其亮白的肤色。
+3. Preventative effect on UV-B induced erythema
+有效预防由 UV - B 辐射引起的红斑
+
+Chamomilla Recutita (Matricaria) Extract
+Chamomile is a plant which has been known of since antiquity and was used by the
+Egyptians as a febrifuge and to treat intestinal disorders.
+自古以来,甘菊被埃及人作为退热剂及治疗肠道等疾病。
+The plant has an antispasmodic action and act as a decongestant, anti-inflammatory and
+anti allergic elements.
+该植物具有防痉挛及减轻充血作用,也是抗炎和抗过敏的主要元素。",,,,,,,"Apply the product on the areas to be concentrate and massage until completely absorbed.
+取适量涂抹于问题部位及按摩至完全被吸收为止。",,,
+25,Nano Sunblock Peach ,"This waterproof, lightweight sunblock is formulated to provide better,
+longer-lasting sun protection in a convenient. The texture is non sticky and
+fast absorbing, giving you silky touch without tackiness. It also improves
+skin elasticity; dehydration and suppleness, help your skin appear more
+
+youthful and smooth.
+
+这防水、轻盈的防晒霜为了提供方便、更好及更持久的防晒防护而研
+制。其质地不黏及快速被吸收,给予您丝柔般的感觉,但不会有粘性
+的感觉。它也改善皮肤的弹性;缺水现象及柔软度,使您的皮肤显得
+
+更年轻及光滑。",in stock,new,218 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Combination of Cyclomethicone, PEG-10 Dimethicone, Disteardimonium Hectorite
+-Good stability 稳定性好
+-Quick break effect 速断的功效
+-Non-tacky elegant texture 非粘性的质感
+-Long lasting moisturizing/occlusive effect 长效的保湿/闭塞的功效
+-Strong water resistance 耐水性强
+
+Combination of Titanium Dioxide, Cyclopentasiloxane, PEG-10 Dimethicone,
+Aluminum hydroxide, Stearic Acid
+-Improved skin feels and texture 改善皮肤的质感和质地
+-No aggregation & deposition 没有综合与沉积
+-Easy to use 容易使用
+-Provided high sun protection efficacy 提供高防晒的功效
+-Long-lasting UV protection 长效的紫外线保护
+-Water proof 防水
+
+Combination of Titanium Dioxide, Alumina and Simethicone
+It is a rutile grade of titanium dioxide, consisiting of extremely small primary particles.
+These characteristics not only lead to high absorbance levels in the UVB range, but also
+in the UVA range. It is a new-style titanium dioxide which gives high SPF’s without
+undesirable whitening effects on the skin.
+它是一个金红石品位的二氧化钛,由非常主要的小微粒组成。这些特点不仅导致高
+吸收紫外线 B 水平的范围,而且也吸收紫外线 A 的范围。它是一个新型的二氧化
+钛,能提供皮肤高效的 SPF 及不会有不良的美白效果。
+
+Combination of Polyacrylamide, C13-14 Isoparaffin, Laureth-7
+-As an original viscosity agent, it acts as a primary thickener with a wide pH stability (pH
+3, 5-12)
+是一个原始粘度剂,它作为 pH 稳定性较宽( pH3 ,5-12)的增稠剂。
+-Has an excellent electrolyte and solvent stability.
+具有优良的电解质及稳定的溶剂。
+Are very compatible with most other cosmetic raw materials and can resist broad pH
+ranges with good electrolyte and solvent resistance.
+能与大多数其它的化妆品原料谐调并能抵抗广泛 pH 值范围,同时具有良好电解质
+和阻抗耐溶剂。
+It offer outstanding functionalities as 它提供了卓越的功能:
+- gel-emulsifiers for fast and reliable formulations.
+快速的凝胶乳化剂及可靠的配方。
+- viscosity regulators over a broad pH range.
+粘度调节超过广泛的 pH 值范围 。
+- texture modifiers with silky touch without tackiness.
+给予如丝般触感的质地调节剂,无胶粘。
+- film formers. 薄膜的创造者。
+- moisturizers and elasticity builders. 提供保湿和弹性建构。
+- easy to use. 容易使用。
+- Function from cold to hot processes. 由冷到热程序的功能。
+- Time efficient. 生效的时间。
+- Safe. 安全。
+
+Simmondsia Chinensis (Jojoba) Seed Oil
+Provide nourishing, odorless, non-greasy, moisturisation and emolliency. It is rapidly
+absorbed into the skin providing a partially occlusive lipid layer that allows tranepidermal
+respiration and moisture optimization,give non-oily feel to skin. Studies show that
+Jojoba is non-comedogenic and therefore, provides an ideal base for anti-acne and
+therapeutic products. Its natural ability to solubilize sebum allows Jojoba oil to spread
+readily and absorb easily into the skin, thereby improving skin suppleness. Suitable for
+dry skin to improve skin elasticity and suppleness. Jojoba is also a favorite oil to use as
+carrier oil for aromatherapy, give silky feel to skin.
+具滋养柔软肌肤的功效,无特殊的气味,是渗透性最强的油脂,易被皮肤吸收, 故
+不会令人感到油腻。荷荷芭油不会引起黑头粉刺,可分解油脂,适用于油性暗疮性
+皮肤。在芳香按摩时,荷荷芭油会连接皮下脂肪,并且畅通毛细孔不会留下任何废
+弃物质。在皮肤保养方面,可使干性皱纹肌恢复活力光泽,用后令皮肤有丝质的感
+觉。
+
+Tocopheryl Acetate
+A kind of vitamin E, well refined anti-oxidant for human skin, fights against destructive
+effects of free radicals on skin cells, as well as a primary defender against oxidation and
+defender against lipid peroxidation and maintains the integrity of connective tissues.
+Besides, it also possesses sunscreening abilities, therefore, protects skin from harmful UV
+rays. At the same time, it locks in moisture, improves skin dehydration and progressively
+reduces the appearance of fine lines.
+维他命 E 的一种,人体主要之抗氧化剂,帮助对抗自由基造成的细胞损害,亦能
+有效对抗脂质氧化,有助于维持结缔组织。此外,具有过滤紫外线功能,保护皮肤
+遭阳光损伤。同时提升肌肤的锁水功能,让肌肤得到深层的湿润,改善老化干燥、
+缺水的状况,减少细纹的产生。
+
+Hyaluronic Acid
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+Key benefits 主要作用:
+ It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+ It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+ Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有弹力。
+
+Nano Multivitamin
+It is a complex of vitamin A, C, E and F. These actives have been incorporated into
+phospholipids vesicle with the diameter lower than 250nm to promote better absorption
+and penetration.
+综合了维他命 A,C,E 和 F。结合了先进的奈米科技,将这些活性成份纳入直径
+小于 250nm 的磷脂囊里,让产品能发挥更好的吸收及渗透力。
+这些活性成份已被纳入磷脂囊直径小于 250nm ,以促进更好地吸收力和渗透力。
+ Vitamin A 维他命 A
+i. Normalizes keratinization 使角质化正常
+ii. Downregulates sebum production in acne 调节油脂分泌
+iii. Reverses and treats photodamage 预防及治疗阳光造成的损伤
+ Vitamin C 维他命 C
+i. Antioxidant 抗氧化
+ii. Regulates collagen synthesis 促进胶原蛋白的合成
+iii. Formation of stratum corneum lipids barrier 形成角质层皮脂屏障
+iv. Regenerates vitamin E 促进维他命 E 的形成
+v. Provides photoprotection 提供光防护
+ Vitamin E 维他命 E
+i. Membrane antioxidant 薄膜抗氧化
+ii. Protects against oxidative damage 对抗氧化侵害
+iii. Provides photodamage 提供光防护
+ Vitamin F 维他命 F
+i. Cellular regeneration of the membranes and tissues 薄膜及组织细胞的再生",,,,,,,"Apply generously to the face and neck before sunning. Gently massage with fingertips
+using circular movement until it is fully absorbed.
+在暴晒前慷慨地涂于脸部和颈部。用指尖以圆圈似的方式轻轻按摩直至完全被吸
+收。",,,
+26,Nano Sunblock White,,in stock,new,218 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+27,Elvis Skin Foundation ,,in stock,new,218 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+28,Advance Beauty Cream ,,in stock,new,438 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+29,Pigmentation Cream,,in stock,new,280 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,,,,,,,,,,,
+30,Voluplus,"It can decrease expression lines and deep wrinkles while providing hydration
+to the skin, keeps skin smooth and supple. It also helping to lift skin contour,
+increases its penetration and offer better protection against oxidation. It
+absorbs easily into the skin to improve skin elasticity and suppleness, giving
+
+you a soft and youthful complexion.
+
+它可以减少表情纹和深层皱纹,同时滋润肌肤,使皮肤保持光滑和柔
+软。它也帮助提拉肌肤的轮廓,增加它的渗透度及提供更好的抗氧防
+护。它容易被吸入皮肤以改善皮肤的弹性和柔软度,给予您柔滑与年
+
+轻的肤色。",in stock,new,480 MYR,https://www.example.com,,Girasol,Health & Beauty > Personal Care > Cosmetics,Health & Beauty > Beauty,1,,,,,,,"Combination of Caprylic/Capric Triglyceride, Dimethyl Isosorbide, Sesamum
+Indicum (Sesame) Seed Extract, Tocopherol (Linefill)
+It by stimulating the body’s natural mechanisms, recovers the facial volume lost over the
+它通过刺激人体的天然机制,以恢复随着岁月流失的面部轮款
+ There is a loss or redistribution of facial volume and subcutaneous fat.
+面部体积和皮下脂肪的流失或再分配。
+ The folds and wrinkles become more accentuated, especially those that form
+around the mouth and eyes.
+褶皱和皱纹变得更加突出,特别是围绕嘴和眼睛形成的。
+ The lips are thinner.
+嘴唇变薄。
+ The face loses its harmony and natural expression.
+脸部失去了它的和谐与自然的线纹。
+
+Hyaluronic Acid
+It is a structural component throughout the body and often touted for its abilities to stop
+or reverse aging. Its outstanding moisture retaining capacity helps skin to absorb
+hydration up to approximately 1000 times of its weight. It increases the elasticity and
+lubricity of the skin, promoting immediate lifting results.
+这是身体结构性的一种组成部分。它具有“保湿天后”美誉、高效保湿分子:玻尿
+酸有""倒流岁月""和停止老化的功效。它彻底锁住水分,预防皮肤水分的流失,让皮
+肤角质层保持膨润。从而提升眼周皮肤的弹力和光滑度,有立即紧实效果。
+Key benefits 主要作用:
+ It moisturizes the skin from the inside to smooth out the depth of wrinkles and
+lines.
+它深入滋润皮肤以抚平皱纹与细纹的深度。
+ It helps to erase the signs of aging or who are beginning to see the first signs of
+aging.
+有助于消除初步的老化迹象。
+ Immediate lifting effect helps increase firmness of the skin, to keep skin supple
+and more elastic.
+立即的拉提效果有助于提升皮肤的紧实度,让皮肤保持柔软、有
+弹力。
+
+Multi Plant
+It is combination of plants extract, also contains phytoestrogens.
+取自于多种植物提取物。含有雌性激素。
+Soy Isoflavones, Cimicifuga Racemosa Root Extract, Polygonum Cuspidatum Root
+Extract, Pueraria Lobata Root Extract, Angellica Polymorpha Sinensis Root Extract,
+Punica Granatum Extract, Trifolium Pratense (Clover) Flower Extract, Pueraria Mirifica
+Root Extract
+- As an antioxidant that shows inhibition of free radical
+抗氧化、对抗自由基
+- Promote blood circulation
+具有行气活血功效,可促进毛细微管血液循环
+- Anti-aging properties to treat wrinkles
+抗老化、对抗皱纹
+- As hormone balancer, reduce menopausal symptoms
+弥体内荷尔蒙不足,减轻更年期症状,恢复年轻肌肤
+
+Composition of Plants Complex
+Cimicifuga Racemosa Root Extract
+Cimicifuga racemosa, Native Americans valued the herb and
+used it for many conditions, ranging from gynecological
+problems to rattlesnake bites. In 19th century, Some American
+physicians used Cimicifuga racemosa for fever, menstrual
+cramps, arthritis, and insomnia. Cimicifuga racemosa contains
+several ingredients, including triterpene glycosides (e.g., acetin
+and 27-deoxyactein) and isoflavones (e.g., formononetin). Other
+constituents include aromatic acids, tannins, resins, fatty acids,
+starches, and sugars. In the beginning menopause, the signals
+between the ovaries and pituitary gland diminish, slowing down
+estrogen production and increasing luteinizing hormone (LH) secretions. Hot flashes can
+result from these hormonal changes. In the German clinical trials, the usefulness of
+Cimicifuga racemosa for women with hot flashes associated with menopause was
+demonstrated. A review of eight clinical trials found Cimicifuga racemosa to be both safe
+and effective for symptomic relief of menopausal hot flashes. Other symptoms which
+improved included night sweats, insomnia, nervousness, and irritability.
+升麻李根,美国土著非常重视这种药草,并常用它来进行各种治疗,治疗范围囊括
+妇科问题至响尾蛇的咬伤。在 19 世纪时,一些美国医生利用升麻李根来治疗发
+烧、月经痛、关节炎、失眠。升麻李含有几种成分,其中包括三萜苷(如單乙酸甘
+油酯和脱氧麻升烃)和大豆异黄酮(如刺芒丙花素)。其它成分包括芳香酸、单
+宁、树脂、不饱和脂肪酸、淀粉和糖。在更年期开始时,卵巢和垂体之间的信号减
+少,雌激素的生产因此减缓且黄体生成素(LH)的分泌随之增加。潮热就是因这
+些荷尔蒙的变化而产生的。在德国的临床试验证明了升麻李能有效地治疗与更年期
+相关的女性潮热。从 8 个临床试验中我们可发现升麻李既安全,又能有效延缓更年
+期潮热的症状。还能改善其它症状包括夜间盗汗、失眠、神经紧张和易怒。
+
+Polygonum Cuspidatum Root Extract
+
+The roots of Polygonum cuspidatum, a novel natural source of
+resveratrol, have also been used to treat hyperlipidemia and
+arteriosclerosis, allergic diseases, and inflammatory responses.
+Recent studies have shown that resveratrol functions as a potent
+antioxidant, an immune-enhancer, an anti-inflammatory and
+anti-cancer agent, and is able to inhibit the cellular events
+associated with tumor initiation, promotion, and progression.
+虎杖根,是白藜芦醇的一个新型天然来源,也被用于治疗
+高脂血症和动脉硬化、过敏性疾病以及炎症反应。最近的
+研究表明,白藜芦醇的作用有:可作为一种有效的抗氧化
+剂,能增强免疫,消炎和作为抗肿瘤剂,并能抑制与肿瘤
+
+相关的细胞活动的产生、恶化与进展。
+Resveratrol has been demonstrated to function as a neuroprotectant and to perform as a
+phytoestrogen, acting as a safe, natural replacement for estrogen during menopause,
+reducing the risk of osteoporosis, preventing depression, and increasing bone formation
+and collagen synthesis.
+白藜芦醇已被证明能充当神经保护剂及其效果如同一个植物雌激素,因为其安全的
+特性,因此在绝经期能作为雌激素的自然替代品,减少患上骨质疏松症的风险,防
+止抑郁症,并增加骨质形成和胶原合成。
+
+Soy Isoflavones
+Soy isoflavone is the product of aglycone isoflavone refined from
+100% natural soybean extract. It has an antioxidant activity which is
+related to the anti-carcinogenic effect. It has been shown to be more
+potent antioxidant than other isoflavones in the inhibition of free
+radical oxygen species generated by xanthine oxidase.
+大豆异黄酮是由 100 %全天然大豆萃取精心配制成的大豆异黄酮
+苷元的成品。它具有的抗氧化活性与其抗癌作用有密切关联。它
+已被证明在抑制黄嘌呤氧化酶生成的自由基方面是比其它异黄酮
+更有效的抗氧化剂。
+Isoflavone may also increase the production of superoxide dismutase (SOD), a powerful
+antioxidant that quenches superoxide radical. Moreover, Isoflavone appears to function as
+SOD mimic. Isoflavone has high-lipid solubility and penetrates the skin easily. It may be
+topically applied, alone or mixed with a variety of carries and skin treatment
+compositions.
+异黄酮还可以提高超氧化物歧化酶,一个可抑制超氧自由基的强大抗氧化剂的生
+产。此外,异黄酮看来具有与超氧化物歧化酶相近的功能。异黄酮具有高脂溶性且
+容易渗透皮肤。它可能被局部应用,单独或混合和治疗皮肤的成分。
+
+Angelica Polymorpha Sinensis Root Extract
+
+Angelica polymorpha is an aromatic herb that grows in china,
+Korea, and Japan. The repution of Angelica polymorpha is
+second only to Ginseng and is considered the ultimate, all
+purpose woman’s tonic herb. It is used for almost every
+gynecological complaint from regulating the menstrual cycle to
+treating menopausal symptoms caused by hormonal changes.
+当归是一种芳香草药,生长在中国、韩国和日本。该当归的
+声誉仅次于人参,被认为是为妇女而设的最顶级滋补药材。
+它几乎可用于所有妇科疾病,从调节月经周期到治疗荷尔蒙变化所造成的更年期症
+状。
+Angelica polymorpha is frequently used by the Chinese as a strengthening treatment for
+the heart, spleen, liver and kidneys. Both men and women use the help herb as a general
+blood tonic. Angelica polymorpha contains vitamins E, A and B12. Researchesrs have
+isolated at least six coumarin derivatives that exert antispasmodic and vasodilatory
+effects. Antispasmodics are a remedy for menstrual cramps. The essential oil in dong
+quai contains Ligustilide, butylphthalide and numerous other minor components. Ferulic
+acid and various polysacchrides are also found in Angelica polymorpha sinensis root.
+These elements can prevent spasms, reduce blood clotting and relax peripheral blood
+vessels. Research has shown that don quai produces a balancing effect on estrogen
+activity.
+当归经常被中国人用于强化治疗心脏、脾、肝和肾。男性和女性都使用此药草作为
+一般的补血剂。当归含有维生素 E 、维生素 A 和维生素 B12 。研究人员分析出至
+少 6 个香豆素衍生物,有镇痉挛和舒张血管的效果。镇痉剂也可治疗月经绞痛。当归中的精油(dong quai)含有藁本内酯、酞和许多其它次要成分。在当归根中也发
+现阿魏酸和各种多糖。这些元素可以防止痉挛,降低血凝固和放松周围血管。研究
+已表明,当归能使雌激素的活动产生平衡的效果。
+Modern treatment prescribes the herb to combat against PMS and to help women resume
+normal menstruation after using birth control pills.
+现代医疗用此药草,以对抗经前综合症(PMS),并帮助妇女在使用避孕药后,
+月经也能恢复正常。
+The usefulness of the herb has been found useful in balancing and treating many female
+systems and cycles. Angelica polymorpha’s constituents can act to stimulate the central
+nervous system which can remedy weakness and headaches associated with menstrual
+diorders. It strengthens internal reproductive organs, helps with endometriosis and
+internal bleeding or bruising. It relieves menopausal conditions such as vaginal dryness
+and hot flashes.
+这种药草被发现能有效的平衡和治疗许多女性系统和周期。多形当归的成分可以刺
+激中枢神经系统,可以治疗体虚、头痛与月经紊乱 。它加强内部繁殖器官,治疗
+子宫内膜异位症和内部出血或淤青。它可以减轻更年期的病症,如阴道干燥和潮
+热。
+The herb has also been used as a blood purifier, to promote blood circulation and nourish
+the blood in both sexes. It is high in iron content and many help to prevent iron
+deficiency and anemia. Studies show that it can aid in regulating blood sugar and in
+lowering blood pressure. Angelica polymorpha has a mild sedative effect which can
+relieve stress and calms the nerves. It has also be used to stimulate the uterus during
+childbirth, treat insomnia, alleviate constipation and for migraine headaches.
+这种草药也被用为一种血液净化器,以促进血液循环,滋补男、女性的血液。它含
+有高量的铁,有助于防止缺铁和贫血。研究表明,它能够帮助调节血糖和降低血
+压。多形当归有轻度镇静作用,可以缓解压力和舒缓神经。在分娩期间,它也被用
+来刺激子宫、治疗失眠、便秘和减轻偏头痛。
+
+Red Clover Extract (Trifolium Pratense (Clover) Flower Extract)
+Red Clover is an herbal medicine used to treat menopause
+symptoms. It is also used to treat cough, long term skin
+problems, and to remove toxins from the body.
+Traditionally, the blossoms from the red clover plant were
+used as a tonic taken in the spring to promote good health
+and peace of mind. Red Clover contains small amounts of
+silica, choline, calcium, and lecithin all essential for normal
+body function.
+红车轴草是一种用于治疗更年期症状的中药。它也可用
+于治疗咳嗽,长期皮肤问题,并能祛除体内毒素。传统上,红车轴草花在春季被采
+取,以用为能促进身体健康,使心情平静的补药。红车轴草还含有少量的硅、胆
+碱、钙和卵磷脂等正常身体机能所需的要素。
+Red Clover works as a muscle relaxes and also is a good expectorant. Helps to support
+healthy hormonal balance for all women. Red Clover not only contains genistein and
+daidzein, but also unlike soy, many additional phytoestrogens including two key
+phytoestrogens: biochanin A and formononetin. Biochanin A and formononetin are
+considered as effective as genistein and daidzein.
+红车轴草能放松肌肉,同时也是一个很好的祛痰剂。能帮助所有女性维持健康的荷
+尔蒙平衡。红车轴草不同于大豆,其不仅含有染料木素和大豆甙元,还具有许多额
+外的植物雌激素,其中包括了两种关键的植物雌激素:鹰嘴豆芽素 A 和刺芒柄花
+素。鹰嘴豆芽素 A 和刺芒柄花素被视为与染料木素和大豆甙元一样的有效。
+
+Pomegranate Extract (Punica Granatum Extract)
+
+The showy flowers are orange-red while the fruit is
+globose, 3~4” in diameter and has a tough leathery skin.
+Pomegranate has a calyx shaped like a crown. The seeds
+are demulcent. The fruit is a mild astringent and
+refrigerant in some fevers, and especially in biliousness,
+and the bark is used to remove tapeworm. It is used as an
+injection in leucorrhoea, as a gargle in sore throat in its
+early Cosmetic products with phytoestrogen are used to
+prevent or reduce wrinkles, treat seborrhea, or stimulate hair growth. It can be also used
+to reduce menopause symptoms, for osteoporosis, and treats certain cancers in both men
+and women while drug products are applied. Pomegranate extract as part of a preparation
+used for treating the acne, allergic dermatitis, and as an ingredient of the medicine for the
+treatment of oral diseases.
+它华丽的花是桔红色的,当果实呈球形时,其直径有 3~4”,且有一个坚韧的外
+皮。石榴有一个状如王冠的花萼。其种籽能作为缓和剂。当发烧时,尤其是身体不
+适时,它的果肉可作为温和的收敛剂和退热剂。另外,其树皮可用来祛除绦虫。它
+也能用为治疗白带的注射剂,喉咙痛时能充作漱口药,它与植物雌激素在早期化妆
+品中是用来防止或减少皱纹,治疗皮脂溢或刺激毛发生长的。不论男性或女性,当
+药物产品被应用时,它能减少更年期症状,对抗骨质疏松症和某些癌症。石榴萃取
+能用为治疗痤疮、过敏性皮炎配方的一部分,并作为治疗口腔疾病药品的成份。
+
+Kudzu Extract (Pueraria Lobata Root Extract)
+Kudzu accumulates and maintains substantial carbon
+reserves in large woody, tuberous roots. Because its large
+and deeply growing taproot, kudzu can withstand
+substantial periods of drought. Deep roots with higher
+xylem water potentials also enable kudzu to survive
+throughout the hottest part of the day. Kudzu is
+considered a semiwoody perennial because it exhibits 2
+strategies for overwintering. Kudzu finds value in the
+alternative healthcare and nutrition market.
+葛根堆积和保持大量的碳储量于大型木质,块茎状。由于它的主根会变得越大且越
+深,使到葛根得以承受长时间的干旱期。扎根深的木质部与水储量高能使葛根生存在一天中最热的部分。葛根被认为是一种常年半木质植物,因为它在越冬时会展现
+出 2 种策略。葛根在另类疗法和营养市场方面具有一定的价值。
+Kudzu has been used over 1,000 years by Asian herbalists for alcoholism and to curb
+alcohol craving. The principal active ingredient is isoflavones, diadzin and puerarin.
+Kudzu extract has helped them with eczema, psoriasis, fading of new and old scars and
+improved appearance of stretch marks also help estrogen balance. Some evidence from
+animal studies and human case reports suggest that kudzu have an anti-inflammatory
+effect.
+葛根被亚洲中医用于遏制酗酒和酒精渴求已超过 1000 年。它主要的活性成分有大
+豆异黄酮、大豆黃甙和葛根素。葛根萃取能帮助治疗湿疹、牛皮癣、淡化新和旧伤
+痕及改善妊娠纹,同时也有助于平衡荷尔蒙。一些研究动物和人类情况的报告表
+明,葛根具有抗炎作用。
+
+Simmondsia Chinensis (Jojoba) Seed Oil
+Provide nourishing, odorless, non-greasy, moisturisation and emolliency. It is rapidly
+absorbed into the skin providing a partially occlusive lipid layer that allows tranepidermal
+respiration and moisture optimization,give non-oily feel to skin. Studies show that
+Jojoba is non-comedogenic and therefore, provides an ideal base for anti-acne and
+therapeutic products. Its natural ability to solubilize sebum allows Jojoba oil to spread
+readily and absorb easily into the skin, thereby improving skin suppleness. Suitable for
+dry skin to improve skin elasticity and suppleness. Jojoba is also a favorite oil to use as
+carrier oil for aromatherapy, give silky feel to skin.
+具滋养柔软肌肤的功效,无特殊的气味,是渗透性最强的油脂,易被皮肤吸收, 故
+不会令人感到油腻。荷荷芭油不会引起黑头粉刺,可分解油脂,适用于油性暗疮性
+皮肤。在芳香按摩时,荷荷芭油会连接皮下脂肪,并且畅通毛细孔不会留下任何废
+弃物质。在皮肤保养方面,可使干性皱纹肌恢复活力光泽,用后令皮肤有丝质的感
+觉。
+
+Lavandula Angustifolia (Lavender) Oil
+It is a popular and versatile essential oil. Lavender oil is highly regarded for its relaxing
+effect on the nervous system, with an overall balancing effect on the mind and emotion. It
+is used as a healing substance for wounds and burns. It is antiseptic, antibacterial and
+anti-fungal. It also helps to reduce discoloration. It is also good for digestive system, the
+respiratory tract and skin problems.
+它是一种极为普遍使用且多功能的精油。薰衣草油对神经系统有放松作用,因此对
+思绪与情绪有平衡效用。也被用作为伤口与烧伤皮肤的愈合精油。亦有杀菌和抗真
+菌功能。有助于减少色素不均问题。对消化系统、呼吸道及皮肤问题亦有帮助。
+As was believed in Ancient times, lavender is above all a calmative, anti-spasmodic
+remedy. Lavender’s antiseptic qualities have been put to good use in surgery where it has
+been used to heal various types of necrosis (infected wounds, ulcerated burn, etc).
+在古时代,人们相信薰衣草具有舒缓,抗痉挛的治疗功效。其抗菌特性常被用在治
+疗各种坏死疾病(伤口感染,溃疡等等)。
+Used externally, lavender flower-based preparations are suitable for cleaning wounds and
+sores, are antalgic in mouth infections and are calmative and refreshing on sun burns.
+外用,薰衣草适合用在清洗伤口及溃疡,对于口部感染有镇痛作用,以及对晒伤则
+有舒缓和清新作用。
+
+Cananga Odorata Flower Oil (Ylang Ylang Ess. Oil)
+It normalizes sebum production of all skin types as well as a hormone balancer to
+encourage firmer and plumper breast.
+平衡油脂,能平衡荷尔蒙,丰盈乳房 ,减轻忧郁不安,适合所有类型的皮肤。
+
+Pelargonium Graveolens Flower Oil (Geranium Ess. Oil)
+Emotionally uplifting, harmonizing, balancing, soothing, calming. It relieves post natal
+depression and menopause problems. Used in treating acne, dermatitis and eczema.
+Suitable for all skin types especially mature, inflamed and oily skin.
+助身心平衡的油剂,可解除女性因妇科病而引起的情绪不安,调节荷尔蒙分泌。在
+皮肤方面,它适合任何皮肤使用,具清洁、收缩毛孔、滋补功能,令[呆滞]的皮肤
+组织恢复天然弹性。
+
+Melaleuca Alternifolia (Tea Tree) Leaf Oil
+Tea tree has a long history of traditional use. It has recently enjoyed immense recognition
+for its potent anti-fungal, antiseptic, anti-viral and anti-bacteria actions, thus widely used
+for infected skin. It makes an excellent treatment for a wide spectrum of skin ailments,
+such as acne. Its powerful germ fighting capabilities do not make it irritating and toxic to
+sensitive skin.
+茶树具有悠久的传统使用历史。自古以来,茶树被认定是杀菌、消毒作用最佳的植
+物,因此多用于受感染的皮肤,并能治疗多种皮肤疾病,例如暗疮。其强大的抗菌
+功能对敏感性肌肤无刺激性及毒性。
+
+Rosa Damascena Flower Oil (Rose Ess. Oil)
+Antidepressant, creates a sense of self-confidence, harmonizes and soothes mind. It can
+be used for regulating hormones, irregular menstruation. Besides, it is particularly
+important to dry, mature and irritated skin due to its stimulant and antiseptic action. It is
+also moisturizing and hydrating to all skin types.
+抗沮丧,提升自信,协调及缓和思绪。能用于调理荷尔蒙,月经失调。此外,亦对
+干燥,成熟及受刺激肌肤有促进性和抗菌作用。对所有肌肤有滋润和保湿效果。",,,,,,,"Apply an appropriate amount over face and neck, especially wrinkles and fine lines.
+Gently pat the skin until thoroughly absorbed. Use twice daily.
+涂适量于脸部及颈部,尤其予皱纹及细纹。轻轻拍打直至完全被皮肤吸收。每天使
+用两次。",,,

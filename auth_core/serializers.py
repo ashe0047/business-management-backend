@@ -76,7 +76,7 @@ class TokenObtainPairSerializer(BaseTokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
         
-        serializer = UserSerializerWithToken(self.user).data
+        serializer = UserSerializer(self.user).data
         user_data = {k:v for k, v in serializer.items()}
         data.update(user_data)
 
@@ -220,7 +220,12 @@ class SetPasswordSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         exclude = ('username', 'email', 'name', 'password')
+class PasswordResetConfirmSerializer(serializers.Serializer):
+    validlink = serializers.BooleanField()
+    redirect_url = serializers.CharField(required=False)
 
+    class Meta:
+        read_only_fields = ('validlink', 'redirect_url',)
 
 # class AuthTokenSerializer(serializers.Serializer):
 #     username = serializers.CharField()

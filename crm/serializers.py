@@ -13,7 +13,7 @@ class CustomerSerializer(serializers.ModelSerializer):
     #remove uniquetogether validator for cust_nric field as the uniqueness will be handled by returning the said instance if it exists
     def get_unique_together_validators(self):
         validators = super().get_unique_together_validators()
-        validators_without_cust_nric = [validator for validator in validators if validator.fields[0] != 'cust_nric']
+        validators_without_cust_nric = [validator for validator in validators if validator.fields[0] not in ['cust_nric', 'cust_email', 'cust_phone_num']]
         return validators_without_cust_nric
     
     #handling of cust_nric uniqueness enforcement by looking up model with the same cust_nric value and raise Exception if value already exists thus preventing duplicate

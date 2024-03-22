@@ -1,23 +1,60 @@
+from django.db.models import ProtectedError
 from rest_framework.viewsets import *
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from inventory.models import *
-from inventory.serializers import *
+from inventory.serializers.serializers import *
 from inventory.permissions import DeleteInventoryPerm
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiResponse, OpenApiExample
 
 
 # Create your views here.
 class ProductViewSet(ModelViewSet):
-    serializer_class = ProductSerializer
+    serializer_class = BaseProductSerializer
     queryset = Product.objects.all()
+    # permission_classes = [IsAuthenticated, DeleteInventoryPerm]
+
+    def get_serializer_class(self):
+        method = self.request.method
+        if method in ['POST', 'PUT', 'PATCH']:
+            return ProductWriteSerializer
+        elif method in ['GET']:
+            return ProductReadSerializer
+    
+    @extend_schema(
+        responses={
+            '400': OpenApiResponse(response=str, examples=[OpenApiExample(name="400",value={"error": "error_message"})]),
+            '409': OpenApiResponse(response=str, examples=[OpenApiExample(name="409",value={"error": 'Unable to delete instance due to ProtectedError'})]),
+            '204': OpenApiResponse(examples=[OpenApiExample(name='204', description='No message will be returned')])
+        }
+    )
+    def destroy(self, request, *args, **kwargs):
+        try:
+            return super().destroy(request, *args, **kwargs)
+        except ProtectedError:
+            return Response({'error': 'Unable to delete instance due to ProtectedError'}, status=status.HTTP_409_CONFLICT)
+        except Exception:
+            return Response({'error': ''}, status=status.HTTP_400_BAD_REQUEST)
+        
+class ProductBrandViewSet(ModelViewSet):
+    serializer_class = ProductBrandSerializer
+    queryset = ProductBrand.objects.all()
     permission_classes = [IsAuthenticated, DeleteInventoryPerm]
 
+class ProductUnitSizeViewSet(ModelViewSet):
+    serializer_class = ProductUnitSizeSerializer
+    queryset = ProductUnitSize.objects.all()
+    permission_classes = [IsAuthenticated, DeleteInventoryPerm]
 
-class ProductSupplierViewSet(ModelViewSet):
-    serializer_class = ProductSupplierSerializer
-    queryset = ProductSupplier.objects.all()
+class ProductPackageSizeViewSet(ModelViewSet):
+    serializer_class = ProductPackageSizeSerializer
+    queryset = ProductUnitSize.objects.all()
+    permission_classes = [IsAuthenticated, DeleteInventoryPerm]
+
+class ProductVariantViewSet(ModelViewSet):
+    serializer_class = ProductVariantSerializer
+    queryset = ProductVariant.objects.all()
     permission_classes = [IsAuthenticated, DeleteInventoryPerm]
 
 

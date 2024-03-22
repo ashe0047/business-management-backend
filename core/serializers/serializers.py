@@ -81,7 +81,7 @@ class BaseCommissionSerializer(serializers.ModelSerializer):
         model = Commission
         fields = ('com_id', 'sales', 'sales_item', 'custom_sharing', 'emp_share_percent')
         extra_kwargs = {
-            "custom_sharing": {"required": False}
+            "custom_sharing": {"required": True}
         }
 
 class CommissionWriteSerializer(BaseCommissionSerializer):    
@@ -91,6 +91,10 @@ class CommissionWriteSerializer(BaseCommissionSerializer):
         self.fields['emp_share_percent'] = BaseEmployeeCommissionSerializer(required=True, write_only=True, many=True, context=self.context_update_parent())
     
     def validate(self, data):
+        '''
+        TODO:
+            1. Port validation over to validator file then test the validator
+        '''
         #If custom_sharing is True
         if 'custom_sharing' in data and data['custom_sharing']:
             total_share_amount = 0

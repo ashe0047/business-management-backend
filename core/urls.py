@@ -13,7 +13,8 @@ app_name = 'core'
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('commission', CommissionsView.as_view(), name='commissions_view'),
-    path('commission/<int:pk>', CommissionView.as_view(), name='commission_view'),
+    path('last_rec_id/<str:app>/<str:resource>/', get_last_record_id, name='retrieve_last_record_id'),
+    path('commission/', CommissionsView.as_view(), name='commissions_view'),
+    path('commission/<int:pk>/', CommissionView.as_view(), name='commission_view'),
 ]
 

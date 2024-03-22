@@ -31,8 +31,8 @@ class SaleItemValidator:
     def __init__(self) -> None:
         pass
 
-    def __call__(self, *args: Any, **kwds: Any) -> Any:
-        pass
+    def __call__(self, value:OrderedDict) -> Any:
+        self.validate_inventory_fields(value)
 
     @staticmethod
     def get_inventory_field(value: OrderedDict):

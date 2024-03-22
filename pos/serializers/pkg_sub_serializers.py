@@ -4,7 +4,7 @@ from pos.models.models import *
 from pos.serializers.fields import *
 from pos.serializers.validators import *
 from crm.serializers import CustomerSerializer
-from inventory.serializers import ServicePackageSerializer, ServiceSerializer, ProductSerializer
+from inventory.serializers.serializers import ServicePackageSerializer, ServiceSerializer
 
 class BasePackageSubscriptionSerializer(serializers.ModelSerializer):
 

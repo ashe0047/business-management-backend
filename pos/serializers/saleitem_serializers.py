@@ -4,7 +4,7 @@ from pos.serializers.validators import *
 from pos.serializers.fields import *
 from pos.utils import update_pkg_sub_payment
 from pos.serializers.pkg_sub_serializers import *
-from inventory.serializers import ServiceSerializer, ProductSerializer
+from inventory.serializers.serializers import ServiceSerializer, ProductWriteSerializer, ProductReadSerializer
 from drf_spectacular.types import OpenApiTypes
 
 
@@ -155,7 +155,7 @@ class SaleItemWriteSerializer(BaseSaleItemSerializer):
     
 class SaleItemReadSerializer(BaseSaleItemSerializer):
     service = ServiceSerializer(read_only=True)
-    prod = ProductSerializer(read_only=True)
+    prod = ProductReadSerializer(read_only=True)
     
 
     def __init__(self, *args, **kwargs):

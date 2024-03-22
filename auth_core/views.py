@@ -1,5 +1,6 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveUpdateAPIView, DestroyAPIView, GenericAPIView
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.serializers import *
 from django.contrib.auth.models import Group
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode
@@ -9,16 +10,18 @@ from rest_framework import status
 from auth_core.serializers import *
 from auth_core.models import *
 from hrm.models import Employee
+from drf_spectacular.utils import extend_schema, inline_serializer, OpenApiResponse, OpenApiExample
 from rest_framework_simplejwt.views import TokenObtainPairView as BaseTokenObtainPairView, TokenRefreshView as BaseTokenRefreshView
 from auth_core.management.commands.roles import Roles
 # Create your views here.
 
 INTERNAL_RESET_SESSION_TOKEN = "_password_reset_token"
 
+
 class CreateUserView(CreateAPIView):
     serializer_class = UserSerializerWithToken
 
-    #Link the newly created user to employee record
+    # Link the newly created user to employee record
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -28,7 +31,7 @@ class CreateUserView(CreateAPIView):
         if role != Roles.ADMIN.value:
             try:
                 phone_num = serializer.validated_data.pop('phone_num')
-                employee = Employee.objects.get(emp_phone_num = phone_num)
+                employee = Employee.objects.get(emp_phone_num=phone_num)
                 role_group = Group.objects.get(name=role)
 
                 user = serializer.save()
@@ -36,21 +39,23 @@ class CreateUserView(CreateAPIView):
                 user.groups.add(role_group)
                 employee.save()
             except Employee.DoesNotExist as e:
-                errors.update({'phone_num': 'Phone number did not match any Employee records. Please try again'})
+                errors.update(
+                    {'phone_num': 'Phone number did not match any Employee records. Please try again'})
             except Group.DoesNotExist as e:
-                errors.update({'role': role+' role does not exists in database'})
+                errors.update(
+                    {'role': role+' role does not exists in database'})
             except Exception as e:
                 errors.update({'errors': str(e)})
-            
-            
+
         else:
             user = serializer.save()
         if errors:
             return Response(errors, status=status.HTTP_400_BAD_REQUEST)
-        
+
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-    
+
+
 class PasswordResetView(GenericAPIView):
     serializer_class = PasswordResetSerializer
 
@@ -80,9 +85,10 @@ class PasswordResetView(GenericAPIView):
             password_reset_serializer.save(**opts)
 
             return Response({'message': 'Password reset email sent successfully.'}, status=status.HTTP_202_ACCEPTED)
-        
+
         except Exception as e:
             return Response({'email': str(e)}, status=status.HTTP_404_NOT_FOUND)
+
 
 class PasswordResetConfirmView(GenericAPIView):
     serializer_class = SetPasswordSerializer
@@ -90,7 +96,13 @@ class PasswordResetConfirmView(GenericAPIView):
     reset_url_token = 'set-password'
     token_generator = default_token_generator
 
-
+    def get_serializer_class(self):
+        method = self.request.method
+        if method in ['POST']:
+            return SetPasswordSerializer
+        elif method in ['GET']:
+            return PasswordResetConfirmSerializer
+        
     def link_validation(self, uidb64, token):
         errors = {}
         validlink = False
@@ -98,7 +110,8 @@ class PasswordResetConfirmView(GenericAPIView):
 
         if user is not None:
             if token == self.reset_url_token:
-                session_token = self.request.session.get(INTERNAL_RESET_SESSION_TOKEN)
+                session_token = self.request.session.get(
+                    INTERNAL_RESET_SESSION_TOKEN)
                 if self.token_generator.check_token(user, session_token):
                     # If the token is valid, display the password reset form.
                     validlink = True
@@ -111,12 +124,13 @@ class PasswordResetConfirmView(GenericAPIView):
                     # HTTP Referer header.
                     validlink = True
                     return validlink, errors, user
-                    
-            errors.update({'token': 'Token cannot be verified, link is invalid'})
+
+            errors.update(
+                {'token': 'Token cannot be verified, link is invalid'})
         else:
             errors.update({'user': 'User is not found. Password reset failed'})
         return validlink, errors, user
-    
+
     def get_context_data(self, **kwargs):
         context = {}
         if self.validlink:
@@ -130,14 +144,14 @@ class PasswordResetConfirmView(GenericAPIView):
                 }
             )
         return context
-    
+
     def dispatch(self, request, *args, **kwargs):
         if "uidb64" not in self.kwargs or "token" not in self.kwargs:
             raise ImproperlyConfigured(
                 "The URL path must contain 'uidb64' and 'token' parameters."
             )
         return super().dispatch(request, *args, **kwargs)
-    
+
     def get_object(self, uidb64):
         try:
             # urlsafe_base64_decode() decodes to bytestring
@@ -152,14 +166,41 @@ class PasswordResetConfirmView(GenericAPIView):
         ):
             user = None
         return user
-    
+
+    @extend_schema(responses = {
+        202: {
+            "description": "Password reset successful",
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        400: {
+            "description": "Invalid link error",
+            "type": "object",
+            "properties": {
+                "errors": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                }
+            }
+        }
+    })
     def post(self, request, *args, **kwargs):
         uidb64 = kwargs['uidb64']
         token = kwargs['token']
         validlink, errors, user = self.link_validation(uidb64, token)
         if validlink and not errors:
             try:
-                set_password_serializer = self.get_serializer(data=request.data, context={'user': user})
+                set_password_serializer = self.get_serializer(
+                    data=request.data, context={'user': user})
                 set_password_serializer.is_valid(raise_exception=True)
                 user = set_password_serializer.save()
                 del self.request.session[INTERNAL_RESET_SESSION_TOKEN]
@@ -169,31 +210,45 @@ class PasswordResetConfirmView(GenericAPIView):
                 return Response({'errors': str(e)}, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response(errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    
-    
-    #to check if uidb64 and token is valid, and decide whether to show the reset form
+
+
+    # to check if uidb64 and token is valid, and decide whether to show the reset form
+    @extend_schema(responses = {
+        200: PasswordResetConfirmSerializer,
+        400: {
+            "description": "Invalid link error",
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                }
+            }
+        }
+    })
     def get(self, request, *args, **kwargs):
         uidb64 = kwargs['uidb64']
         token = kwargs['token']
 
-        #check if link submitted is valid
+        # check if link submitted is valid
         validlink, errors, _ = self.link_validation(uidb64, token)
-        
+
         if validlink and not errors:
             if token == self.reset_url_token:
-                return Response({'validlink': validlink}, status=status.HTTP_202_ACCEPTED)
+                return Response({'validlink': validlink}, status=status.HTTP_200_OK)
             else:
                 self.request.session[INTERNAL_RESET_SESSION_TOKEN] = token
                 redirect_url = self.request.path.replace(
-                        token, self.reset_url_token
-                    ).replace('/api', '')
+                    token, self.reset_url_token
+                ).replace('/api', '')
 
-                return Response({'validlink': validlink, 'redirect_url': redirect_url}, status=status.HTTP_202_ACCEPTED)
+                return Response({'validlink': validlink, 'redirect_url': redirect_url}, status=status.HTTP_200_OK)
         else:
             return Response(errors, status=status.HTTP_400_BAD_REQUEST)
-      
-    
+
+
 class DeleteUserView(DestroyAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.Serializer
@@ -207,12 +262,24 @@ class UserView(RetrieveUpdateAPIView):
     def get_object(self):
         return self.request.user
 
+
+@extend_schema(
+    responses={200: inline_serializer(
+        name="TokenObtainPairWriteSerializer",
+        fields={
+            "refresh": CharField(),
+            "access": CharField(),
+            "username": CharField(),
+            "email": EmailField(),
+            "name": CharField()
+            })})
 class TokenObtainPairView(BaseTokenObtainPairView):
     serializer_class = TokenObtainPairSerializer
-    
+
 
 class TokenRefreshView(BaseTokenRefreshView):
     pass
+
 
 class GetUserView(ListAPIView):
     queryset = User.objects.all()

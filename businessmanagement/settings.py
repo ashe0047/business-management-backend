@@ -14,10 +14,10 @@ import os
 from urllib.parse import urlparse
 
 from dotenv import load_dotenv
-
+import json
 #load environtment variables from .env if not on Vercel
 if not os.getenv('USE_VERCEL', None):
-    load_dotenv()
+    load_dotenv(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -175,8 +175,8 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     'SCHEMA_PATH_PREFIX': '/api',
-    'TITLE': 'Business Management Backend API',
-    'DESCRIPTION': '#### Welcome to our API documentation for **CRM**, **HRM**, **Core**, **POS**, **Inventory**, **Marketing**, and **Store** apps. <br/> This comprehensive suite of applications offers a unified API to streamline your business operations, enhance customer engagement, and enable seamless integration with third-party systems. <br/> Explore our endpoints, data models, and examples to leverage the full potential of our suite and optimize your business processes.',
+    'TITLE': 'Enterprise Resource Planning API',
+    'DESCRIPTION': '#### Welcome to our API documentation for **CRM**, **HRM**, **Core**, **POS**, **Inventory**, **Marketing**, and **Store** apps. <br/> This comprehensive suite of applications offers a unified API to streamline your business operations, enhance customer engagement, and enable seamless integration with third-party systems. <br/> Explore our endpoints, data models, and examples to leverage the full potential of our suite and optimize your enterprise needs & processes.',
     'VERSION': '1.0.0', 
     'TAGS': [
         {

@@ -7,7 +7,7 @@ from pos.serializers.saleitem_serializers import BaseSaleItemSerializer, SaleIte
 from marketing.models.models import GenericVoucher
 
 class SaleSerializer(serializers.ModelSerializer):
-    cust = CustomerSerializer(required=False)
+    cust = CustomerSerializer(required=True)
     sales_amt = SalesAmountField(source='*', read_only=True)
     gen_voucher_use = serializers.PrimaryKeyRelatedField(queryset=GenericVoucher.objects.all(), required=False, many=True) #explicitly define as manytomany field is read_only by default
 
